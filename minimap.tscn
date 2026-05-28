@@ -1,20 +1,19 @@
-[gd_scene format=3 uid="uid://br0jv7c7bxw44"]
+[gd_scene load_steps=4 format=3 uid="uid://br0jv7c7bxw44"]
 
 [ext_resource type="Script" uid="uid://c2trrqdvn5fk3" path="res://minimap.gd" id="1_cvo86"]
 [ext_resource type="Texture2D" uid="uid://dn8gl1j8ve6u8" path="res://Images/Player/FUG0Z1etS2-HrNkYam_Vfg (1).png" id="1_yfyr0"]
 [ext_resource type="Texture2D" uid="uid://baxr6mrvqhogg" path="res://Images/Ship/Colorful-Pixelated-Graphic-Element-PNG.png" id="3_0pgu0"]
-[ext_resource type="Script" uid="uid://cae8ssb8u8a8u" path="res://compassrose.gd" id="3_uxthi"]
 
-[node name="MinimapHUD" type="CanvasLayer" unique_id=1689555713]
+[node name="MinimapHUD" type="CanvasLayer"]
 
-[node name="Panel" type="Panel" parent="." unique_id=89993843]
+[node name="Panel" type="Panel" parent="."]
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 200.0
 offset_bottom = 140.0
 script = ExtResource("1_cvo86")
 
-[node name="MapImage" type="TextureRect" parent="Panel" unique_id=678515685]
+[node name="MapImage" type="TextureRect" parent="Panel"]
 texture_filter = 1
 layout_mode = 1
 offset_left = -50.0
@@ -24,18 +23,14 @@ offset_bottom = 177.0
 texture = ExtResource("1_yfyr0")
 expand_mode = 1
 
-[node name="BoatMarker" type="ColorRect" parent="Panel" unique_id=1505388646]
+[node name="BoatMarker" type="ColorRect" parent="Panel"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(1, 0, 0, 1)
 
-[node name="CompassRose" type="Node2D" parent="Panel" unique_id=357128534]
-position = Vector2(96, 148)
-script = ExtResource("3_uxthi")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1441974640]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(46, 48)
+position = Vector2(43, 52)
 scale = Vector2(0.012, 0.012)
 texture = ExtResource("3_0pgu0")
