@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dvg7eh8v7cv8i"]
+[gd_scene load_steps=12 format=4 uid="uid://dvg7eh8v7cv8i"]
 
 [ext_resource type="Shader" uid="uid://b8taq8gnpyxt1" path="res://water.gdshader" id="1_4d4qa"]
 [ext_resource type="PackedScene" uid="uid://depmyt3o6ivar" path="res://ship.tscn" id="2_ndhg3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://br0jv7c7bxw44" path="res://minimap.tscn" id="4_e5u8s"]
 [ext_resource type="Script" uid="uid://cseu1evqckqnn" path="res://island_trigger.gd" id="6_ae7j8"]
 [ext_resource type="Texture2D" uid="uid://bbayc0ttmxaqh" path="res://Images/Background/Untitled - May 28, 2026 at 14.04.28.png" id="6_oufh0"]
+[ext_resource type="Texture2D" uid="uid://dtnptrsvn6x1x" path="res://Images/Ship/Untitled - June 03, 2026 at 10.34.56.png" id="7_ae7j8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e5u8s"]
 shader = ExtResource("1_4d4qa")
@@ -77,3 +78,8 @@ shape = SubResource("CircleShape2D_q30kq")
 position = Vector2(-3407, -2517)
 scale = Vector2(2.20313, 2.23307)
 texture = ExtResource("6_oufh0")
+
+[node name="Untitled-June03,2026At10_34_56" type="Sprite2D" parent="."]
+position = Vector2(-187, -261)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("7_ae7j8")
