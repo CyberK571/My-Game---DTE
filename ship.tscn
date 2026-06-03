@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://depmyt3o6ivar"]
+[gd_scene format=3 uid="uid://depmyt3o6ivar"]
 
 [ext_resource type="Script" uid="uid://es7g4din7jyi" path="res://ship.gd" id="1_4cq66"]
 [ext_resource type="Texture2D" uid="uid://p7vdq3tse5t6" path="res://Images/Ship/ChatGPTImageMay20202606_27_33PM.png" id="1_l3rv8"]
@@ -7,39 +7,39 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c3vuw"]
 shader = ExtResource("3_v4325")
 
-[node name="Ship" type="CharacterBody2D"]
-scale = Vector2(0.55, 0.55)
+[node name="Ship" type="CharacterBody2D" unique_id=1463964901]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_4cq66")
 
-[node name="Shadow" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1095883126]
 modulate = Color(0, 0, 0, 0.313726)
 position = Vector2(496.92, 164.65)
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("1_l3rv8")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1511714651]
 position = Vector2(491.92, 144.65)
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("1_l3rv8")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2093674913]
 position = Vector2(491.92, 144.65)
 scale = Vector2(0.65, 0.65)
 polygon = PackedVector2Array(-460, -230, -293, -266, -121, -248, 537, 92, 553, 144, 550, 269, 528, 310, 459, 379, 367, 454, 311, 466, -352, 100, -434, -26)
 
-[node name="CannonSpawn" type="Marker2D" parent="."]
+[node name="CannonSpawn" type="Marker2D" parent="." unique_id=1951582658]
 position = Vector2(198.462, -12.3077)
 
-[node name="CoolDownUI" type="Node2D" parent="CannonSpawn"]
+[node name="CoolDownUI" type="Node2D" parent="CannonSpawn" unique_id=992350151]
 position = Vector2(-73.8461, 15.3846)
 
-[node name="ColorRect" type="ColorRect" parent="CannonSpawn/CoolDownUI"]
+[node name="ColorRect" type="ColorRect" parent="CannonSpawn/CoolDownUI" unique_id=57337072]
 material = SubResource("ShaderMaterial_c3vuw")
 offset_right = 60.0
 offset_bottom = 60.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CannonSpawn/CoolDownUI/ColorRect"]
+[node name="Label" type="Label" parent="CannonSpawn/CoolDownUI/ColorRect" unique_id=1824793612]
 layout_mode = 0
 offset_left = 10.7693
 offset_top = 12.3077
