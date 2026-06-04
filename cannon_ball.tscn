@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b3cmjb1g0okly"]
+[gd_scene load_steps=4 format=3 uid="uid://b3cmjb1g0okly"]
 
 [ext_resource type="Script" uid="uid://cmdaq6ch442xi" path="res://cannonball.gd" id="1_k1y7j"]
 [ext_resource type="Texture2D" uid="uid://bv5non36425kr" path="res://Images/Ship/cannonvball (1).png" id="2_sepv1"]
@@ -6,14 +6,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_33n3l"]
 radius = 5.0
 
-[node name="CannonBall" type="Area2D" unique_id=1909343180]
+[node name="CannonBall" type="Area2D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_k1y7j")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=144050460]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_sepv1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=390975900]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_33n3l")
