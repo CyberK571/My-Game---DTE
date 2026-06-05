@@ -68,7 +68,10 @@ func _physics_process(delta):
 				if hud and hud.has_method("take_damage"):
 					hud.take_damage()
 					damage_cooldown = damage_cooldown_time
-			
+		elif collider.is_in_group("border"):
+			get_tree().paused = true
+			print("GAME OVER - hit border")
+		
 	var forward = Vector2(1, 0.5).normalized()
 	var ship_projected = forward * forward.dot(global_position)
 	

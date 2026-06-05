@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://depmyt3o6ivar"]
 
-[ext_resource type="Script" uid="uid://es7g4din7jyi" path="res://ship.gd" id="1_4cq66"]
+[ext_resource type="Script" uid="uid://es7g4din7jyi" path="res://Code/ship.gd" id="1_4cq66"]
 [ext_resource type="Texture2D" uid="uid://p7vdq3tse5t6" path="res://Images/Ship/ChatGPTImageMay20202606_27_33PM.png" id="1_l3rv8"]
 [ext_resource type="Shader" uid="uid://csr4k1yjw76kb" path="res://cannontimer.gdshader" id="3_v4325"]
 
