@@ -18,6 +18,8 @@ var cooldown_remaining = 0.0
 var target_tilt = 0.0
 var facing = Vector2.RIGHT
 var diagonal = (global_position.x - global_position.y) * 0.5
+var damage_cooldown: float = 0.0
+var damage_cooldown_time: float = 1.0  # 1 second between hits
 
 func _physics_process(delta):
 	var dir = Vector2.ZERO
@@ -52,6 +54,21 @@ func _physics_process(delta):
 		cooldown_ui.visible = false
 
 	move_and_slide()
+
+	if damage_cooldown > 0:
+		damage_cooldown -= delta
+
+# Check collisions
+	for i in get_slide_collision_count():
+		var col = get_slide_collision(i)
+		var collider = col.get_collider()
+		if collider.is_in_group("rock"):  # removed enemy check here
+			if damage_cooldown <= 0:
+				var hud = get_tree().get_root().find_child("Panel", true, false)
+				if hud and hud.has_method("take_damage"):
+					hud.take_damage()
+					damage_cooldown = damage_cooldown_time
+			
 	var forward = Vector2(1, 0.5).normalized()
 	var ship_projected = forward * forward.dot(global_position)
 	
@@ -64,11 +81,11 @@ func _input(event):
 
 func shoot():
 	can_shoot = false
-	cooldown_remaining = 3.0
+	cooldown_remaining = 2.0
 	var ball = Cannonball.instantiate()
 	get_parent().add_child(ball)
 	ball.global_position = $CannonSpawn.global_position
 	var mouse_pos = get_global_mouse_position()
 	ball.direction = (mouse_pos - $CannonSpawn.global_position).normalized()
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	can_shoot = true

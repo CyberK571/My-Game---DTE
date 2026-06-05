@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 var player: Node2D
 var active: bool = false
+var damage_cooldown: float = 0.0
 
 func _ready():
 	player = get_tree().get_root().find_child("Ship", true, false)
@@ -12,7 +13,9 @@ func _ready():
 func _physics_process(delta):
 	if player == null:
 		return
-
+	if damage_cooldown > 0:
+		damage_cooldown -= delta
+		
 	var dist = global_position.distance_to(player.global_position)
 
 	# Activate when player gets close
@@ -30,11 +33,15 @@ func _physics_process(delta):
 	var dir = diff.normalized()
 	rotation = lerp(rotation, (dir.x - dir.y) * -0.15, delta * 3)
 
-	# Game over on contact
+	# Damage player on contact with cooldown
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if collision.get_collider().name == "Ship":
-			get_tree().paused = true
+			if damage_cooldown <= 0:
+				var hud = get_tree().get_root().find_child("Panel", true, false)
+				if hud and hud.has_method("take_damage"):
+					hud.take_damage()
+					damage_cooldown = 1.0
 
 var hits: int = 0
 var max_hits: int = 2

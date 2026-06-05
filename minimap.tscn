@@ -1,19 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://br0jv7c7bxw44"]
+[gd_scene format=3 uid="uid://br0jv7c7bxw44"]
 
 [ext_resource type="Script" uid="uid://c2trrqdvn5fk3" path="res://minimap.gd" id="1_cvo86"]
 [ext_resource type="Texture2D" uid="uid://dn8gl1j8ve6u8" path="res://Images/Player/FUG0Z1etS2-HrNkYam_Vfg (1).png" id="1_yfyr0"]
 [ext_resource type="Texture2D" uid="uid://baxr6mrvqhogg" path="res://Images/Ship/Colorful-Pixelated-Graphic-Element-PNG.png" id="3_0pgu0"]
 
-[node name="MinimapHUD" type="CanvasLayer"]
+[node name="MinimapHUD" type="CanvasLayer" unique_id=586616614]
 
-[node name="Panel" type="Panel" parent="."]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 200.0
-offset_bottom = 140.0
+[node name="Panel" type="Panel" parent="." unique_id=782757267]
+offset_left = 28.0
+offset_top = 22.0
+offset_right = 208.0
+offset_bottom = 142.0
 script = ExtResource("1_cvo86")
 
-[node name="MapImage" type="TextureRect" parent="Panel"]
+[node name="Shadow" type="TextureRect" parent="Panel" unique_id=368062324]
+modulate = Color(0.6050015, 0.27974686, 0, 1)
+texture_filter = 1
+layout_mode = 1
+offset_left = -57.0
+offset_top = -68.99999
+offset_right = 218.0
+offset_bottom = 171.0
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_yfyr0")
+expand_mode = 1
+
+[node name="MapImage" type="TextureRect" parent="Panel" unique_id=1474168027]
 texture_filter = 1
 layout_mode = 1
 offset_left = -50.0
@@ -23,14 +35,65 @@ offset_bottom = 177.0
 texture = ExtResource("1_yfyr0")
 expand_mode = 1
 
-[node name="BoatMarker" type="ColorRect" parent="Panel"]
+[node name="BoatMarker" type="ColorRect" parent="Panel" unique_id=333205657]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(1, 0, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1923389563]
 texture_filter = 1
-position = Vector2(43, 52)
+position = Vector2(51, 54)
 scale = Vector2(0.012, 0.012)
 texture = ExtResource("3_0pgu0")
+
+[node name="HealthBar" type="Control" parent="." unique_id=1464364415]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 931.0
+offset_top = 23.0
+offset_right = 1131.0
+offset_bottom = 47.0
+
+[node name="BarBackground" type="ColorRect" parent="HealthBar" unique_id=725966999]
+modulate = Color(0.14901961, 0.14901961, 0.14901961, 0.5019608)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 24.0
+
+[node name="BarBackground" type="ColorRect" parent="HealthBar/BarBackground" unique_id=1643857011]
+modulate = Color(0.14901961, 0.14901961, 0.14901961, 0.5019608)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 200.0
+offset_bottom = 43.0
+
+[node name="BarFill" type="ColorRect" parent="HealthBar" unique_id=2102419474]
+modulate = Color(0.2, 0.8, 0.2, 1)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 198.0
+offset_bottom = 22.0
+
+[node name="HealthLabel" type="Label" parent="HealthBar" unique_id=1825315172]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="FuelBar" type="Control" parent="." unique_id=2021361072]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 963.0
+offset_top = 55.0
+offset_right = 1003.0
+offset_bottom = 95.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FuelBar" unique_id=1771074912]
+layout_mode = 0
+offset_left = -13.0
+offset_top = -6.0
+offset_right = 27.0
+offset_bottom = 7.0
