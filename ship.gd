@@ -24,6 +24,14 @@ var damage_cooldown_time: float = 1.0  # 1 second between hits
 func _physics_process(delta):
 	var dir = Vector2.ZERO
 
+	if dir != Vector2.ZERO:
+		velocity = dir.normalized() * SPEED
+		$WakeParticles.emitting = true
+	else:
+		velocity = Vector2(1, -0.7).normalized() * 15
+		rotation = lerp(rotation, 0.0, 0.1)
+		$WakeParticles.emitting = false
+	
 	if Input.is_action_pressed("ui_right"):
 		dir += iso_right
   
