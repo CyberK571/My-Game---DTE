@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://depmyt3o6ivar"]
+[gd_scene load_steps=6 format=3 uid="uid://depmyt3o6ivar"]
 
 [ext_resource type="Script" uid="uid://es7g4din7jyi" path="res://ship.gd" id="1_4cq66"]
 [ext_resource type="Texture2D" uid="uid://p7vdq3tse5t6" path="res://Images/Ship/ChatGPTImageMay20202606_27_33PM.png" id="1_l3rv8"]
@@ -8,203 +8,203 @@
 lifetime_randomness = 1.0
 particle_flag_disable_z = true
 angle_min = -549.7
-angle_max = 94.000015
-orbit_velocity_min = -0.026999906
-orbit_velocity_max = -0.026999906
+angle_max = 94.0
+orbit_velocity_min = -0.0269999
+orbit_velocity_max = -0.0269999
 gravity = Vector3(0, 98, 0)
-linear_accel_min = 89.119995
-linear_accel_max = 99.99999
+linear_accel_min = 89.12
+linear_accel_max = 100.0
 scale_min = 8.0
 scale_max = 8.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c3vuw"]
 shader = ExtResource("3_v4325")
 
-[node name="Ship" type="CharacterBody2D" unique_id=1453480519]
+[node name="Ship" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_4cq66")
 
-[node name="WakeRight" type="GPUParticles2D" parent="." unique_id=1632843203 groups=["wake"]]
-modulate = Color(0.65882355, 1, 1, 1)
-position = Vector2(844.00006, 336)
-rotation = -1.2322339
+[node name="WakeRight" type="GPUParticles2D" parent="." groups=["wake"]]
+modulate = Color(0.658824, 1, 1, 1)
+position = Vector2(844, 336)
+rotation = -1.23223
 scale = Vector2(3, 3)
 amount = 25
 local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeRight2" type="GPUParticles2D" parent="." unique_id=2125566575 groups=["wake"]]
-modulate = Color(0.65882355, 1, 1, 1)
-position = Vector2(828, 362.00006)
-rotation = -1.2322339
+[node name="WakeRight2" type="GPUParticles2D" parent="." groups=["wake"]]
+modulate = Color(0.658824, 1, 1, 1)
+position = Vector2(828, 362)
+rotation = -1.23223
 scale = Vector2(3, 3)
 amount = 25
 local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeRight3" type="GPUParticles2D" parent="." unique_id=2117378252 groups=["wake"]]
-modulate = Color(0.65882355, 1, 1, 1)
-position = Vector2(808.00006, 384.00003)
-rotation = -1.2322339
+[node name="WakeRight3" type="GPUParticles2D" parent="." groups=["wake"]]
+modulate = Color(0.658824, 1, 1, 1)
+position = Vector2(808, 384)
+rotation = -1.23223
 scale = Vector2(3, 3)
 amount = 25
 local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeRight4" type="GPUParticles2D" parent="." unique_id=311083661 groups=["wake"]]
-modulate = Color(0.65882355, 1, 1, 1)
-position = Vector2(788.00006, 396.00003)
-rotation = -1.2322339
+[node name="WakeRight4" type="GPUParticles2D" parent="." groups=["wake"]]
+modulate = Color(0.658824, 1, 1, 1)
+position = Vector2(788, 396)
+rotation = -1.23223
 scale = Vector2(3, 3)
 amount = 25
 local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeRight5" type="GPUParticles2D" parent="." unique_id=2074129537 groups=["wake"]]
-modulate = Color(0.65882355, 1, 1, 1)
-position = Vector2(840.00006, 324.00003)
-rotation = -1.2322339
+[node name="WakeRight5" type="GPUParticles2D" parent="." groups=["wake"]]
+modulate = Color(0.658824, 1, 1, 1)
+position = Vector2(840, 324)
+rotation = -1.23223
 scale = Vector2(3, 3)
 amount = 25
 local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeLeft" type="GPUParticles2D" parent="." unique_id=203856166 groups=["wake"]]
-modulate = Color(0.65882355, 1, 1, 1)
-position = Vector2(708, 448.00003)
-rotation = -1.0583276
+[node name="WakeLeft" type="GPUParticles2D" parent="." groups=["wake"]]
+modulate = Color(0.658824, 1, 1, 1)
+position = Vector2(708, 448)
+rotation = -1.05833
 scale = Vector2(3, 3)
 amount = 30
 local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeLeft2" type="GPUParticles2D" parent="." unique_id=2125511294 groups=["wake"]]
-modulate = Color(0.65882355, 1, 1, 1)
-position = Vector2(732, 430.00003)
-rotation = -1.0583276
+[node name="WakeLeft2" type="GPUParticles2D" parent="." groups=["wake"]]
+modulate = Color(0.658824, 1, 1, 1)
+position = Vector2(732, 430)
+rotation = -1.05833
 scale = Vector2(3, 3)
 amount = 30
 local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeLeft3" type="GPUParticles2D" parent="." unique_id=942390992 groups=["wake"]]
-modulate = Color(0.65882355, 1, 1, 1)
-position = Vector2(758.00006, 418)
-rotation = -1.0583276
+[node name="WakeLeft3" type="GPUParticles2D" parent="." groups=["wake"]]
+modulate = Color(0.658824, 1, 1, 1)
+position = Vector2(758, 418)
+rotation = -1.05833
 scale = Vector2(3, 3)
 amount = 30
 local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeLeft4" type="GPUParticles2D" parent="." unique_id=1105235802 groups=["wake"]]
-modulate = Color(0.65882355, 1, 1, 1)
+[node name="WakeLeft4" type="GPUParticles2D" parent="." groups=["wake"]]
+modulate = Color(0.658824, 1, 1, 1)
 position = Vector2(782, 406)
-rotation = -1.0583276
+rotation = -1.05833
 scale = Vector2(3, 3)
 amount = 30
 local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeLeft5" type="GPUParticles2D" parent="." unique_id=649606253 groups=["wake"]]
-modulate = Color(0.65882355, 1, 1, 1)
-position = Vector2(700, 449.99994)
-rotation = -1.0583276
+[node name="WakeLeft5" type="GPUParticles2D" parent="." groups=["wake"]]
+modulate = Color(0.658824, 1, 1, 1)
+position = Vector2(700, 450)
+rotation = -1.05833
 scale = Vector2(3, 3)
 amount = 30
 local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="ndWake" type="GPUParticles2D" parent="." unique_id=1922583810 groups=["wake"]]
-modulate = Color(0.84313726, 1, 1, 1)
+[node name="ndWake" type="GPUParticles2D" parent="." groups=["wake"]]
+modulate = Color(0.843137, 1, 1, 1)
 position = Vector2(724, 444)
-rotation = -1.0583276
+rotation = -1.05833
 scale = Vector2(2, 2)
 amount = 30
 local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="ndWake2" type="GPUParticles2D" parent="." unique_id=1068632597 groups=["wake"]]
-modulate = Color(0.84313726, 1, 1, 1)
-position = Vector2(743.99994, 430)
-rotation = -1.0583276
+[node name="ndWake2" type="GPUParticles2D" parent="." groups=["wake"]]
+modulate = Color(0.843137, 1, 1, 1)
+position = Vector2(744, 430)
+rotation = -1.05833
 scale = Vector2(2, 2)
 amount = 30
 local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="ndWake3" type="GPUParticles2D" parent="." unique_id=1577253185 groups=["wake"]]
-modulate = Color(0.84313726, 1, 1, 1)
-position = Vector2(766.00006, 406.00003)
-rotation = -1.0583276
+[node name="ndWake3" type="GPUParticles2D" parent="." groups=["wake"]]
+modulate = Color(0.843137, 1, 1, 1)
+position = Vector2(766, 406)
+rotation = -1.05833
 scale = Vector2(2, 2)
 amount = 30
 local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="ndWake4" type="GPUParticles2D" parent="." unique_id=2109758070 groups=["wake"]]
-modulate = Color(0.84313726, 1, 1, 1)
-position = Vector2(836, 344.00003)
-rotation = -1.0583276
+[node name="ndWake4" type="GPUParticles2D" parent="." groups=["wake"]]
+modulate = Color(0.843137, 1, 1, 1)
+position = Vector2(836, 344)
+rotation = -1.05833
 scale = Vector2(2, 2)
 amount = 30
 local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="ndWake5" type="GPUParticles2D" parent="." unique_id=213879334 groups=["wake"]]
-modulate = Color(0.84313726, 1, 1, 1)
-position = Vector2(812, 370.00003)
-rotation = -1.0583276
+[node name="ndWake5" type="GPUParticles2D" parent="." groups=["wake"]]
+modulate = Color(0.843137, 1, 1, 1)
+position = Vector2(812, 370)
+rotation = -1.05833
 scale = Vector2(2, 2)
 amount = 30
 local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="Shadow" type="Sprite2D" parent="." unique_id=1324842227]
+[node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.313726)
 position = Vector2(496.92, 164.65)
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("1_l3rv8")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=960791718]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(491.92, 144.65)
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("1_l3rv8")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=525460902]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(491.92, 144.65)
 scale = Vector2(0.65, 0.65)
 polygon = PackedVector2Array(-460, -230, -293, -266, -121, -248, 537, 92, 553, 144, 550, 269, 528, 310, 459, 379, 367, 454, 311, 466, -352, 100, -434, -26)
 
-[node name="CannonSpawn" type="Marker2D" parent="." unique_id=564602605]
-position = Vector2(198.462, -12.3077)
+[node name="CannonSpawn" type="Marker2D" parent="."]
+position = Vector2(184, -20)
 
-[node name="CoolDownUI" type="Node2D" parent="CannonSpawn" unique_id=571724427]
+[node name="CoolDownUI" type="Node2D" parent="CannonSpawn"]
 position = Vector2(-73.8461, 15.3846)
 
-[node name="ColorRect" type="ColorRect" parent="CannonSpawn/CoolDownUI" unique_id=1955362963]
+[node name="ColorRect" type="ColorRect" parent="CannonSpawn/CoolDownUI"]
 material = SubResource("ShaderMaterial_c3vuw")
 offset_right = 60.0
 offset_bottom = 60.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CannonSpawn/CoolDownUI/ColorRect" unique_id=761634401]
+[node name="Label" type="Label" parent="CannonSpawn/CoolDownUI/ColorRect"]
 layout_mode = 0
 offset_left = 10.7693
 offset_top = 12.3077

@@ -94,26 +94,32 @@ scale = Vector2(2.20313, 2.23307)
 texture = ExtResource("6_oufh0")
 
 [node name="EnemyShip2" parent="." instance=ExtResource("7_ae7j8")]
-position = Vector2(-1240, -734)
+position = Vector2(-957, -371)
 
 [node name="EnemyShip3" parent="." instance=ExtResource("7_ae7j8")]
-position = Vector2(-2380, -1202)
+position = Vector2(-2071, -1579)
 
 [node name="Rock" parent="." instance=ExtResource("8_wedvm")]
-position = Vector2(403, 255)
+position = Vector2(-120, 195)
 
 [node name="Rock2" parent="." instance=ExtResource("8_wedvm")]
-position = Vector2(893, 244)
+position = Vector2(1077, 216)
 
 [node name="Rock3" parent="." instance=ExtResource("8_wedvm")]
-position = Vector2(34.0001, -399)
+position = Vector2(-483, -955)
+
+[node name="Rock4" parent="." instance=ExtResource("8_wedvm")]
+position = Vector2(-1862, -749)
 
 [node name="Fuel" parent="." instance=ExtResource("9_rf8af")]
-position = Vector2(-444, -588)
+position = Vector2(-205, -227)
+
+[node name="Fuel2" parent="." instance=ExtResource("9_rf8af")]
+position = Vector2(-1397, -918)
 
 [node name="Right Border" type="StaticBody2D" parent="."]
 position = Vector2(1310, -1296)
-rotation = -1.25827
+rotation = -1.4035
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("10_aeual")
