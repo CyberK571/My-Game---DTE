@@ -26,12 +26,11 @@ func _physics_process(delta):
 
 	if dir != Vector2.ZERO:
 		velocity = dir.normalized() * SPEED
-		$WakeParticles.emitting = true
+
 	else:
 		velocity = Vector2(1, -0.7).normalized() * 15
 		rotation = lerp(rotation, 0.0, 0.1)
-		$WakeParticles.emitting = false
-	
+
 	if Input.is_action_pressed("ui_right"):
 		dir += iso_right
   
@@ -53,6 +52,10 @@ func _physics_process(delta):
 	else:
 		velocity = Vector2(1, -0.7).normalized() * 15
 		rotation = lerp(rotation, 0.0, 0.1)
+
+	var wake_active = dir != Vector2.ZERO
+
+	get_tree().call_group("wake", "set", "emitting", wake_active)
 
 	if cooldown_remaining > 0:
 		cooldown_remaining -= delta
