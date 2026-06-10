@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://7tkfotxi5yjj"]
 
 [ext_resource type="Script" uid="uid://c2da0164yln46" path="res://fuel.gd" id="1_2yow3"]
-[ext_resource type="Texture2D" uid="uid://dfa4rhsce3uw6" path="res://Images/Player/Untitled - June 05, 2026 at 20.17.05.png" id="2_u4qh6"]
+[ext_resource type="Texture2D" uid="uid://cr2up8xsyhew4" path="res://Images/Player/Untitled - June 11, 2026 at 10.33.40.png" id="2_2yow3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ila7f"]
-size = Vector2(247, 323)
+size = Vector2(258, 416.667)
 
 [node name="Fuel" type="Area2D"]
 scale = Vector2(0.3, 0.3)
@@ -13,13 +13,15 @@ collision_mask = 2
 script = ExtResource("1_2yow3")
 
 [node name="Shadow" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 0.356863)
-position = Vector2(13.3333, 20)
-texture = ExtResource("2_u4qh6")
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.211765)
+position = Vector2(20, -10)
+texture = ExtResource("2_2yow3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_u4qh6")
+texture = ExtResource("2_2yow3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14.5, 24.5)
+visible = false
+position = Vector2(9, 18.3333)
 shape = SubResource("RectangleShape2D_ila7f")
