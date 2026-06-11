@@ -1,0 +1,17 @@
+extends Control
+
+@onready var player_dot = $TextureRect/ColorRect
+@onready var player = get_node("/root/IslandRoot/Player")
+
+# Define your island bounds (adjust to match your TileMapLayer size)
+const MAP_MIN = Vector2(-627, -357)
+const MAP_MAX = Vector2(558, 344)
+
+const MINIMAP_SIZE = Vector2(1408, 1408)
+const DOT_OFFSET = Vector2(-90, -90)  # nudge to fit inside parchment
+
+func _process(delta):
+	var pos = player.global_position
+	var normalized = (pos - MAP_MIN) / (MAP_MAX - MAP_MIN)
+	normalized = normalized.clamp(Vector2(0,0), Vector2(1,1))
+	player_dot.position = normalized * MINIMAP_SIZE + DOT_OFFSET

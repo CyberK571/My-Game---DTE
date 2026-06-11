@@ -103,3 +103,7 @@ func shoot():
 	ball.direction = (mouse_pos - $CannonSpawn.global_position).normalized()
 	await get_tree().create_timer(2.0).timeout
 	can_shoot = true
+
+
+func _on_island_trigger_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
