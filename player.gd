@@ -1,31 +1,42 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
-@onready var sprite = $Sprite2D
+const SPEED = 250.0
 
 func _physics_process(delta):
 	var dir = Vector2.ZERO
-	dir.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	dir.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-
+	
+	if Input.is_action_pressed("ui_up"):
+		dir.x += 1
+	if Input.is_action_pressed("ui_down"):
+		dir.x -= 1
+	if Input.is_action_pressed("ui_right"):
+		dir.y += 1
+	if Input.is_action_pressed("ui_left"):
+		dir.y -= 1
+	
 	if dir != Vector2.ZERO:
-		velocity = dir.normalized() * SPEED
-		update_animation(dir, true)
+		dir = dir.normalized()
+		velocity = dir * SPEED
+		play_walk_animation(dir)
 	else:
 		velocity = Vector2.ZERO
-		update_animation(dir, false)
-
+		play_idle_animation()
+	
 	move_and_slide()
 
-func update_animation(dir: Vector2, moving: bool):
-	var prefix = "Walk_" if moving else "Idle_"
-
+func play_walk_animation(dir):
 	if abs(dir.x) > abs(dir.y):
-		sprite.flip_h = dir.x < 0
-		sprite.play(prefix + "side")
-	elif dir.y > 0:
-		sprite.flip_h = false
-		sprite.play(prefix + "down")
-	elif dir.y < 0:
-		sprite.flip_h = false
-		sprite.play(prefix + "up")
+		if dir.x > 0:
+			$Sprite2D.play("Walk_right")
+		else:
+			$Sprite2D.play("Walk_left")
+	else:
+		if dir.y > 0:
+			$Sprite2D.play("Walk_down")
+		else:
+			$Sprite2D.play("Walk_up")
+
+func play_idle_animation():
+	var anim = $Sprite2D.animation
+	if anim.begins_with("Walk"):
+		$Sprite2D.play(anim.replace("Walk", "Idle"))
