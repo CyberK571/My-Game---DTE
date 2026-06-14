@@ -87,6 +87,7 @@ func _physics_process(delta):
 	var ship_projected = forward * forward.dot(global_position)
 	
 	camera.global_position = forward * forward.dot(global_position)
+	
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
