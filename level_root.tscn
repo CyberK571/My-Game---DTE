@@ -64,7 +64,7 @@ tile_set = SubResource("TileSet_4d4qa")
 
 [node name="Ship" parent="." unique_id=81351960 instance=ExtResource("3_rf8af")]
 z_index = 2
-position = Vector2(-3074, -1370)
+position = Vector2(-3043, -1489)
 
 [node name="MinimapHUD" parent="." unique_id=835185361 instance=ExtResource("4_e5u8s")]
 
@@ -154,5 +154,13 @@ script = ExtResource("12_8tpwc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Back Border" unique_id=157689361]
 position = Vector2(-1000.79, 634.201)
 shape = SubResource("RectangleShape2D_rf8af")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1272989393]
+offset_left = 1391.0001
+offset_top = 627.00006
+offset_right = 1431.0001
+offset_bottom = 667.00006
+rotation = 2.1371174
+scale = Vector2(2.0370386, -5.3494034)
 
 [connection signal="body_entered" from="Island Trigger" to="Island Trigger" method="_on_body_entered"]

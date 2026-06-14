@@ -1003,6 +1003,6 @@ texture_filter = 1
 position = Vector2(-601, -1143)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_lhqqy")
-frame_progress = 0.023855852
+frame_progress = 0.2871554
 flip_h = true
 script = ExtResource("16_4lbjc")

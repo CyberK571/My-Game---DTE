@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://depmyt3o6ivar"]
+[gd_scene format=3 uid="uid://depmyt3o6ivar"]
 
 [ext_resource type="Script" uid="uid://es7g4din7jyi" path="res://ship.gd" id="1_4cq66"]
 [ext_resource type="Texture2D" uid="uid://p7vdq3tse5t6" path="res://Images/Ship/ChatGPTImageMay20202606_27_33PM.png" id="1_l3rv8"]
@@ -20,13 +20,13 @@ scale_max = 8.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c3vuw"]
 shader = ExtResource("3_v4325")
 
-[node name="Ship" type="CharacterBody2D"]
+[node name="Ship" type="CharacterBody2D" unique_id=2067669164]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_4cq66")
 
-[node name="WakeRight" type="GPUParticles2D" parent="." groups=["wake"]]
+[node name="WakeRight" type="GPUParticles2D" parent="." unique_id=1679115712 groups=["wake"]]
 modulate = Color(0.658824, 1, 1, 1)
 position = Vector2(844, 336)
 rotation = -1.23223
@@ -36,7 +36,7 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeRight2" type="GPUParticles2D" parent="." groups=["wake"]]
+[node name="WakeRight2" type="GPUParticles2D" parent="." unique_id=332709255 groups=["wake"]]
 modulate = Color(0.658824, 1, 1, 1)
 position = Vector2(828, 362)
 rotation = -1.23223
@@ -46,7 +46,7 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeRight3" type="GPUParticles2D" parent="." groups=["wake"]]
+[node name="WakeRight3" type="GPUParticles2D" parent="." unique_id=1848539470 groups=["wake"]]
 modulate = Color(0.658824, 1, 1, 1)
 position = Vector2(808, 384)
 rotation = -1.23223
@@ -56,7 +56,7 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeRight4" type="GPUParticles2D" parent="." groups=["wake"]]
+[node name="WakeRight4" type="GPUParticles2D" parent="." unique_id=174406763 groups=["wake"]]
 modulate = Color(0.658824, 1, 1, 1)
 position = Vector2(788, 396)
 rotation = -1.23223
@@ -66,7 +66,7 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeRight5" type="GPUParticles2D" parent="." groups=["wake"]]
+[node name="WakeRight5" type="GPUParticles2D" parent="." unique_id=1671806105 groups=["wake"]]
 modulate = Color(0.658824, 1, 1, 1)
 position = Vector2(840, 324)
 rotation = -1.23223
@@ -76,7 +76,7 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeLeft" type="GPUParticles2D" parent="." groups=["wake"]]
+[node name="WakeLeft" type="GPUParticles2D" parent="." unique_id=766452855 groups=["wake"]]
 modulate = Color(0.658824, 1, 1, 1)
 position = Vector2(708, 448)
 rotation = -1.05833
@@ -86,7 +86,7 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeLeft2" type="GPUParticles2D" parent="." groups=["wake"]]
+[node name="WakeLeft2" type="GPUParticles2D" parent="." unique_id=704787650 groups=["wake"]]
 modulate = Color(0.658824, 1, 1, 1)
 position = Vector2(732, 430)
 rotation = -1.05833
@@ -96,7 +96,7 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeLeft3" type="GPUParticles2D" parent="." groups=["wake"]]
+[node name="WakeLeft3" type="GPUParticles2D" parent="." unique_id=969226354 groups=["wake"]]
 modulate = Color(0.658824, 1, 1, 1)
 position = Vector2(758, 418)
 rotation = -1.05833
@@ -106,7 +106,7 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeLeft4" type="GPUParticles2D" parent="." groups=["wake"]]
+[node name="WakeLeft4" type="GPUParticles2D" parent="." unique_id=1916803523 groups=["wake"]]
 modulate = Color(0.658824, 1, 1, 1)
 position = Vector2(782, 406)
 rotation = -1.05833
@@ -116,7 +116,7 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="WakeLeft5" type="GPUParticles2D" parent="." groups=["wake"]]
+[node name="WakeLeft5" type="GPUParticles2D" parent="." unique_id=217464866 groups=["wake"]]
 modulate = Color(0.658824, 1, 1, 1)
 position = Vector2(700, 450)
 rotation = -1.05833
@@ -126,7 +126,7 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="ndWake" type="GPUParticles2D" parent="." groups=["wake"]]
+[node name="ndWake" type="GPUParticles2D" parent="." unique_id=483426857 groups=["wake"]]
 modulate = Color(0.843137, 1, 1, 1)
 position = Vector2(724, 444)
 rotation = -1.05833
@@ -136,7 +136,7 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="ndWake2" type="GPUParticles2D" parent="." groups=["wake"]]
+[node name="ndWake2" type="GPUParticles2D" parent="." unique_id=1087709555 groups=["wake"]]
 modulate = Color(0.843137, 1, 1, 1)
 position = Vector2(744, 430)
 rotation = -1.05833
@@ -146,7 +146,7 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="ndWake3" type="GPUParticles2D" parent="." groups=["wake"]]
+[node name="ndWake3" type="GPUParticles2D" parent="." unique_id=833734878 groups=["wake"]]
 modulate = Color(0.843137, 1, 1, 1)
 position = Vector2(766, 406)
 rotation = -1.05833
@@ -156,7 +156,7 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="ndWake4" type="GPUParticles2D" parent="." groups=["wake"]]
+[node name="ndWake4" type="GPUParticles2D" parent="." unique_id=1770905013 groups=["wake"]]
 modulate = Color(0.843137, 1, 1, 1)
 position = Vector2(836, 344)
 rotation = -1.05833
@@ -166,7 +166,7 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="ndWake5" type="GPUParticles2D" parent="." groups=["wake"]]
+[node name="ndWake5" type="GPUParticles2D" parent="." unique_id=199387473 groups=["wake"]]
 modulate = Color(0.843137, 1, 1, 1)
 position = Vector2(812, 370)
 rotation = -1.05833
@@ -176,35 +176,35 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="Shadow" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="." unique_id=261770476]
 modulate = Color(0, 0, 0, 0.313726)
 position = Vector2(496.92, 164.65)
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("1_l3rv8")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=11545428]
 position = Vector2(491.92, 144.65)
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("1_l3rv8")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=457847201]
 position = Vector2(491.92, 144.65)
 scale = Vector2(0.65, 0.65)
 polygon = PackedVector2Array(-460, -230, -293, -266, -121, -248, 537, 92, 553, 144, 550, 269, 528, 310, 459, 379, 367, 454, 311, 466, -352, 100, -434, -26)
 
-[node name="CannonSpawn" type="Marker2D" parent="."]
+[node name="CannonSpawn" type="Marker2D" parent="." unique_id=314879687]
 position = Vector2(184, -20)
 
-[node name="CoolDownUI" type="Node2D" parent="CannonSpawn"]
+[node name="CoolDownUI" type="Node2D" parent="CannonSpawn" unique_id=1117957774]
 position = Vector2(-73.8461, 15.3846)
 
-[node name="ColorRect" type="ColorRect" parent="CannonSpawn/CoolDownUI"]
+[node name="ColorRect" type="ColorRect" parent="CannonSpawn/CoolDownUI" unique_id=1680698409]
 material = SubResource("ShaderMaterial_c3vuw")
 offset_right = 60.0
 offset_bottom = 60.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CannonSpawn/CoolDownUI/ColorRect"]
+[node name="Label" type="Label" parent="CannonSpawn/CoolDownUI/ColorRect" unique_id=1159472881]
 layout_mode = 0
 offset_left = 10.7693
 offset_top = 12.3077

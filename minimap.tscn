@@ -36,13 +36,13 @@ texture = ExtResource("1_yfyr0")
 expand_mode = 1
 
 [node name="BoatMarker" type="ColorRect" parent="Panel" unique_id=1402993345]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(1, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=774251751]
-visible = false
 texture_filter = 1
 position = Vector2(57.000004, 56.000004)
 scale = Vector2(0.012, 0.012)
