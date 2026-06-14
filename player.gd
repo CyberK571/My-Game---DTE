@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 250.0
 
+	
 func _physics_process(delta):
 	var dir = Vector2.ZERO
 	
@@ -35,8 +36,22 @@ func play_walk_animation(dir):
 			$Sprite2D.play("Walk_down")
 		else:
 			$Sprite2D.play("Walk_up")
+			
+	if abs(dir.x) > abs(dir.y):
+		if dir.x > 0:
+			$Shadow.play("Walk_right")
+		else:
+			$Shadow.play("Walk_left")
+	else:
+		if dir.y > 0:
+			$Shadow.play("Walk_down")
+		else:
+			$Shadow.play("Walk_up")
 
 func play_idle_animation():
 	var anim = $Sprite2D.animation
+	var anim1 = $Shadow.animation
 	if anim.begins_with("Walk"):
 		$Sprite2D.play(anim.replace("Walk", "Idle"))
+	if anim1.begins_with("Walk"):
+		$Shadow.play(anim.replace("Walk", "Idle"))
