@@ -36,7 +36,6 @@ texture = ExtResource("1_yfyr0")
 expand_mode = 1
 
 [node name="BoatMarker" type="ColorRect" parent="Panel"]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
