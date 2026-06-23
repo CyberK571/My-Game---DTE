@@ -16,7 +16,7 @@ script = ExtResource("1_3bg38")
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.192157)
 texture_filter = 1
-position = Vector2(-11.4286, -20)
+position = Vector2(-8.57143, 28.5714)
 scale = Vector2(20, 20)
 texture = ExtResource("3_4s8is")
 
