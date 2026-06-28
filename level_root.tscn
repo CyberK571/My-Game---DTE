@@ -115,7 +115,7 @@ position = Vector2(-483, -955)
 position = Vector2(-1862, -749)
 
 [node name="Rock5" parent="." instance=ExtResource("8_wedvm")]
-position = Vector2(486, 200)
+position = Vector2(630, 418)
 
 [node name="Rock6" parent="." instance=ExtResource("8_wedvm")]
 position = Vector2(-1216, -870)
