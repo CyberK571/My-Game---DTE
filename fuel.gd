@@ -21,5 +21,6 @@ func _on_body_entered(body):
 	if body.name == "Ship":
 		var hud = get_tree().get_root().find_child("Panel", true, false)
 		if hud and hud.has_method("refuel"):
+			TutorialManager.report_action("collected_fuel") 
 			hud.refuel()
 		queue_free()

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://wv8yefn0gxkv"]
+
+[ext_resource type="Script" uid="uid://m5cjnyrg0yx0" path="res://main_menu.gd" id="1_eiy7p"]
+[ext_resource type="Texture2D" uid="uid://b4jlhuviqnvxt" path="res://Images/Menu/Snack Supreme and the Seven Seas (1).png" id="2_eiy7p"]
+
+[node name="MainMenu" type="Control" unique_id=1985541620]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_eiy7p")
+
+[node name="Background" type="TextureRect" parent="." unique_id=712611712]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.64000034, 0.64000034)
+mouse_filter = 2
+texture = ExtResource("2_eiy7p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1773289020]
+texture_filter = 1
+layout_mode = 0
+offset_left = 168.0
+offset_top = 331.0
+offset_right = 421.0
+offset_bottom = 612.0
+scale = Vector2(0.8, 0.737)
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=466688523]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Play
+"
+
+[node name="ControlsButton" type="Button" parent="VBoxContainer" unique_id=1602573308]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Controls"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer" unique_id=1532045053]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Credits
+"

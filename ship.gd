@@ -53,6 +53,10 @@ func _physics_process(delta):
 		velocity = Vector2(1, -0.7).normalized() * 15
 		rotation = lerp(rotation, 0.0, 0.1)
 
+	if dir != Vector2.ZERO:
+		TutorialManager.report_action("moved")  # ADD THIS LINE
+		velocity = dir.normalized() * SPEED
+
 	var wake_active = dir != Vector2.ZERO
 
 	get_tree().call_group("wake", "set", "emitting", wake_active)
@@ -99,6 +103,7 @@ func shoot():
 	cooldown_remaining = 2.0
 	var ball = Cannonball.instantiate()
 	get_parent().add_child(ball)
+	TutorialManager.report_action("shot")
 	ball.global_position = $CannonSpawn.global_position
 	var mouse_pos = get_global_mouse_position()
 	ball.direction = (mouse_pos - $CannonSpawn.global_position).normalized()

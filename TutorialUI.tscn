@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dmv4rpxulufar"]
+
+[ext_resource type="Script" uid="uid://bt4ey5ybap1ew" path="res://tutorial_ui.gd" id="1_cq41x"]
+[ext_resource type="Texture2D" uid="uid://nrtd5040mfhn" path="res://Images/Menu/Untitled - June 29, 2026 at 19.10.44.png" id="2_evibi"]
+
+[node name="TutorialUI" type="CanvasLayer" unique_id=556533295]
+scale = Vector2(0.3, 0.3)
+transform = Transform2D(0.3, 0, 0, 0.3, 0, 0)
+script = ExtResource("1_cq41x")
+
+[node name="DialogueBox" type="TextureRect" parent="." unique_id=1996599523]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 966.66675
+offset_top = 1329.9999
+offset_right = 1912.6667
+offset_bottom = 1432.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_evibi")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="DialogueBox" unique_id=104141652]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 259.0
+offset_right = 1906.0
+offset_bottom = 590.0
+scale = Vector2(3, 3)
+autowrap_mode = 2

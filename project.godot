@@ -15,12 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="FINAL DTE GAME"
-run/main_scene="uid://dvg7eh8v7cv8i"
-config/features=PackedStringArray("4.4", "Forward Plus")
+run/main_scene="uid://wv8yefn0gxkv"
+config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
 Transition="*res://transition.tscn"
+TutorialManager="*uid://bx2mpy4hallq0"
 
 [input]
 
