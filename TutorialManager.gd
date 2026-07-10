@@ -6,10 +6,11 @@ extends Node
 #   "action"  : String name of the action to wait for (only needed if trigger == "action")
 
 var steps = [
-	{ "text": "Welcome, captain! Use WASD or arrow keys to sail your ship.", "trigger": "action", "action": "moved" },
-	{ "text": "Great! Now aim with your mouse and click to fire a cannonball.", "trigger": "action", "action": "shot" },
-	{ "text": "Keep an eye on your fuel! Sail over a fuel pickup to collect it.", "trigger": "action", "action": "collected_fuel" },
-	{ "text": "You're ready to sail! Press Enter to begin your adventure.", "trigger": "press" },
+	{ "text": "Welcome, captain! To the game of Snack Supreme and the Quest for Delivery!                                                                                                                              (Press Enter to Continue)", "trigger": "press" },
+	{ "text": "As Captain, you and your ship, Snack Supreme, must Sail through the Seas with the Goal of Delivering Delicious Food to Clients!", "trigger": "press" },
+	{ "text": "Today, you must deliver to 4 clients who reside on 4 islands across 4 different seas, however it is not as easy as it seems...", "trigger": "press" },
+	{ "text": "You Must Utilize your Skills and Abilities to Overcome Challenges along the Way!", "trigger": "press" },
+	{ "text": "You're ready to sail and Deliver! Press Enter to begin your adventure.", "trigger": "press" },
 ]
 
 var current_step := 0

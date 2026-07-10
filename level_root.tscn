@@ -65,7 +65,7 @@ tile_set = SubResource("TileSet_4d4qa")
 
 [node name="Ship" parent="." unique_id=1775815670 instance=ExtResource("3_rf8af")]
 z_index = 2
-position = Vector2(-496.99988, -145.99994)
+position = Vector2(-3061.9995, -1327.9998)
 
 [node name="MinimapHUD" parent="." unique_id=609402894 instance=ExtResource("4_e5u8s")]
 

@@ -7,6 +7,7 @@ extends Panel
 @onready var bar_fill = $"../HealthBar/BarFill"
 @onready var health_label = $"../HealthBar/HealthLabel"
 @onready var fuel_bar = $"../FuelBar/HBoxContainer"
+@onready var damage_flash = $"../DamageFlash"
 
 var boat: Node2D
 var enemy_data: Array = []
@@ -80,9 +81,15 @@ func _setup_enemy_markers():
 func take_damage():
 	current_health -= 1
 	_update_bar()
+	_flash_damage()
 	if current_health <= 0:
 		get_tree().paused = true
 		print("GAME OVER - no health")
+
+func _flash_damage():
+	damage_flash.modulate.a = 0.5
+	var tween = create_tween()
+	tween.tween_property(damage_flash, "modulate:a", 0.0, 0.8)
 
 func _update_bar():
 	var pct = float(current_health) / float(max_health)

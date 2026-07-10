@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 const SPEED = 150.0
+const SPRINT_SPEED = 280.0
+const NORMAL_SPEED = 150.0
 const TILE_W = 249.0
 const TILE_H = 126.0
 const Cannonball = preload("res://cannon_ball.tscn")
@@ -22,10 +24,12 @@ var damage_cooldown: float = 0.0
 var damage_cooldown_time: float = 1.0  # 1 second between hits
 
 func _physics_process(delta):
+	var current_speed = SPRINT_SPEED if Input.is_physical_key_pressed(KEY_SHIFT) else NORMAL_SPEED
+	print("shift: ", Input.is_key_pressed(KEY_SHIFT), " speed: ", current_speed)
 	var dir = Vector2.ZERO
 
 	if dir != Vector2.ZERO:
-		velocity = dir.normalized() * SPEED
+		velocity = dir.normalized() * current_speed
 
 	else:
 		velocity = Vector2(1, -0.7).normalized() * 15
@@ -48,14 +52,14 @@ func _physics_process(delta):
 		target_tilt = deg_to_rad(10.0)
 		
 	if dir != Vector2.ZERO:
-		velocity = dir.normalized() * SPEED
+		velocity = dir.normalized() * current_speed
 	else:
 		velocity = Vector2(1, -0.7).normalized() * 15
 		rotation = lerp(rotation, 0.0, 0.1)
 
 	if dir != Vector2.ZERO:
 		TutorialManager.report_action("moved")  # ADD THIS LINE
-		velocity = dir.normalized() * SPEED
+		velocity = dir.normalized() * current_speed
 
 	var wake_active = dir != Vector2.ZERO
 
