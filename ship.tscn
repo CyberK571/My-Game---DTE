@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://depmyt3o6ivar"]
 
 [ext_resource type="Script" uid="uid://es7g4din7jyi" path="res://ship.gd" id="1_4cq66"]
-[ext_resource type="Texture2D" uid="uid://bnier17ew8hft" path="res://Images/Ship/ship3.png" id="3_c3vuw"]
+[ext_resource type="Texture2D" uid="uid://w40kmee5vpql" path="res://Images/Ship/Untitled_-_04_July_2026_at_13.51.48-removebg-preview.png" id="2_v4325"]
 [ext_resource type="Shader" uid="uid://csr4k1yjw76kb" path="res://cannontimer.gdshader" id="3_v4325"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c3vuw"]
@@ -21,7 +21,7 @@ scale_max = 8.0
 shader = ExtResource("3_v4325")
 
 [node name="Ship" type="CharacterBody2D" unique_id=515785872]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_4cq66")
@@ -176,26 +176,30 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_c3vuw")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1956018587]
-modulate = Color(0, 0, 0, 0.164706)
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=42557044]
+modulate = Color(0, 0, 0, 0.11764706)
 texture_filter = 1
-position = Vector2(526, 160)
-scale = Vector2(15, 15)
-texture = ExtResource("3_c3vuw")
+position = Vector2(492.5, 160)
+rotation = -0.05409026
+scale = Vector2(2, 2)
+texture = ExtResource("2_v4325")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=239417049]
 texture_filter = 1
-position = Vector2(532, 142)
-scale = Vector2(15, 15)
-texture = ExtResource("3_c3vuw")
+position = Vector2(502, 148)
+rotation = -0.05409026
+scale = Vector2(2, 2)
+texture = ExtResource("2_v4325")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1456212921]
 visible = false
-position = Vector2(491.92, 144.65)
-scale = Vector2(0.65, 0.65)
-polygon = PackedVector2Array(-460, -230, -293, -266, -121, -248, 537, 92, 553, 144, 550, 269, 528, 310, 459, 379, 367, 454, 311, 466, -352, 100, -434, -26)
+position = Vector2(517.49994, 135.00002)
+rotation = 0.06790899
+scale = Vector2(0.67207444, 0.70292145)
+polygon = PackedVector2Array(-492.9617, -221.0442, -293, -266, -121, -248, 557.59515, 81.37863, 567.7941, 119.92822, 550, 269, 528, 310, 459, 379, 367, 454, 282.98248, 466.41095, -312.52982, 166.48029, -434, -26)
 
 [node name="CannonSpawn" type="Marker2D" parent="." unique_id=401811983]
+visible = false
 position = Vector2(184, -20)
 
 [node name="CoolDownUI" type="Node2D" parent="CannonSpawn" unique_id=564472206]

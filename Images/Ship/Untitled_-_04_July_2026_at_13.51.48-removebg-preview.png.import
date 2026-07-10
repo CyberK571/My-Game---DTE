@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn8gl1j8ve6u8"
-path="res://.godot/imported/FUG0Z1etS2-HrNkYam_Vfg (1).png-88ce4636b4c2c19ee0bb4f7db6bd15f9.ctex"
+uid="uid://w40kmee5vpql"
+path="res://.godot/imported/Untitled_-_04_July_2026_at_13.51.48-removebg-preview.png-b8ecc8e9bfa666fabce9790de5f3cb6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Player/FUG0Z1etS2-HrNkYam_Vfg (1).png"
-dest_files=["res://.godot/imported/FUG0Z1etS2-HrNkYam_Vfg (1).png-88ce4636b4c2c19ee0bb4f7db6bd15f9.ctex"]
+source_file="res://Images/Ship/Untitled_-_04_July_2026_at_13.51.48-removebg-preview.png"
+dest_files=["res://.godot/imported/Untitled_-_04_July_2026_at_13.51.48-removebg-preview.png-b8ecc8e9bfa666fabce9790de5f3cb6e.ctex"]
 
 [params]
 

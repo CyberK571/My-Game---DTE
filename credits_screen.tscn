@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dfgskon0lj8ci"]
+
+[ext_resource type="Script" uid="uid://c3pxct3le4mp" path="res://credits_screen.gd" id="1_8wl6p"]
+
+[node name="credits_screen" type="Control" unique_id=302618902]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_8wl6p")
+
+[node name="CreditsImage" type="TextureRect" parent="." unique_id=1787587533]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

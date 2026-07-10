@@ -65,13 +65,13 @@ tile_set = SubResource("TileSet_4d4qa")
 
 [node name="Ship" parent="." unique_id=1775815670 instance=ExtResource("3_rf8af")]
 z_index = 2
-position = Vector2(1232, 687)
+position = Vector2(-496.99988, -145.99994)
 
 [node name="MinimapHUD" parent="." unique_id=609402894 instance=ExtResource("4_e5u8s")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1315516585]
 position = Vector2(675, 1131)
-scale = Vector2(0.65, 0.65)
+scale = Vector2(0.7, 0.7)
 zoom = Vector2(0.8, 0.8)
 position_smoothing_enabled = true
 
@@ -98,7 +98,7 @@ scale = Vector2(2.20313, 2.23307)
 texture = ExtResource("6_oufh0")
 
 [node name="EnemyShip2" parent="." unique_id=2136324196 instance=ExtResource("7_ae7j8")]
-position = Vector2(-957, -371)
+position = Vector2(-1383, -654.99994)
 
 [node name="EnemyShip3" parent="." unique_id=1901472839 instance=ExtResource("7_ae7j8")]
 position = Vector2(-2273, -1397)
@@ -122,7 +122,7 @@ position = Vector2(507, 254)
 position = Vector2(-1216, -870)
 
 [node name="Fuel" parent="." unique_id=1085047533 instance=ExtResource("9_rf8af")]
-position = Vector2(-205, -227)
+position = Vector2(-314, -459)
 
 [node name="Fuel2" parent="." unique_id=590138808 instance=ExtResource("9_rf8af")]
 position = Vector2(-1748, -996)

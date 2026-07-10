@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn8gl1j8ve6u8"
-path="res://.godot/imported/FUG0Z1etS2-HrNkYam_Vfg (1).png-88ce4636b4c2c19ee0bb4f7db6bd15f9.ctex"
+uid="uid://cfuxhirypqo17"
+path="res://.godot/imported/obstaclesandenemies.png-2871bae946a6a5403aa1a5062383560e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Player/FUG0Z1etS2-HrNkYam_Vfg (1).png"
-dest_files=["res://.godot/imported/FUG0Z1etS2-HrNkYam_Vfg (1).png-88ce4636b4c2c19ee0bb4f7db6bd15f9.ctex"]
+source_file="res://Images/Controls/obstaclesandenemies.png"
+dest_files=["res://.godot/imported/obstaclesandenemies.png-2871bae946a6a5403aa1a5062383560e.ctex"]
 
 [params]
 
