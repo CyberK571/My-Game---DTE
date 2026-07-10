@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dfgskon0lj8ci"]
 
 [ext_resource type="Script" uid="uid://c3pxct3le4mp" path="res://credits_screen.gd" id="1_8wl6p"]
+[ext_resource type="Texture2D" uid="uid://cwu5jgkufqrn8" path="res://Images/Controls/Credits.png" id="2_cb4i0"]
 
 [node name="credits_screen" type="Control" unique_id=302618902]
 layout_mode = 3
@@ -9,7 +10,17 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_8wl6p")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=881767045]
+layout_mode = 0
+offset_left = -61.0
+offset_top = -22.0
+offset_right = 1228.0
+offset_bottom = 689.0
+color = Color(0, 0, 0, 1)
+
 [node name="CreditsImage" type="TextureRect" parent="." unique_id=1787587533]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_cb4i0")

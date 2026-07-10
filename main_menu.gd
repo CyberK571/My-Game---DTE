@@ -13,4 +13,4 @@ func _on_controls():
 	get_tree().change_scene_to_file("res://controls_screen.tscn")
 
 func _on_credits():
-	get_tree().change_scene_to_file("res://scenes/credits.tscn")
+	get_tree().change_scene_to_file("res://credits_screen.tscn")

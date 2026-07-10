@@ -199,7 +199,6 @@ scale = Vector2(0.67207444, 0.70292145)
 polygon = PackedVector2Array(-492.9617, -221.0442, -293, -266, -121, -248, 557.59515, 81.37863, 567.7941, 119.92822, 550, 269, 528, 310, 459, 379, 367, 454, 282.98248, 466.41095, -312.52982, 166.48029, -434, -26)
 
 [node name="CannonSpawn" type="Marker2D" parent="." unique_id=401811983]
-visible = false
 position = Vector2(184, -20)
 
 [node name="CoolDownUI" type="Node2D" parent="CannonSpawn" unique_id=564472206]
