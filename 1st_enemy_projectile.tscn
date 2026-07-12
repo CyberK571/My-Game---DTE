@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://4sl7gyrebp7s"]
+
+[ext_resource type="Script" uid="uid://bq84indsj5m51" path="res://projectile.gd" id="1_rch8g"]
+[ext_resource type="Texture2D" uid="uid://cdmouciysb7ug" path="res://Images/1st Island/Enemy's/Golem_Armor_AttackC_FX.png" id="2_mocaj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ikmfe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttm48"]
+atlas = ExtResource("2_mocaj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_204ms"]
+atlas = ExtResource("2_mocaj")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u668l"]
+atlas = ExtResource("2_mocaj")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_niml6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttm48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_204ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u668l")
+}],
+"loop": 1,
+"name": &"Bullet",
+"speed": 10.0
+}]
+
+[node name="Projectile" type="Area2D" unique_id=559690067]
+script = ExtResource("1_rch8g")
+lifetime = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=724233242]
+position = Vector2(1, -3.9999998)
+scale = Vector2(3.558816, 0.9701856)
+shape = SubResource("CircleShape2D_ikmfe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=604937531]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_niml6")
+animation = &"Bullet"
+frame = 1
+frame_progress = 0.8272106
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
