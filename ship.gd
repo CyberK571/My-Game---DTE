@@ -25,7 +25,6 @@ var damage_cooldown_time: float = 1.0  # 1 second between hits
 
 func _physics_process(delta):
 	var current_speed = SPRINT_SPEED if Input.is_physical_key_pressed(KEY_SHIFT) else NORMAL_SPEED
-	print("shift: ", Input.is_key_pressed(KEY_SHIFT), " speed: ", current_speed)
 	var dir = Vector2.ZERO
 
 	if dir != Vector2.ZERO:

@@ -23,6 +23,10 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 Transition="*res://transition.tscn"
 TutorialManager="*uid://bx2mpy4hallq0"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 ui_left={

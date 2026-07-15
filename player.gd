@@ -12,14 +12,18 @@ var last_dir = Vector2.DOWN
 var max_health = 3
 var current_health = 3
 var is_invincible = false
+var keys_collected = 0
+var keys_required = 3
 
 @onready var hearts = [$CanvasLayer/Heart1, $CanvasLayer/Heart2, $CanvasLayer/Heart3]
 @export var full_heart_texture: Texture2D
 @export var empty_heart_texture: Texture2D
 @export var invincible_time = 1.0
+@onready var key_label = $CanvasLayer/KeyLabel
 
 func _ready():
 	update_hearts()
+	update_key_label()
 	
 func take_damage(amount = 1):
 	if is_invincible:
@@ -35,6 +39,21 @@ func take_damage(amount = 1):
 		is_invincible = true
 		await get_tree().create_timer(invincible_time).timeout
 		is_invincible = false
+
+func collect_key():
+	keys_collected += 1
+	update_key_label()
+
+func update_key_label():
+	key_label.text = "Keys: " + str(keys_collected) + "/" + str(keys_required)
+
+func flash_key_label_red():
+	var normal_color = Color(1, 1, 1, 1)
+	for i in 3:
+		key_label.add_theme_color_override("font_color", Color(1, 0.2, 0.2))
+		await get_tree().create_timer(0.15).timeout
+		key_label.add_theme_color_override("font_color", normal_color)
+		await get_tree().create_timer(0.15).timeout
 
 func update_hearts():
 	for i in hearts.size():
@@ -156,3 +175,7 @@ func _on_attack_area_area_entered(area: Area2D) -> void:
 		var enemy = area.get_parent()
 		if enemy.has_method("take_hit"):
 			enemy.take_hit(global_position)
+	elif area.name == "GateHurtBox":
+		var gate = area.get_parent()
+		if gate.has_method("try_open"):
+			gate.try_open(self)
