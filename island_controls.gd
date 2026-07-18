@@ -1,19 +1,11 @@
 extends Control
 
-
 var slides = [
-	{
-		"image": preload("res://Images/controls/movement.png"),
-	},
-	{
-		"image": preload("res://Images/controls/attack.png"),
-	},
-	{
-		"image": preload("res://Images/controls/healthandfuel.png"),
-	},
-	{
-		"image": preload("res://Images/controls/obstaclesandenemies.png"),
-	},
+	{ "image": preload("res://Images/Controls/island controls/IslandMovement.png"),},
+	{ "image": preload("res://Images/Controls/island controls/IslandAttack.png"),},
+	{ "image": preload("res://Images/Controls/island controls/IslandHealthandKey.png"),},
+	{ "image": preload("res://Images/Controls/island controls/IslandEnemy.png"),},
+	{ "image": preload("res://Images/Controls/island controls/IslandMinimap.png"),},
 ]
 
 var current_slide = 0
@@ -50,3 +42,7 @@ func fade_slide(index):
 
 func show_slide(index):
 	slide_image.texture = slides[index]["image"]
+	if index == slides.size() - 1:
+		prompt_label.text = "Press Enter to return to menu"
+	else:
+		prompt_label.text = "Press Enter to continue"

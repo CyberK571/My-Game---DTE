@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cjmvw8nbogvcv"]
+
+[ext_resource type="Script" uid="uid://bvxeqhas6s7xq" path="res://island_controls.gd" id="1_tfkbd"]
+
+[node name="ControlsScreen" type="Control" unique_id=73441929]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_tfkbd")
+
+[node name="TextBox" type="PanelContainer" parent="." unique_id=685571724]
+layout_mode = 0
+offset_right = 1202.0
+offset_bottom = 717.0
+
+[node name="SlideLabel" type="Label" parent="TextBox" unique_id=1752767406]
+visible = false
+layout_mode = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=2003480408]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SlideImage" type="TextureRect" parent="." unique_id=1139380829]
+layout_mode = 0
+offset_top = -7.0
+offset_right = 1136.0
+offset_bottom = 648.0
+expand_mode = 3
+stretch_mode = 4
+
+[node name="PromptLabel" type="Label" parent="." unique_id=186895950]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

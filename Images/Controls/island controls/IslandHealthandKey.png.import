@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xinus82iaxvh"
-path="res://.godot/imported/obstaclesandenemies.png-2871bae946a6a5403aa1a5062383560e.ctex"
+uid="uid://q825t78n0ql8"
+path="res://.godot/imported/IslandHealthandKey.png-6d2fd6823ebc139253b94b2f5aec3cb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Controls/obstaclesandenemies.png"
-dest_files=["res://.godot/imported/obstaclesandenemies.png-2871bae946a6a5403aa1a5062383560e.ctex"]
+source_file="res://Images/Controls/island controls/IslandHealthandKey.png"
+dest_files=["res://.godot/imported/IslandHealthandKey.png-6d2fd6823ebc139253b94b2f5aec3cb3.ctex"]
 
 [params]
 

@@ -119,7 +119,6 @@ func _physics_process(delta):
 		giving_up = true
 		give_up_timer = 0.5
 		velocity = Vector2.ZERO
-		print("giving up, playing idle")
 		$AnimatedSprite2D.flip_h = start_position.x < global_position.x
 		$Shadow.flip_h = start_position.x < global_position.x
 		play_movement_animation()

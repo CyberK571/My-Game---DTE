@@ -6,7 +6,7 @@ func _ready():
 func float_and_glow():
 	var original_pos = $Sprite2D.position
 	var tween = create_tween()
-	tween.set_loops()
+	tween.set_loops()	
 	tween.set_parallel(true)
 	tween.tween_property($Sprite2D, "position", original_pos + Vector2(0, -4), 0.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property($Sprite2D, "modulate", Color(1.6, 1.5, 1.1, 1.0), 0.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
