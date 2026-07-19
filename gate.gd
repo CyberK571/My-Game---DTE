@@ -11,6 +11,9 @@ func try_open(player):
 
 func open_gate():
 	$CollisionShape2D.set_deferred("disabled", true)
+	for boss in get_tree().get_nodes_in_group("boss"):
+		if boss.has_method("activate"):
+			boss.activate()
 	var tween = create_tween()
 	tween.tween_property($Sprite2D, "modulate:a", 0.0, 0.6)
 	await tween.finished
