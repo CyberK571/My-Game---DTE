@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # ── Boss: Ramen Warrior ───────────────────────────────────────────
 # Built around the Ramen Warrior asset pack's animation set:
-#   idle, walk, jump, left_punch, right_punch, needle_attack_1, needle_attack_2
+#   Idle, Walk, Jump, Left_Punch, Right_Punch, Needle_Attack_1, Needle_Attack_2
 #
 # Phase 1 (100%–66% HP): left_punch + right_punch (close range)
 # Phase 2 (66%–33% HP): adds needle_attack_1 (forward-thrusting, longer reach)
@@ -20,25 +20,25 @@ signal boss_died
 # Left Punch — short, direct forward strike (7 frames)
 @export var left_punch_range: float = 175.0
 @export var left_punch_damage: int = 1
-@export var left_punch_windup: float = 0.3
+@export var left_punch_windup: float = 0.05
 @export var left_punch_cooldown: float = 0.8
 
 # Right Punch — hook with rotation, more telegraphed (3 frames but wind up longer for readability)
 @export var right_punch_range: float = 180.0
 @export var right_punch_damage: int = 2
-@export var right_punch_windup: float = 0.45
+@export var right_punch_windup: float = 0.05
 @export var right_punch_cooldown: float = 1.1
 
 # Needle Attack 1 — forward-thrusting noodle extension, long reach
 @export var needle1_range: float = 280.0
 @export var needle1_damage: int = 2
-@export var needle1_windup: float = 0.5
+@export var needle1_windup: float = 0.05
 @export var needle1_cooldown: float = 1.6
 
 # Needle Attack 2 — diagonal whipping strike, wide arc, phase 3 only
 @export var needle2_range: float = 240.0
 @export var needle2_damage: int = 2
-@export var needle2_windup: float = 0.4
+@export var needle2_windup: float = 0.05
 @export var needle2_cooldown: float = 1.4
 
 enum State { INACTIVE, CHASE, TELEGRAPH, ATTACK, RECOVER, DEAD }
@@ -59,11 +59,6 @@ var attack_cooldowns := {
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-# Connect this to Hurtbox's area_entered signal in the editor
-# (Node tab -> Signals -> area_entered).
-func _on_hurtbox_area_entered(area: Area2D) -> void:
-	take_damage(1)  # adjust damage amount, or read it from the weapon if it exposes one
-
 # The attack frames (punches + needle attacks) are 128px wide vs 64px for
 # idle/walk/jump, and the body sits left-of-center in that wider frame.
 # This nudges it back so the torso lines up across all animations instead
@@ -72,11 +67,23 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 const WIDE_ANIMS = ["Left_Punch", "Right_Punch", "Needle_Attack_1", "Needle_Attack_2"]
 
 
+# Connect this to Hurtbox's area_entered signal in the editor
+# (Node tab -> Signals -> area_entered).
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	take_damage(1)  # adjust damage amount, or read it from the weapon if it exposes one
+
+
 func _play_anim(anim_name: String) -> void:
+	var target_offset_x: float = 0.0
 	if anim_name in WIDE_ANIMS:
-		sprite.offset.x = -wide_frame_offset_x if sprite.flip_h else wide_frame_offset_x
-	else:
-		sprite.offset.x = 0.0
+		target_offset_x = -wide_frame_offset_x if sprite.flip_h else wide_frame_offset_x
+
+	# Tween instead of snapping sprite.offset.x directly — an instant
+	# jump here reads as the boss suddenly popping forward/back.
+	if not is_equal_approx(sprite.offset.x, target_offset_x):
+		var tween := create_tween()
+		tween.tween_property(sprite, "offset:x", target_offset_x, 0.08)
+
 	# Only restart playback if this is a new animation — calling play()
 	# every frame (e.g. from _process_chase) would otherwise reset a
 	# looping animation like "Walk" back to frame 0 every tick, making
@@ -109,15 +116,13 @@ func _physics_process(delta: float) -> void:
 			_process_chase(delta)
 		State.TELEGRAPH:
 			_process_telegraph(delta)
-		State.ATTACK:
-			_process_attack(delta)
 		State.RECOVER:
 			_process_recover(delta)
+		# State.ATTACK is driven by the await chain in _start_attack(),
+		# not by a per-frame process function.
 
 	move_and_slide()
 
-func _process_attack(delta: float) -> void:
-	pass
 
 func _tick_cooldowns(delta: float) -> void:
 	for key in attack_cooldowns.keys():
@@ -163,20 +168,17 @@ func _start_telegraph(attack: int) -> void:
 	current_attack = attack
 	state = State.TELEGRAPH
 	velocity = Vector2.ZERO
+	_play_anim("Idle")
 
 	match attack:
 		AttackType.LEFT_PUNCH:
 			state_timer = left_punch_windup
-			_play_anim("Idle")
 		AttackType.RIGHT_PUNCH:
 			state_timer = right_punch_windup
-			_play_anim("Idle")
 		AttackType.NEEDLE_1:
 			state_timer = needle1_windup
-			_play_anim("Idle")
 		AttackType.NEEDLE_2:
 			state_timer = needle2_windup
-			_play_anim("Idle")
 
 	if player:
 		_update_facing(player.global_position - global_position)
@@ -189,32 +191,68 @@ func _process_telegraph(delta: float) -> void:
 
 
 # ── ATTACK ───────────────────────────────────────────────────────
+# Fraction of the animation's duration at which the hit actually lands
+# (e.g. 0.8 = 80% of the way through), so damage syncs with the visual
+# strike frame instead of firing right at the start of the windup.
+@export var left_punch_hit_fraction: float = 0.8
+@export var right_punch_hit_fraction: float = 0.8
+@export var needle1_hit_fraction: float = 0.7
+@export var needle2_hit_fraction: float = 0.7
+
+# How far the boss steps toward the player during an attack, and how
+# quickly — in the exact direction to the player (any angle), so it
+# reaches properly whether they're beside, above, or below it.
+@export var lunge_distance: float = 40.0
+@export var lunge_time: float = 0.15
+
+
 func _start_attack() -> void:
 	state = State.ATTACK
 
+	# Lunge toward wherever the player actually is (full 2D direction,
+	# not just left/right) so the attack visually reaches them even if
+	# they're above/below the boss, not only beside it.
+	var lunge_dir := Vector2.ZERO
+	if player and is_instance_valid(player):
+		lunge_dir = (player.global_position - global_position).normalized()
+	var lunge_tween := create_tween()
+	lunge_tween.tween_property(self, "position", position + lunge_dir * lunge_distance, lunge_time)
+
 	match current_attack:
 		AttackType.LEFT_PUNCH:
-			$AnimatedSprite2D.play("Left_Punch")
-			await get_tree().create_timer(0.12).timeout
-			_deal_damage(left_punch_range, left_punch_damage)
-
+			_play_anim("Left_Punch")
+			_schedule_damage(_anim_duration("Left_Punch") * left_punch_hit_fraction, left_punch_range, left_punch_damage, AttackType.LEFT_PUNCH)
 		AttackType.RIGHT_PUNCH:
-			$AnimatedSprite2D.play("Right_Punch")
-			await get_tree().create_timer(0.12).timeout
-			_deal_damage(right_punch_range, right_punch_damage)
-
+			_play_anim("Right_Punch")
+			_schedule_damage(_anim_duration("Right_Punch") * right_punch_hit_fraction, right_punch_range, right_punch_damage, AttackType.RIGHT_PUNCH)
 		AttackType.NEEDLE_1:
-			$AnimatedSprite2D.play("Needle_Attack_1")
-			await get_tree().create_timer(0.15).timeout
-			_deal_damage(needle1_range, needle1_damage)
-
+			_play_anim("Needle_Attack_1")
+			_schedule_damage(_anim_duration("Needle_Attack_1") * needle1_hit_fraction, needle1_range, needle1_damage, AttackType.NEEDLE_1)
 		AttackType.NEEDLE_2:
-			$AnimatedSprite2D.play("Needle_Attack_2")
-			await get_tree().create_timer(0.15).timeout
-			_deal_damage(needle2_range, needle2_damage)
+			_play_anim("Needle_Attack_2")
+			_schedule_damage(_anim_duration("Needle_Attack_2") * needle2_hit_fraction, needle2_range, needle2_damage, AttackType.NEEDLE_2)
 
-	await $AnimatedSprite2D.animation_finished
-	_start_recover()
+	await sprite.animation_finished
+	# Guard: the boss could have died or been reset while we were awaiting.
+	if state == State.ATTACK:
+		_start_recover()
+
+
+func _anim_duration(anim_name: String) -> float:
+	var frames := sprite.sprite_frames
+	var count := frames.get_frame_count(anim_name)
+	var speed := frames.get_animation_speed(anim_name)
+	if speed <= 0.0:
+		return 0.3
+	return float(count) / speed
+
+
+func _schedule_damage(delay: float, attack_range: float, damage: int, expected_attack: int) -> void:
+	await get_tree().create_timer(delay).timeout
+	# Guard against the boss having been interrupted, died, or moved on
+	# to a different attack before this delayed hit would land.
+	if state == State.ATTACK and current_attack == expected_attack:
+		_deal_damage(attack_range, damage)
 
 
 func _deal_damage(attack_range: float, damage: int) -> void:

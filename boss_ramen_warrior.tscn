@@ -336,12 +336,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_niml6"]
-radius = 23.999998
-height = 49.6
+radius = 20.599998
+height = 41.199997
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ikmfe"]
-radius = 22.199999
-height = 45.999996
+radius = 31.599998
+height = 63.199997
 
 [node name="BossRamenWarrior" type="CharacterBody2D" unique_id=705246147]
 scale = Vector2(5, 5)
