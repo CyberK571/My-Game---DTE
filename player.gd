@@ -150,8 +150,10 @@ func attack():
 	is_attacking = true
 	play_attack_animation(last_dir)
 	$AttackArea.monitoring = true
+	$AttackArea/CollisionShape2D.set_deferred("disabled", false)
 	await get_tree().create_timer(0.4).timeout
 	$AttackArea.monitoring = false
+	$AttackArea/CollisionShape2D.set_deferred("disabled", true)
 	is_attacking = false
 
 func play_attack_animation(dir):
