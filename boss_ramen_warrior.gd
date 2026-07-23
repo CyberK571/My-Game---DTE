@@ -4,8 +4,8 @@ extends CharacterBody2D
 # Punch-only boss for this island. Needle/lasso attacks are saved for
 # a later island's version of this boss.
 #
-# Phase 1 (100%–66% HP): normal punches, normal speed
-# Phase 2 (66%–33% HP): RAGE — faster movement + shorter attack cooldowns
+# Phase 1 (100%–50% HP): normal punches, normal speed
+# Phase 2 (50%–33% HP): RAGE — red tint, faster movement, shorter attack cooldowns
 # Phase 3 (below 33% HP): RAGE 2 — even faster, minimal cooldowns
 
 signal phase_changed(new_phase: int)
@@ -13,7 +13,7 @@ signal boss_died
 
 @export var max_health: int = 30
 @export var move_speed: float = 90.0
-@export var phase_2_threshold: float = 0.66
+@export var phase_2_threshold: float = 0.5
 @export var phase_3_threshold: float = 0.33
 
 # Rage tuning — multipliers applied to move_speed and to attack
@@ -22,6 +22,24 @@ signal boss_died
 @export var phase_2_cooldown_multiplier: float = 0.75
 @export var phase_3_speed_multiplier: float = 1.6
 @export var phase_3_cooldown_multiplier: float = 0.5
+
+# Persistent red tint applied once the boss enters rage (phase 2+),
+# on top of whatever base color it's already at.
+@export var rage_tint: Color = Color(1.0, 0.6, 0.6)
+
+# Health bar shown above the boss's head — built automatically at
+# runtime, no manual scene setup needed.
+@export var health_bar_width: float = 56.0
+@export var health_bar_height: float = 7.0
+@export var health_bar_offset: Vector2 = Vector2(0, -45)
+@export var health_bar_color_normal: Color = Color(0.25, 0.85, 0.3)
+@export var health_bar_color_rage: Color = Color(0.95, 0.55, 0.1)
+@export var health_bar_color_low: Color = Color(0.9, 0.15, 0.15)
+
+# If the boss touches the gate (once it's sealed shut), snap it back
+# to this position instead of letting it push through/get stuck on it.
+# Assign a Marker2D placed at the arena's center in the editor.
+@export var arena_center_path: NodePath
 
 # Left Punch — short, direct forward strike
 @export var left_punch_range: float = 175.0
@@ -66,6 +84,12 @@ var attack_cooldowns := {
 # Current cooldown durations, scaled down as rage phases kick in.
 var left_punch_cooldown_current: float
 var right_punch_cooldown_current: float
+# The boss's persistent color when not mid-flash — white normally,
+# switches to rage_tint once phase 2 hits.
+var base_tint: Color = Color(1, 1, 1)
+var health_bar_bg: ColorRect
+var health_bar_fill: ColorRect
+var has_been_hit: bool = false
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -104,12 +128,49 @@ func _anim_duration(anim_name: String) -> float:
 	return float(count) / speed
 
 
+func _create_health_bar() -> void:
+	var bar_top_left := health_bar_offset + Vector2(-health_bar_width / 2.0, 0)
+
+	health_bar_bg = ColorRect.new()
+	health_bar_bg.color = Color(0, 0, 0, 0.6)
+	health_bar_bg.size = Vector2(health_bar_width + 4, health_bar_height + 4)
+	health_bar_bg.position = bar_top_left - Vector2(2, 2)
+	add_child(health_bar_bg)
+
+	health_bar_fill = ColorRect.new()
+	health_bar_fill.color = health_bar_color_normal
+	health_bar_fill.size = Vector2(health_bar_width, health_bar_height)
+	health_bar_fill.position = bar_top_left
+	add_child(health_bar_fill)
+
+	health_bar_bg.visible = false
+	health_bar_fill.visible = false
+
+	_update_health_bar()
+
+
+func _update_health_bar() -> void:
+	if health_bar_fill == null:
+		return
+
+	var pct: float = clampf(float(current_health) / float(max_health), 0.0, 1.0)
+	health_bar_fill.size.x = health_bar_width * pct
+
+	if current_phase >= 3:
+		health_bar_fill.color = health_bar_color_low
+	elif current_phase == 2:
+		health_bar_fill.color = health_bar_color_rage
+	else:
+		health_bar_fill.color = health_bar_color_normal
+
+
 func _ready() -> void:
 	current_health = max_health
 	player = get_tree().get_first_node_in_group("player")
 	left_punch_cooldown_current = left_punch_cooldown
 	right_punch_cooldown_current = right_punch_cooldown
 	_play_anim("Idle")
+	_create_health_bar()
 
 
 func activate() -> void:
@@ -117,6 +178,10 @@ func activate() -> void:
 	if state != State.INACTIVE:
 		return
 	state = State.CHASE
+	if health_bar_bg:
+		health_bar_bg.visible = true
+	if health_bar_fill:
+		health_bar_fill.visible = true
 
 
 func _physics_process(delta: float) -> void:
@@ -136,6 +201,21 @@ func _physics_process(delta: float) -> void:
 		# not by a per-frame process function.
 
 	move_and_slide()
+	_check_gate_bounce()
+
+
+func _check_gate_bounce() -> void:
+	if arena_center_path.is_empty():
+		return
+	for i in range(get_slide_collision_count()):
+		var collision := get_slide_collision(i)
+		var collider := collision.get_collider()
+		if collider and collider.is_in_group("gate"):
+			var center := get_node(arena_center_path)
+			if center:
+				global_position = center.global_position
+				velocity = Vector2.ZERO
+			return
 
 
 func _tick_cooldowns(delta: float) -> void:
@@ -282,9 +362,16 @@ func take_damage(amount: int) -> void:
 	if state == State.DEAD:
 		return
 
+	if not has_been_hit:
+		has_been_hit = true
+		for gate in get_tree().get_nodes_in_group("gate"):
+			if gate.has_method("seal_shut"):
+				gate.seal_shut()
+
 	current_health -= amount
 	_flash_damage()
 	_check_phase_transition()
+	_update_health_bar()
 
 	if current_health <= 0:
 		_die()
@@ -298,6 +385,8 @@ func _check_phase_transition() -> void:
 		move_speed *= phase_2_speed_multiplier
 		left_punch_cooldown_current = left_punch_cooldown * phase_2_cooldown_multiplier
 		right_punch_cooldown_current = right_punch_cooldown * phase_2_cooldown_multiplier
+		base_tint = rage_tint
+		sprite.modulate = base_tint
 		emit_signal("phase_changed", current_phase)
 	elif current_phase < 3 and health_pct <= phase_3_threshold:
 		current_phase = 3
@@ -311,12 +400,43 @@ func _flash_damage() -> void:
 	sprite.modulate = Color(1, 0.4, 0.4)
 	await get_tree().create_timer(0.1).timeout
 	if is_instance_valid(sprite):
-		sprite.modulate = Color(1, 1, 1)
+		sprite.modulate = base_tint
 
 
 func _die() -> void:
 	state = State.DEAD
 	velocity = Vector2.ZERO
-	_play_anim("Idle")  # swap for a death animation if you add one later
+	_play_anim("Idle")
 	emit_signal("boss_died")
-	# Add loot drop / scene transition hook here.
+	for gate in get_tree().get_nodes_in_group("gate"):
+		if gate.has_method("open_on_boss_defeat"):
+			gate.open_on_boss_defeat()
+	await _death_effect()
+	queue_free()
+
+
+func _death_effect() -> void:
+	# Quick white flicker (a handful of flashes, not a rapid strobe —
+	# kept brief since fast full-brightness flashing can be genuinely
+	# uncomfortable/triggering for photosensitive players), then a
+	# fade-out.
+	var flash_count := 8
+	for i in range(flash_count):
+		sprite.modulate = Color(3, 3, 3)  # blown-out white, additive-looking
+		await get_tree().create_timer(0.05).timeout
+		if not is_instance_valid(sprite):
+			return
+		sprite.modulate = base_tint
+		await get_tree().create_timer(0.05).timeout
+		if not is_instance_valid(sprite):
+			return
+
+	if health_bar_bg:
+		health_bar_bg.visible = false
+	if health_bar_fill:
+		health_bar_fill.visible = false
+
+	var fade_tween := create_tween()
+	fade_tween.tween_property(sprite, "modulate:a", 0.0, 0.6)
+	await fade_tween.finished
+	# Add loot drop / scene transition hook here, before queue_free() runs.

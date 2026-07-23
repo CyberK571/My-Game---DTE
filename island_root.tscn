@@ -1148,6 +1148,10 @@ scale = Vector2(5.44, 5)
 position = Vector2(-1141, -743)
 scale = Vector2(5.44, 5)
 
+[node name="Gate3" parent="." groups=["gate"] instance=ExtResource("2_ykctw")]
+position = Vector2(-275, -1652)
+scale = Vector2(5.44, 5)
+
 [node name="TilemapShadow" type="TileMapLayer" parent="."]
 modulate = Color(0.247059, 0.129412, 0.0117647, 0.282353)
 texture_filter = 1
