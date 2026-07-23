@@ -1289,35 +1289,38 @@ text = "Keys: 0/3"
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.168627)
-position = Vector2(-235, -2281)
-scale = Vector2(0.561719, 0.546875)
+position = Vector2(-248, -2328)
+scale = Vector2(0.73787, 0.678128)
 texture = ExtResource("14_3io7o")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-376, -2135)
+position = Vector2(-384.881, -2170)
+scale = Vector2(1.31359, 1.24)
 texture = ExtResource("15_2pyxo")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-291, -2138)
+position = Vector2(-299.881, -2173)
+scale = Vector2(1.31359, 1.24)
 texture = ExtResource("15_2pyxo")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-208, -2135)
+position = Vector2(-216.881, -2170)
+scale = Vector2(1.31359, 1.24)
 texture = ExtResource("15_2pyxo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-141, -2129)
+position = Vector2(-149.881, -2164)
 rotation = -3.06385
-scale = Vector2(1.40309, 0.869218)
+scale = Vector2(1.84309, 1.07783)
 texture = ExtResource("15_2pyxo")
 
 [node name="House" type="Sprite2D" parent="."]
-position = Vector2(-260, -2298)
-scale = Vector2(0.561719, 0.546875)
+position = Vector2(-268.881, -2333)
+scale = Vector2(0.73787, 0.678128)
 texture = ExtResource("14_3io7o")
 
 [node name="Man2" type="AnimatedSprite2D" parent="."]
