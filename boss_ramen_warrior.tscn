@@ -340,8 +340,8 @@ radius = 20.599998
 height = 41.199997
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ikmfe"]
-radius = 31.599998
-height = 63.199997
+radius = 37.399998
+height = 74.799995
 
 [node name="BossRamenWarrior" type="CharacterBody2D" unique_id=705246147]
 scale = Vector2(5, 5)
