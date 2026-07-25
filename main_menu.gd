@@ -22,7 +22,7 @@ func _on_1st_Island_Scene():
 	Transition.change_scene("res://island_root.tscn")
 
 func _on_Second_Ocean_Scene():
-	pass
+	Transition.change_scene("res://level_root2.tscn")
 
 func _on_Second_Island_Scene():
 	pass

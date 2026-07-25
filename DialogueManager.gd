@@ -7,11 +7,13 @@ signal dialogue_hidden
 var lines: Array = []
 var current_index := 0
 var is_active := false
+var on_finished: Callable = Callable()
 
-func show_dialogue(dialogue_lines: Array):
+func show_dialogue(dialogue_lines: Array, on_finish: Callable = Callable()):
 	lines = dialogue_lines
 	current_index = 0
 	is_active = true
+	on_finished = on_finish
 	emit_signal("dialogue_line_changed", lines[current_index])
 
 func _input(event):
@@ -28,3 +30,6 @@ func advance():
 func hide_dialogue():
 	is_active = false
 	emit_signal("dialogue_hidden")
+	if on_finished.is_valid():
+		on_finished.call()
+		on_finished = Callable()

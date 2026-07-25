@@ -52,7 +52,10 @@ func start_dialogue():
 		"Beware what lurks beyond the treeline.",
 		"Take this map — it may guide you true.",
 		"Safe travels, captain."
-	])
+	], _on_dialogue_finished)
+
+func _on_dialogue_finished():
+	Transition.change_scene("res://level_root2.tscn")  # swap in your actual scene path
 
 func end_dialogue():
 	if player_in_range:
