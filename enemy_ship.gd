@@ -62,6 +62,9 @@ func _flash_red():
 
 func _die():
 	is_dying = true
+	$CollisionShape2D.set_deferred("disabled", true)
 	var tween = create_tween()
+	tween.set_parallel(true)
 	tween.tween_property($Sprite2D, "modulate", Color(0, 0, 0, 0), 0.8)
-	tween.tween_callback(queue_free)
+	tween.tween_property($Sprite2D2, "modulate", Color(0, 0, 0, 0), 0.8)
+	tween.tween_callback(queue_free).set_delay(0.8)

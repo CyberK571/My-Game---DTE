@@ -43,3 +43,22 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Credits
 "
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=343902495]
+layout_mode = 0
+offset_left = 1039.0
+offset_top = 23.0
+offset_right = 1130.0
+offset_bottom = 124.0
+
+[node name="Island Scene" type="Button" parent="VBoxContainer2" unique_id=1409610319]
+layout_mode = 2
+text = "1st Island"
+
+[node name="Second Ocean Scene" type="Button" parent="VBoxContainer2" unique_id=803759367]
+layout_mode = 2
+text = "2nd Ocean"
+
+[node name="Second Island Scene" type="Button" parent="VBoxContainer2" unique_id=333815487]
+layout_mode = 2
+text = "2nd Island"

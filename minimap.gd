@@ -120,7 +120,8 @@ func _process(delta):
 			get_tree().paused = true
 			print("GAME OVER - no fuel")
 
-	for entry in enemy_markers:
+	for i in range(enemy_markers.size() - 1, -1, -1):
+		var entry = enemy_markers[i]
 		var enemy = entry["node"]
 		var marker = entry["marker"]
 		if is_instance_valid(enemy):
@@ -128,6 +129,10 @@ func _process(delta):
 			norm = norm.clamp(Vector2.ZERO, Vector2.ONE)
 			marker.position = norm * size - marker.size / 2
 			marker.modulate.a = 0.6 + 0.4 * sin(Time.get_ticks_msec() * 0.01)
+		else:
+			marker.queue_free()
+			enemy_markers.remove_at(i)
+			
 func _draw():
 	var pulse = 0.6 + 0.4 * sin(Time.get_ticks_msec() * 0.01)
 	for enemy in enemy_data:

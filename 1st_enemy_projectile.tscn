@@ -34,7 +34,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Projectile" type="Area2D" unique_id=559690067]
+[node name="Projectile" type="Area2D" unique_id=559690067 groups=["projectiles"]]
 script = ExtResource("1_rch8g")
 lifetime = 2.0
 

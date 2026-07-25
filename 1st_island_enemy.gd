@@ -51,6 +51,9 @@ func die():
 	is_dying = true
 	is_hit = true
 	velocity = Vector2.ZERO
+	for projectile in get_tree().get_nodes_in_group("projectiles"):
+		if is_instance_valid(projectile) and projectile.shooter == self:
+			projectile.queue_free()
 	$CollisionShape2D.set_deferred("disabled", true)
 	$AnimatedSprite2D.pause()
 	$Shadow.pause()
@@ -66,6 +69,7 @@ func try_shoot():
 	can_shoot = false
 
 	var projectile = projectile_scene.instantiate()
+	projectile.shooter = self
 	get_tree().current_scene.add_child(projectile)
 	projectile.global_position = global_position
 	projectile.direction = (player.global_position - global_position).normalized()

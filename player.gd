@@ -24,6 +24,13 @@ var keys_required = 3
 func _ready():
 	update_hearts()
 	update_key_label()
+	await get_tree().create_timer(2.0).timeout
+	DialogueManager.show_dialogue([
+		"You've landed on the island.",
+		"Explore carefully — not everyone here is friendly.",
+		"Find the old man near the house; he may have useful advice.",
+	])
+
 	
 func take_damage(amount = 1):
 	if is_invincible:

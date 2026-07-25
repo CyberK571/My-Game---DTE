@@ -1,6 +1,7 @@
 extends Area2D
 
 var direction = Vector2.RIGHT
+var shooter = null
 @export var speed = 200
 @export var lifetime = 3.0
 

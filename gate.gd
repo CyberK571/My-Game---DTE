@@ -2,8 +2,13 @@ extends StaticBody2D
 
 var is_sealed: bool = false
 
+# Check this on gates that should never open via keys — only when the
+# boss dies (e.g. a top exit that stays sealed for the whole fight).
+@export var only_opens_on_boss_defeat: bool = false
+
 func try_open(player):
-	if is_sealed:
+	if is_sealed or only_opens_on_boss_defeat:
+		shake_locked()
 		return
 	if player.keys_collected >= player.keys_required:
 		for gate in get_tree().get_nodes_in_group("gate"):
@@ -14,7 +19,7 @@ func try_open(player):
 		player.flash_key_label_red()
 
 func open_gate():
-	if is_sealed:
+	if is_sealed or only_opens_on_boss_defeat:
 		return
 	$CollisionShape2D.set_deferred("disabled", true)
 	for boss in get_tree().get_nodes_in_group("boss"):
@@ -38,7 +43,8 @@ func seal_shut():
 	$CollisionShape2D.set_deferred("disabled", false)
 
 func open_on_boss_defeat():
-	# Called once the boss dies — releases the lock for good.
+	# Called once the boss dies — releases the lock for good, for every
+	# gate in the group including ones flagged only_opens_on_boss_defeat.
 	is_sealed = false
 	$CollisionShape2D.set_deferred("disabled", true)
 	var fade_out = create_tween()
