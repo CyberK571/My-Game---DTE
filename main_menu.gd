@@ -1,10 +1,13 @@
 extends Control
 
 func _ready():
+	modulate.a = 0
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 1.0, 0.6)
 	$VBoxContainer/PlayButton.pressed.connect(_on_play)
 	$VBoxContainer/ControlsButton.pressed.connect(_on_controls)
 	$VBoxContainer/CreditsButton.pressed.connect(_on_credits)
-	
+		
 	$VBoxContainer2/"Island Scene".pressed.connect(_on_1st_Island_Scene)
 	$VBoxContainer2/"Second Ocean Scene".pressed.connect(_on_Second_Ocean_Scene)
 	$VBoxContainer2/"Second Island Scene".pressed.connect(_on_Second_Island_Scene)

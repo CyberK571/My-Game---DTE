@@ -18,15 +18,14 @@ func fade_out(duration := 0.5):
 
 func fade_in(duration := 0.5):
 	print("fade_in called")
+	color_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var tween = create_tween()
 	tween.tween_property(color_rect, "color:a", 0.0, duration)
 	await tween.finished
-	print("fade_in finished")
+	print("fade_in finished, alpha: ", color_rect.color.a)
 
 func change_scene(path: String):
-	print("change_scene called: ", path)
 	await fade_out()
-	await get_tree().process_frame
 	get_tree().change_scene_to_file(path)
 	await get_tree().process_frame
 	await get_tree().process_frame

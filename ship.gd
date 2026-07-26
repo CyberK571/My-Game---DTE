@@ -22,6 +22,8 @@ var facing = Vector2.RIGHT
 var diagonal = (global_position.x - global_position.y) * 0.5
 var damage_cooldown: float = 0.0
 var damage_cooldown_time: float = 1.0  # 1 second between hits
+var is_dead: bool = false
+
 
 func _physics_process(delta):
 	var current_speed = SPRINT_SPEED if Input.is_physical_key_pressed(KEY_SHIFT) else NORMAL_SPEED
@@ -77,6 +79,7 @@ func _physics_process(delta):
 		damage_cooldown -= delta
 
 # Check collisions
+# Check collisions
 	for i in get_slide_collision_count():
 		var col = get_slide_collision(i)
 		var collider = col.get_collider()
@@ -87,8 +90,7 @@ func _physics_process(delta):
 					hud.take_damage()
 					damage_cooldown = damage_cooldown_time
 		elif collider.is_in_group("border"):
-			get_tree().paused = true
-			print("GAME OVER - hit border")
+			die()
 		
 	var forward = Vector2(1, 0.5).normalized()
 	var ship_projected = forward * forward.dot(global_position)
@@ -100,6 +102,17 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if can_shoot:
 				shoot()
+
+func die():
+	if is_dead:
+		return
+	is_dead = true
+	print("player died")
+	await Transition.fade_out()
+	get_tree().paused = true
+	var death_screen = preload("res://DeathScreen.tscn").instantiate()
+	death_screen.process_mode = Node.PROCESS_MODE_ALWAYS
+	Transition.add_child(death_screen)
 
 func shoot():
 	can_shoot = false

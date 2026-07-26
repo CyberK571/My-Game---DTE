@@ -76,6 +76,12 @@ func flash_hurt():
 
 func die():
 	print("player died")
+	await Transition.fade_out()
+
+	get_tree().paused = true
+	var death_screen = preload("res://DeathScreen.tscn").instantiate()
+	death_screen.process_mode = Node.PROCESS_MODE_ALWAYS
+	Transition.add_child(death_screen)
 
 func _physics_process(delta):
 	if is_dashing:

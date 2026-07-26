@@ -83,8 +83,19 @@ func take_damage():
 	_update_bar()
 	_flash_damage()
 	if current_health <= 0:
-		get_tree().paused = true
-		print("GAME OVER - no health")
+		if boat and boat.has_method("die"):
+			boat.die()
+		
+func die():
+	print("player died")
+	await Transition.fade_out()
+
+	get_tree().paused = true
+	var death_screen = preload("res://DeathScreen.tscn").instantiate()
+	death_screen.process_mode = Node.PROCESS_MODE_ALWAYS
+	Transition.add_child(death_screen)
+	
+	
 
 func _flash_damage():
 	damage_flash.modulate.a = 0.5
@@ -117,9 +128,9 @@ func _process(delta):
 		current_fuel = max(current_fuel, 0)
 		_update_fuel_bar()
 		if current_fuel <= 0:
-			get_tree().paused = true
-			print("GAME OVER - no fuel")
-
+			if boat and boat.has_method("die"):
+				boat.die()
+				
 	for i in range(enemy_markers.size() - 1, -1, -1):
 		var entry = enemy_markers[i]
 		var enemy = entry["node"]
