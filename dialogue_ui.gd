@@ -6,8 +6,10 @@ func _ready():
 	DialogueManager.dialogue_line_changed.connect(_on_dialogue_line_changed)
 	DialogueManager.dialogue_advance_requested.connect(_on_advance_requested)
 	DialogueManager.dialogue_hidden.connect(_on_dialogue_hidden)
+	print("DialogueUI ready, connections made")
 
 func _on_dialogue_line_changed(text):
+	print("dialogue_line_changed received: ", text)
 	$DialogueBox/Label.text = text
 	visible = true
 	$DialogueBox.modulate.a = 0.0

@@ -39,6 +39,8 @@ func start_floating():
 	float_tween.tween_property(prompt_label, "position:y", base_position.y, 0.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _unhandled_input(event):
+	if event.is_action_pressed("interact"):
+		print("in range: ", player_in_range, " | dialogue active: ", DialogueManager.is_active)
 	if player_in_range and event.is_action_pressed("interact") and not DialogueManager.is_active:
 		start_dialogue()
 
