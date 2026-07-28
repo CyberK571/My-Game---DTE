@@ -1,5 +1,4 @@
 extends CanvasLayer
-
 @onready var dialogue_box = $DialogueBox
 
 func _ready():
@@ -7,8 +6,14 @@ func _ready():
 	TutorialManager.tutorial_finished.connect(_on_tutorial_finished)
 	dialogue_box.modulate.a = 0.0
 	dialogue_box.visible = false
+
+	if TutorialManager.tutorial_complete:
+		return
+
 	await get_tree().create_timer(2.0).timeout
-	$DialogueBox/Label.text = TutorialManager.steps[0]["text"]
+	if not TutorialManager.tutorial_active:
+		return
+	$DialogueBox/Label.text = TutorialManager.steps[TutorialManager.current_step]["text"]
 	dialogue_box.visible = true
 	var tween = create_tween()
 	tween.tween_property(dialogue_box, "modulate:a", 1.0, 0.5)
@@ -20,7 +25,6 @@ func _on_step_changed(text: String):
 	tween.tween_property(dialogue_box, "modulate:a", 1.0, 0.5)
 
 func _on_tutorial_finished():
-	var tween = create_tween()
-	tween.tween_property(dialogue_box, "modulate:a", 0.0, 0.5)
-	await tween.finished
-	dialogue_box.visible = false
+	visible = false
+	TutorialManager.step_changed.disconnect(_on_step_changed)
+	TutorialManager.tutorial_finished.disconnect(_on_tutorial_finished)

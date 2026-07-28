@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://br0jv7c7bxw44"]
+[gd_scene load_steps=8 format=3 uid="uid://br0jv7c7bxw44"]
 
 [ext_resource type="Script" uid="uid://c2trrqdvn5fk3" path="res://minimap.gd" id="1_cvo86"]
 [ext_resource type="Texture2D" uid="uid://dn8gl1j8ve6u8" path="res://Images/Player/FUG0Z1etS2-HrNkYam_Vfg (1).png" id="1_yfyr0"]
@@ -8,16 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://cgbd5neo5d5ri" path="res://Images/Ship/Untitled_design__3_-removebg-preview.png" id="5_2q82h"]
 [ext_resource type="Texture2D" uid="uid://yf2vk3osu3ip" path="res://Images/Ship/360_F_484785645_D98p9gFWxxs9PX49kEVN1cH0ewNjMNE8-removebg-preview (1).png" id="5_3lsvx"]
 
-[node name="MinimapHUD" type="CanvasLayer" unique_id=649286073]
+[node name="MinimapHUD" type="CanvasLayer"]
 
-[node name="Panel" type="Panel" parent="." unique_id=1341256507]
+[node name="Panel" type="Panel" parent="."]
 offset_left = 28.0
 offset_top = 22.0
 offset_right = 208.0
 offset_bottom = 142.0
 script = ExtResource("1_cvo86")
 
-[node name="Shadow" type="TextureRect" parent="Panel" unique_id=563256126]
+[node name="Shadow" type="TextureRect" parent="Panel"]
 modulate = Color(0.605002, 0.279747, 0, 1)
 texture_filter = 1
 layout_mode = 1
@@ -29,7 +29,7 @@ scale = Vector2(1.05, 1.05)
 texture = ExtResource("1_yfyr0")
 expand_mode = 1
 
-[node name="MapImage" type="TextureRect" parent="Panel" unique_id=2130300566]
+[node name="MapImage" type="TextureRect" parent="Panel"]
 texture_filter = 1
 layout_mode = 1
 offset_left = -50.0
@@ -39,49 +39,49 @@ offset_bottom = 177.0
 texture = ExtResource("1_yfyr0")
 expand_mode = 1
 
-[node name="BoatMarker" type="ColorRect" parent="Panel" unique_id=727518790]
+[node name="BoatMarker" type="ColorRect" parent="Panel"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(1, 0, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=660184678]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(60, 54.000004)
+position = Vector2(60, 54)
 scale = Vector2(0.012, 0.012)
 texture = ExtResource("3_0pgu0")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=483542118]
-modulate = Color(1, 1, 1, 0.49019608)
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
 texture_filter = 1
-position = Vector2(118.99999, 86)
+position = Vector2(119, 86)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("4_4iigp")
 region_enabled = true
-region_rect = Rect2(0, 6.9065742, 666.0416, 368.0934)
+region_rect = Rect2(0, 6.90657, 666.042, 368.093)
 
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=2101162657]
-modulate = Color(1, 1, 1, 0.49019608)
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
 texture_filter = 1
-position = Vector2(118.99999, 86)
+position = Vector2(119, 86)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("5_2q82h")
 region_enabled = true
-region_rect = Rect2(0, 6.9065742, 666.0416, 368.0934)
+region_rect = Rect2(0, 6.90657, 666.042, 368.093)
 
-[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1212890517]
+[node name="Sprite2D4" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(74, 114)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("5_3lsvx")
 
-[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=433763655]
+[node name="Sprite2D5" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(164, 53)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("5_3lsvx")
 
-[node name="HealthBar" type="Control" parent="." unique_id=2044609944]
+[node name="HealthBar" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 931.0
@@ -89,13 +89,13 @@ offset_top = 23.0
 offset_right = 1131.0
 offset_bottom = 47.0
 
-[node name="BarBackground" type="ColorRect" parent="HealthBar" unique_id=1096782485]
+[node name="BarBackground" type="ColorRect" parent="HealthBar"]
 modulate = Color(0.14902, 0.14902, 0.14902, 0.501961)
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 24.0
 
-[node name="BarBackground" type="ColorRect" parent="HealthBar/BarBackground" unique_id=1608859973]
+[node name="BarBackground" type="ColorRect" parent="HealthBar/BarBackground"]
 modulate = Color(0.14902, 0.14902, 0.14902, 0.501961)
 layout_mode = 0
 offset_left = 16.0
@@ -103,7 +103,7 @@ offset_top = 24.0
 offset_right = 200.0
 offset_bottom = 43.0
 
-[node name="BarFill" type="ColorRect" parent="HealthBar" unique_id=81183709]
+[node name="BarFill" type="ColorRect" parent="HealthBar"]
 modulate = Color(0.2, 0.8, 0.2, 1)
 layout_mode = 0
 offset_left = 2.0
@@ -111,13 +111,13 @@ offset_top = 2.0
 offset_right = 198.0
 offset_bottom = 22.0
 
-[node name="HealthLabel" type="Label" parent="HealthBar" unique_id=1500574987]
+[node name="HealthLabel" type="Label" parent="HealthBar"]
 visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="FuelBar" type="Control" parent="." unique_id=655968704]
+[node name="FuelBar" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 963.0
@@ -125,14 +125,14 @@ offset_top = 55.0
 offset_right = 1003.0
 offset_bottom = 95.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="FuelBar" unique_id=876077789]
+[node name="HBoxContainer" type="HBoxContainer" parent="FuelBar"]
 layout_mode = 0
 offset_left = -13.0
 offset_top = -6.0
 offset_right = 27.0
 offset_bottom = 7.0
 
-[node name="DamageFlash" type="TextureRect" parent="." unique_id=1143314614]
+[node name="DamageFlash" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_left = -3.0
 offset_right = 1153.0
