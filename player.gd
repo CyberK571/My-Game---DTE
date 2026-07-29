@@ -27,8 +27,8 @@ func _ready():
 	await get_tree().create_timer(2.0).timeout
 	DialogueManager.show_dialogue([
 		"You've landed on the island.",
-		"Explore carefully — not everyone here is friendly.",
-		"Find the old man near the house; he may have useful advice.",
+		"You Must Locate the keys and Fight of the Enemy",
+		"Follow Your Minimap towards the Customer, Remember, your main quest is to deliver!",
 	])
 
 	
