@@ -49,9 +49,9 @@ func start_dialogue():
 	if float_tween:
 		float_tween.kill()
 	DialogueManager.show_dialogue([
-		"Ahoy there traveler!",
+		"Ahoy there Captain!",
 		"Thank you for delivering my food!",
-		"I am sure it was not an easy task",
+		"I am sure it was not an easy task.",
 		"Good luck with your adventure ahead.",
 		"Safe travels, captain!"
 	], _on_dialogue_finished)

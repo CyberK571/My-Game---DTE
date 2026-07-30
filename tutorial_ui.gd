@@ -10,7 +10,7 @@ func _ready():
 	if TutorialManager.tutorial_complete:
 		return
 
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	if not TutorialManager.tutorial_active:
 		return
 	$DialogueBox/Label.text = TutorialManager.steps[TutorialManager.current_step]["text"]

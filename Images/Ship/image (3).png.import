@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn8gl1j8ve6u8"
-path="res://.godot/imported/FUG0Z1etS2-HrNkYam_Vfg (1).png-88ce4636b4c2c19ee0bb4f7db6bd15f9.ctex"
+uid="uid://chgut1p6nfhq1"
+path="res://.godot/imported/image (3).png-ca7cf385f6f3406ce8c1de93189618dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Player/FUG0Z1etS2-HrNkYam_Vfg (1).png"
-dest_files=["res://.godot/imported/FUG0Z1etS2-HrNkYam_Vfg (1).png-88ce4636b4c2c19ee0bb4f7db6bd15f9.ctex"]
+source_file="res://Images/Ship/image (3).png"
+dest_files=["res://.godot/imported/image (3).png-ca7cf385f6f3406ce8c1de93189618dc.ctex"]
 
 [params]
 
