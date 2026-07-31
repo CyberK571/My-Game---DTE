@@ -14,4 +14,4 @@ func _on_body_entered(body):
 		body.take_hit()
 	elif body.is_in_group("rock"):
 		body.take_hit()
-	queue_free()
+		queue_free()

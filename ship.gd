@@ -11,6 +11,7 @@ const Cannonball = preload("res://cannon_ball.tscn")
 @onready var cooldown_label = $CannonSpawn/CoolDownUI/ColorRect/Label
 @onready var camera = get_node("/root/LevelRoot/Camera2D")
 
+
 var iso_right = Vector2(TILE_W / 2, TILE_H / 2).normalized()
 var iso_left  = Vector2(-TILE_W / 2, -TILE_H / 2).normalized()
 var iso_down = Vector2(-TILE_W / 2, TILE_H / 2).normalized()
@@ -123,6 +124,7 @@ func shoot():
 	ball.global_position = $CannonSpawn.global_position
 	var mouse_pos = get_global_mouse_position()
 	ball.direction = (mouse_pos - $CannonSpawn.global_position).normalized()
+	print("Ball spawned at: ", ball.global_position, " | Direction: ", ball.direction, " | Mouse: ", mouse_pos)
 	await get_tree().create_timer(2.0).timeout
 	can_shoot = true
 

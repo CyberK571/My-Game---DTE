@@ -51,6 +51,7 @@ func take_hit():
 	if is_dying:
 		return
 	hits += 1
+	print("Enemy took hit! hits = ", hits)
 	_flash_red()
 	if hits >= max_hits:
 		_die()
@@ -61,6 +62,7 @@ func _flash_red():
 	$Sprite2D.modulate = Color(1, 1, 1, 1)
 
 func _die():
+	print("Enemy _die() called")
 	is_dying = true
 	$CollisionShape2D.set_deferred("disabled", true)
 	var tween = create_tween()
