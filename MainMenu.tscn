@@ -65,6 +65,7 @@ text = "Credits
 "
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 1039.0
 offset_top = 23.0

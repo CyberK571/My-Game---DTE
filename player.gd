@@ -26,7 +26,7 @@ func _ready():
 	update_key_label()
 	await get_tree().create_timer(2.0).timeout
 	DialogueManager.show_dialogue([
-		"You've landed on the island.",
+		"You've landed on the island.                                                                                (Enter to Continue)",
 		"You Must Locate the keys and Fight of the Enemy",
 		"Follow Your Minimap towards the Customer, Remember, your main quest is to deliver!",
 	])
