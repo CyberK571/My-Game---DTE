@@ -33,10 +33,10 @@ func _die():
 	tween.tween_property($Sprite2D, "modulate", Color(0, 0, 0, 0), 0.6)
 	tween.tween_property($Shadow, "modulate", Color(0, 0, 0, 0), 0.6)
 	tween.tween_callback(queue_free).set_delay(0.6)
-
+	
 func _on_body_entered(body):
 	if body.is_in_group("enemy"):
 		body.take_hit()
 	elif body.is_in_group("rock"):
 		body.take_hit()
-	queue_free()
+		queue_free()

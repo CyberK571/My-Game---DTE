@@ -12,6 +12,7 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	if body.is_in_group("enemy"):
 		body.take_hit()
+		queue_free()
 	elif body.is_in_group("rock"):
 		body.take_hit()
 		queue_free()
