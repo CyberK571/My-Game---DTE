@@ -3,16 +3,19 @@ extends Control
 
 var slides = [
 	{
-		"image": preload("res://Images/controls/movement.png"),
+		"image": preload("res://Images/Controls/1.png"),
 	},
 	{
-		"image": preload("res://Images/controls/attack.png"),
+		"image": preload("res://Images/Controls/2.png"),
 	},
 	{
-		"image": preload("res://Images/controls/healthandfuel.png"),
+		"image": preload("res://Images/Controls/3.png"),
 	},
 	{
-		"image": preload("res://Images/controls/obstaclesandenemies.png"),
+		"image": preload("res://Images/Controls/4.png"),
+	},
+	{
+		"image": preload("res://Images/Controls/5.png"),
 	},
 ]
 

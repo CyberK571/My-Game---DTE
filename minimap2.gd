@@ -69,11 +69,10 @@ func _flash():
 	_flash()  # loop
 	
 func _setup_enemy_markers():
-	# Find all nodes in the "enemy" group
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	for enemy in enemies:
 		var marker = ColorRect.new()
-		marker.size = Vector2(8, 8)
+		marker.size = Vector2(5, 5)  # was 8, 8 — smaller dot
 		marker.color = Color(1, 0.4, 0, 1)
 		add_child(marker)
 		enemy_markers.append({"node": enemy, "marker": marker})

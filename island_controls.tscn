@@ -5,8 +5,8 @@
 [node name="ControlsScreen" type="Control" unique_id=73441929]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1153.0
+offset_bottom = 649.0
 script = ExtResource("1_tfkbd")
 
 [node name="TextBox" type="PanelContainer" parent="." unique_id=685571724]

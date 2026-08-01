@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var swim_speed: float = 100.0
 @export var kill_radius: float = 80.0
+@export var detection_radius: float = 1000.0
 @export var max_health: int = 1
 var health: int
 var pulse_alpha: float = 0.0
@@ -55,11 +56,17 @@ func _do_pulse():
 func _process(delta):
 	queue_redraw()
 	if player and not is_chomping:
-		var direction = (player.global_position - global_position).normalized()
-		velocity = direction * swim_speed
-		rotation = direction.angle()
-		$AnimatedSprite2D.play("Swim")
-		$Shadow.play("Swim")
+		var distance = global_position.distance_to(player.global_position)
+		if distance <= detection_radius:
+			var direction = (player.global_position - global_position).normalized()
+			velocity = direction * swim_speed
+			rotation = direction.angle()
+			$AnimatedSprite2D.play("Swim")
+			$Shadow.play("Swim")
+		else:
+			velocity = Vector2.ZERO
+			$AnimatedSprite2D.play("Idle")
+			$Shadow.play("Idle")
 	move_and_slide()
 
 

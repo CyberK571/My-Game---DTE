@@ -20,8 +20,8 @@ layout_mode = 2
 
 [node name="Background" type="TextureRect" parent="." unique_id=2003480408]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1156.0
+offset_bottom = 650.0
 
 [node name="SlideImage" type="TextureRect" parent="." unique_id=1139380829]
 layout_mode = 0

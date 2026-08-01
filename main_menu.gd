@@ -11,6 +11,7 @@ func _ready():
 	$VBoxContainer2/"Island Scene".pressed.connect(_on_1st_Island_Scene)
 	$VBoxContainer2/"Second Ocean Scene".pressed.connect(_on_Second_Ocean_Scene)
 	$VBoxContainer2/"Second Island Scene".pressed.connect(_on_Second_Island_Scene)
+	$VBoxContainer2/"Third Ocean Scene".pressed.connect(_on_Third_Ocean_Scene)
 
 func _on_play():
 	get_tree().change_scene_to_file("res://level_root.tscn")
@@ -28,4 +29,7 @@ func _on_Second_Ocean_Scene():
 	Transition.change_scene("res://level_root2.tscn")
 
 func _on_Second_Island_Scene():
+	Transition.change_scene("res://island_root2.tscn")
+	
+func _on_Third_Ocean_Scene():
 	pass

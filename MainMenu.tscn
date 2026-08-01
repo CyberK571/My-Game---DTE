@@ -65,6 +65,7 @@ text = "Credits
 "
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=2009381267]
+visible = false
 layout_mode = 0
 offset_left = 1039.0
 offset_top = 23.0
@@ -82,3 +83,7 @@ text = "2nd Ocean"
 [node name="Second Island Scene" type="Button" parent="VBoxContainer2" unique_id=540226163]
 layout_mode = 2
 text = "2nd Island"
+
+[node name="Third Ocean Scene" type="Button" parent="VBoxContainer2" unique_id=836297987]
+layout_mode = 2
+text = "3rd Ocean"

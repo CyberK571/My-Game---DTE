@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://xpv3q3qhmw00" path="res://Images/2nd Ocean/waterC_spritesheet.png" id="3_3ghio"]
 [ext_resource type="PackedScene" uid="uid://bohxnv2u4c5lk" path="res://minimap(Ocean2).tscn" id="4_3ghio"]
 [ext_resource type="PackedScene" uid="uid://depmyt3o6ivar" path="res://ship.tscn" id="4_pic5m"]
-[ext_resource type="Script" uid="uid://cseu1evqckqnn" path="res://island_trigger.gd" id="6_wsm47"]
+[ext_resource type="Script" uid="uid://ccm3qyqv0it60" path="res://island_trigger2.gd" id="5_pic5m"]
 [ext_resource type="Texture2D" uid="uid://bbayc0ttmxaqh" path="res://Images/1st Ocean/Untitled - May 28, 2026 at 14.04.28.png" id="7_vs0tk"]
 [ext_resource type="PackedScene" uid="uid://bmybep7hdpc55" path="res://rock.tscn" id="9_4kn5g"]
 [ext_resource type="PackedScene" uid="uid://dd5r4m3drvmqp" path="res://rock_3.tscn" id="10_7ingq"]
@@ -83,7 +83,7 @@ position_smoothing_enabled = true
 position = Vector2(-2964, -647)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("6_wsm47")
+script = ExtResource("5_pic5m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Island Trigger" unique_id=608877967]
 z_index = 1
@@ -101,13 +101,84 @@ position = Vector2(-3407, -2517)
 scale = Vector2(2.20313, 2.23307)
 texture = ExtResource("7_vs0tk")
 
-[node name="FishEnemy" parent="." unique_id=457193780 instance=ExtResource("16_3ghio")]
-position = Vector2(-2503, -1073)
+[node name="Control Fish Enemy" parent="." unique_id=457193780 instance=ExtResource("16_3ghio")]
+position = Vector2(-5831, 547.9999)
 rotation = 0.7435182
 
-[node name="FishEnemy2" parent="." unique_id=1029201276 instance=ExtResource("16_3ghio")]
-position = Vector2(-1309, -380)
-rotation = 0.7435182
+[node name="FishEnemy1" parent="Control Fish Enemy" unique_id=1029201276 instance=ExtResource("16_3ghio")]
+position = Vector2(2700.4604, -3743.9524)
+
+[node name="FishEnemy2" parent="Control Fish Enemy" unique_id=1978863538 instance=ExtResource("16_3ghio")]
+position = Vector2(2297.2935, -3394.952)
+
+[node name="FishEnemy3" parent="Control Fish Enemy" unique_id=2127482318 instance=ExtResource("16_3ghio")]
+position = Vector2(1606.7183, -2993.5918)
+
+[node name="FishEnemy4" parent="Control Fish Enemy" unique_id=808073488 instance=ExtResource("16_3ghio")]
+position = Vector2(1768.0771, -3669.0793)
+
+[node name="FishEnemy5" parent="Control Fish Enemy" unique_id=327449158 instance=ExtResource("16_3ghio")]
+position = Vector2(2157.3054, -4327.2334)
+
+[node name="FishEnemy6" parent="Control Fish Enemy" unique_id=1967740573 instance=ExtResource("16_3ghio")]
+position = Vector2(2342.5532, -3951.4524)
+
+[node name="FishEnemy7" parent="Control Fish Enemy" unique_id=1074610357 instance=ExtResource("16_3ghio")]
+position = Vector2(1267.2709, -3337.6174)
+
+[node name="FishEnemy8" parent="Control Fish Enemy" unique_id=1679489643 instance=ExtResource("16_3ghio")]
+position = Vector2(1632.908, -4192.8003)
+
+[node name="FishEnemy9" parent="Control Fish Enemy" unique_id=1633825364 instance=ExtResource("16_3ghio")]
+position = Vector2(734.44165, -2900.6301)
+
+[node name="FishEnemy10" parent="Control Fish Enemy" unique_id=1297184732 instance=ExtResource("16_3ghio")]
+position = Vector2(1179.8455, -3970.4507)
+
+[node name="FishEnemy11" parent="Control Fish Enemy" unique_id=961915423 instance=ExtResource("16_3ghio")]
+position = Vector2(626.365, -3344.658)
+
+[node name="FishEnemy12" parent="Control Fish Enemy" unique_id=350977583 instance=ExtResource("16_3ghio")]
+position = Vector2(-315.8418, -2562.4692)
+
+[node name="FishEnemy13" parent="Control Fish Enemy" unique_id=1501009944 instance=ExtResource("16_3ghio")]
+position = Vector2(52.85666, -3541.376)
+
+[node name="FishEnemy14" parent="Control Fish Enemy" unique_id=1536914071 instance=ExtResource("16_3ghio")]
+position = Vector2(-63.6613, -3023.9553)
+
+[node name="FishEnemy15" parent="Control Fish Enemy" unique_id=1985290716 instance=ExtResource("16_3ghio")]
+position = Vector2(-797.9984, -2794.2842)
+
+[node name="FishEnemy16" parent="Control Fish Enemy" unique_id=1858905982 instance=ExtResource("16_3ghio")]
+position = Vector2(-730.6804, -3269.1792)
+
+[node name="FishEnemy17" parent="Control Fish Enemy" unique_id=584927961 instance=ExtResource("16_3ghio")]
+position = Vector2(-1247.4127, -2439.4365)
+
+[node name="FishEnemy18" parent="Control Fish Enemy" unique_id=120027180 instance=ExtResource("16_3ghio")]
+position = Vector2(-1300.9928, -2917.2747)
+
+[node name="FishEnemy19" parent="Control Fish Enemy" unique_id=1508580240 instance=ExtResource("16_3ghio")]
+position = Vector2(-1359.818, -3371.2695)
+
+[node name="FishEnemy21" parent="Control Fish Enemy" unique_id=988893961 instance=ExtResource("16_3ghio")]
+position = Vector2(1227.818, -2565.0166)
+
+[node name="FishEnemy22" parent="Control Fish Enemy" unique_id=42947774 instance=ExtResource("16_3ghio")]
+position = Vector2(463.02948, -2402.44)
+
+[node name="FishEnemy23" parent="Control Fish Enemy" unique_id=1265470521 instance=ExtResource("16_3ghio")]
+position = Vector2(-669.99347, -2099.5938)
+
+[node name="FishEnemy25" parent="Control Fish Enemy" unique_id=1742596851 instance=ExtResource("16_3ghio")]
+position = Vector2(-978.0516, -3969.579)
+
+[node name="FishEnemy26" parent="Control Fish Enemy" unique_id=1782731186 instance=ExtResource("16_3ghio")]
+position = Vector2(27.64508, -4105.075)
+
+[node name="FishEnemy27" parent="Control Fish Enemy" unique_id=50180886 instance=ExtResource("16_3ghio")]
+position = Vector2(747.0312, -4349.5283)
 
 [node name="Control_Rock - 1" parent="." unique_id=1879484368 instance=ExtResource("9_4kn5g")]
 position = Vector2(-4207, 1308)
@@ -359,7 +430,7 @@ position = Vector2(531.4, -318.6)
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Rock6" parent="Control_Rock -3" unique_id=1009660825 instance=ExtResource("9_4kn5g")]
-position = Vector2(692.39996, -314)
+position = Vector2(700.60004, -305.4)
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Rock10" parent="Control_Rock -3" unique_id=1150246935 instance=ExtResource("9_4kn5g")]
@@ -570,7 +641,10 @@ position = Vector2(162.00002, -457.00003)
 scale = Vector2(1.1999999, 1.1999999)
 
 [node name="Fuel" parent="." unique_id=494869862 instance=ExtResource("12_fs26v")]
-position = Vector2(-1603, -835.00006)
+position = Vector2(-1668, -802)
+
+[node name="Fuel2" parent="." unique_id=1217602148 instance=ExtResource("12_fs26v")]
+position = Vector2(-4026, -2047)
 
 [node name="Ship" parent="." unique_id=1353797324 groups=["player"] instance=ExtResource("4_pic5m")]
 position = Vector2(1056.0001, 652.00006)
