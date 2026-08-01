@@ -1,31 +1,35 @@
-[gd_scene format=3 uid="uid://bmybep7hdpc55"]
+[gd_scene format=3 uid="uid://bc40offthehbw"]
 
-[ext_resource type="Script" uid="uid://b7uwtsbjy0exs" path="res://rock.gd" id="1_68h2w"]
-[ext_resource type="Texture2D" uid="uid://djaf2abiqfxfl" path="res://Images/1st Ocean/Rock Pile 3 - AZURE - small.PNG" id="2_wecdg"]
+[ext_resource type="Script" uid="uid://b7uwtsbjy0exs" path="res://rock.gd" id="1_32jlh"]
+[ext_resource type="Texture2D" uid="uid://djaf2abiqfxfl" path="res://Images/1st Ocean/Rock Pile 3 - AZURE - small.PNG" id="2_n3kn7"]
+[ext_resource type="Texture2D" uid="uid://4yw0xxs45nni" path="res://Images/Rock Pile 3 - BEIGE - BIG.PNG" id="3_n3kn7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_46y1q"]
 radius = 14.1421
 
 [node name="Rock" type="StaticBody2D" unique_id=2131455104]
-scale = Vector2(5, 5)
+scale = Vector2(6, 6)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_68h2w")
+script = ExtResource("1_32jlh")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1719163862]
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(1, 1, 1, 0.313726)
 texture_filter = 1
 position = Vector2(1.5, 1.5)
-texture = ExtResource("2_wecdg")
+texture = ExtResource("2_n3kn7")
 flip_h = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1359839195]
 texture_filter = 1
-texture = ExtResource("2_wecdg")
+position = Vector2(0.20000002, 1.2)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_n3kn7")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1593286237]
+visible = false
 position = Vector2(-1, 2)
 rotation = 0.380172
 scale = Vector2(1.28, 1)

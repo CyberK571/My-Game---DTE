@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://bohxnv2u4c5lk"]
+
+[ext_resource type="Script" uid="uid://6n1wedjycuqf" path="res://minimap2.gd" id="1_qhap7"]
+[ext_resource type="Texture2D" uid="uid://dn8gl1j8ve6u8" path="res://Images/Player/FUG0Z1etS2-HrNkYam_Vfg (1).png" id="2_cwrjl"]
+[ext_resource type="Texture2D" uid="uid://baxr6mrvqhogg" path="res://Images/Ship/Colorful-Pixelated-Graphic-Element-PNG.png" id="3_ou8bv"]
+[ext_resource type="Texture2D" uid="uid://ceipx3oa2rnhx" path="res://Images/Ship/Untitled_design__1_-removebg-preview.png" id="4_nhgcu"]
+[ext_resource type="Texture2D" uid="uid://cgbd5neo5d5ri" path="res://Images/Ship/Untitled_design__3_-removebg-preview.png" id="5_krro2"]
+[ext_resource type="Texture2D" uid="uid://yf2vk3osu3ip" path="res://Images/Ship/360_F_484785645_D98p9gFWxxs9PX49kEVN1cH0ewNjMNE8-removebg-preview (1).png" id="6_g1hao"]
+[ext_resource type="Texture2D" uid="uid://d2qvn3dqmlc50" path="res://Images/Player/d5ypmf1-cea5d4a1-2934-4c5f-be24-0c1393198216.png" id="7_sdpnj"]
+
+[node name="MinimapHUD" type="CanvasLayer" unique_id=1578761382]
+
+[node name="Panel" type="Panel" parent="." unique_id=483751428]
+offset_left = 28.0
+offset_top = 22.0
+offset_right = 208.0
+offset_bottom = 142.0
+script = ExtResource("1_qhap7")
+
+[node name="Shadow" type="TextureRect" parent="Panel" unique_id=2107604006]
+modulate = Color(0.605002, 0.279747, 0, 1)
+texture_filter = 1
+layout_mode = 1
+offset_left = -57.0
+offset_top = -69.0
+offset_right = 218.0
+offset_bottom = 171.0
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_cwrjl")
+expand_mode = 1
+
+[node name="MapImage" type="TextureRect" parent="Panel" unique_id=396438328]
+texture_filter = 1
+layout_mode = 1
+offset_left = -50.0
+offset_top = -63.0
+offset_right = 225.0
+offset_bottom = 177.0
+texture = ExtResource("2_cwrjl")
+expand_mode = 1
+
+[node name="BoatMarker" type="ColorRect" parent="Panel" unique_id=364629190]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1245314304]
+texture_filter = 1
+position = Vector2(68, 57)
+scale = Vector2(0.012, 0.012)
+texture = ExtResource("3_ou8bv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=101745081]
+modulate = Color(1, 1, 1, 0.490196)
+texture_filter = 1
+position = Vector2(119, 86)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("4_nhgcu")
+region_enabled = true
+region_rect = Rect2(0, 6.90657, 666.042, 368.093)
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=222788868]
+modulate = Color(1, 1, 1, 0.490196)
+texture_filter = 1
+position = Vector2(119, 86)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_krro2")
+region_enabled = true
+region_rect = Rect2(0, 6.90657, 666.042, 368.093)
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=2058836447]
+texture_filter = 1
+position = Vector2(74, 114)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("6_g1hao")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=763687122]
+texture_filter = 1
+position = Vector2(164, 53)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("6_g1hao")
+
+[node name="HealthBar" type="Control" parent="." unique_id=992401424]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 931.0
+offset_top = 23.0
+offset_right = 1131.0
+offset_bottom = 47.0
+
+[node name="BarBackground" type="ColorRect" parent="HealthBar" unique_id=206723171]
+modulate = Color(0.14902, 0.14902, 0.14902, 0.501961)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 24.0
+
+[node name="BarBackground" type="ColorRect" parent="HealthBar/BarBackground" unique_id=1209997189]
+modulate = Color(0.14902, 0.14902, 0.14902, 0.501961)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 200.0
+offset_bottom = 43.0
+
+[node name="BarFill" type="ColorRect" parent="HealthBar" unique_id=930913373]
+modulate = Color(0.2, 0.8, 0.2, 1)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 198.0
+offset_bottom = 22.0
+
+[node name="HealthLabel" type="Label" parent="HealthBar" unique_id=1324087873]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="FuelBar" type="Control" parent="." unique_id=979049513]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 963.0
+offset_top = 55.0
+offset_right = 1003.0
+offset_bottom = 95.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FuelBar" unique_id=1125625046]
+layout_mode = 0
+offset_left = -13.0
+offset_top = -6.0
+offset_right = 27.0
+offset_bottom = 7.0
+
+[node name="DamageFlash" type="TextureRect" parent="." unique_id=1956782602]
+modulate = Color(1, 1, 1, 0)
+offset_left = -3.0
+offset_right = 1153.0
+offset_bottom = 654.0
+texture = ExtResource("7_sdpnj")

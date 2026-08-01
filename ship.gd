@@ -117,7 +117,7 @@ func die():
 
 func shoot():
 	can_shoot = false
-	cooldown_remaining = 2.0
+	cooldown_remaining = 1.0
 	var ball = Cannonball.instantiate()
 	get_parent().add_child(ball)
 	TutorialManager.report_action("shot")
@@ -125,7 +125,7 @@ func shoot():
 	var mouse_pos = get_global_mouse_position()
 	ball.direction = (mouse_pos - $CannonSpawn.global_position).normalized()
 	print("Ball spawned at: ", ball.global_position, " | Direction: ", ball.direction, " | Mouse: ", mouse_pos)
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	can_shoot = true
 
 

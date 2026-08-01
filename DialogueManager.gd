@@ -8,6 +8,7 @@ var lines: Array = []
 var current_index := 0
 var is_active := false
 var on_finished: Callable = Callable()
+var second_ocean_intro_shown := false
 
 func show_dialogue(dialogue_lines: Array, on_finish: Callable = Callable()):
 	lines = dialogue_lines

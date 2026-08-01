@@ -29,15 +29,19 @@ func take_hit():
 	pulse_timer.stop()
 	queue_redraw()
 	$AnimatedSprite2D.play("Hurt")
+	$Shadow.play("Hurt")
 	await $AnimatedSprite2D.animation_finished
 	die()
 
 func die():
 	velocity = Vector2.ZERO
 	$AnimatedSprite2D.play("Die")
+	$Shadow.play("Die")
 	await $AnimatedSprite2D.animation_finished
 	var tween = create_tween()
+	tween.set_parallel(true)
 	tween.tween_property($AnimatedSprite2D, "modulate:a", 0.0, 0.6)
+	tween.tween_property($Shadow, "modulate:a", 0.0, 0.6)
 	await tween.finished
 	queue_free()
 
@@ -55,7 +59,9 @@ func _process(delta):
 		velocity = direction * swim_speed
 		rotation = direction.angle()
 		$AnimatedSprite2D.play("Swim")
+		$Shadow.play("Swim")
 	move_and_slide()
+
 
 func _on_hit_box_body_entered(body):
 	if body == player and not is_chomping:
@@ -72,8 +78,10 @@ func explode():
 	pulse_alpha = 0.0
 	pulse_timer.stop()
 	queue_redraw()
-	$AnimatedSprite2D.scale = Vector2(5.0, 5.0)  # bigger just for the explosion
+	$AnimatedSprite2D.scale = Vector2(5.0, 5.0)
+	$Shadow.scale = Vector2(5.0, 5.0)
 	$AnimatedSprite2D.play("Explosion")
+	$Shadow.play("Explosion")
 	await $AnimatedSprite2D.animation_finished
 	queue_free()
 	

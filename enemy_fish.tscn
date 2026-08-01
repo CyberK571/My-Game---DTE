@@ -163,15 +163,27 @@ radius = 79.716125
 [node name="FishEnemy" type="CharacterBody2D" unique_id=457193780 groups=["enemy", "fish_enemy"]]
 script = ExtResource("1_shn0r")
 
+[node name="Shadow" type="AnimatedSprite2D" parent="." unique_id=2039316542]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.19607843)
+texture_filter = 1
+position = Vector2(7, -0.9999999)
+rotation = -0.0060889716
+scale = Vector2(2.9999998, 3.1202414)
+sprite_frames = SubResource("SpriteFrames_niml6")
+animation = &"Idle"
+flip_h = true
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=282378667]
 texture_filter = 1
 rotation = -0.006088972
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_niml6")
-animation = &"Die"
+animation = &"Idle"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2131745927]
+visible = false
 scale = Vector2(1, 0.72)
 shape = SubResource("CircleShape2D_ikmfe")
 
@@ -180,5 +192,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=159956889]
+visible = false
 scale = Vector2(1.4399985, 0.9473668)
 shape = SubResource("CircleShape2D_kxa2d")
