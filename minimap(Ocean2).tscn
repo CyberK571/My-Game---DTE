@@ -8,6 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://yf2vk3osu3ip" path="res://Images/Ship/360_F_484785645_D98p9gFWxxs9PX49kEVN1cH0ewNjMNE8-removebg-preview (1).png" id="6_g1hao"]
 [ext_resource type="Texture2D" uid="uid://d2qvn3dqmlc50" path="res://Images/Player/d5ypmf1-cea5d4a1-2934-4c5f-be24-0c1393198216.png" id="7_sdpnj"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhap7"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.14117648, 0.14117648, 0.14117648, 0.4745098)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 5
+
 [node name="MinimapHUD" type="CanvasLayer" unique_id=1578761382]
 
 [node name="Panel" type="Panel" parent="." unique_id=483751428]
@@ -138,3 +150,40 @@ offset_left = -3.0
 offset_right = 1153.0
 offset_bottom = 654.0
 texture = ExtResource("7_sdpnj")
+
+[node name="PauseButton" type="Button" parent="." unique_id=1133354969]
+custom_minimum_size = Vector2(64, 64)
+offset_left = 18.0
+offset_top = 564.0
+offset_right = 82.0
+offset_bottom = 630.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_qhap7")
+text = "II"
+
+[node name="PauseOverlay" type="Control" parent="." unique_id=1771982391]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = 485.0
+offset_top = 328.0
+offset_right = 493.0
+offset_bottom = 336.0
+
+[node name="ResumeButton" type="Button" parent="PauseOverlay" unique_id=1441419595]
+layout_mode = 0
+offset_left = -144.0
+offset_top = -93.0
+offset_right = 318.0
+offset_bottom = 3.0
+theme_override_font_sizes/font_size = 64
+text = "RESUME GAME"
+
+[node name="MainMenuButton" type="Button" parent="PauseOverlay" unique_id=846410440]
+layout_mode = 0
+offset_left = -287.0
+offset_top = 12.0
+offset_right = 472.0
+offset_bottom = 108.0
+theme_override_font_sizes/font_size = 64
+text = "RETURN TO MAIN MENU"

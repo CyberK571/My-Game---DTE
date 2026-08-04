@@ -32,6 +32,8 @@
 [ext_resource type="PackedScene" uid="uid://q2w21ba7845s" path="res://key.tscn" id="26_pqp2r"]
 [ext_resource type="Script" uid="uid://p1d7bjw4gjv8" path="res://interact_area.gd" id="26_uwto8"]
 [ext_resource type="PackedScene" uid="uid://dvv5f2ddeovsi" path="res://boss_ramen_warrior.tscn" id="29_7l84m"]
+[ext_resource type="Texture2D" uid="uid://dtyn4b7q8q7i4" path="res://Images/1st Island/Untitled - 04 August 2026 at 21.18.25.png" id="33_61fmk"]
+[ext_resource type="Texture2D" uid="uid://cqoeg5p8vf47h" path="res://Images/1st Island/Untitled - 04 August 2026 at 22.09.52.png" id="34_lhqqy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ne40f"]
 texture = ExtResource("1_3bpgs")
@@ -1055,6 +1057,18 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_3bpgs"]
 radius = 10.0499
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7t5c"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.14117648, 0.14117648, 0.14117648, 0.4745098)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 5
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_niml6"]
 radius = 12.0363
 
@@ -1204,6 +1218,7 @@ shape = SubResource("CircleShape2D_3bpgs")
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1860831152]
 
 [node name="MinimapHUD" type="Control" parent="Player" unique_id=110297711]
+z_index = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -1270,6 +1285,50 @@ position = Vector2(-146.667, -89.6667)
 rotation = 1.04546
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("22_61fmk")
+
+[node name="PauseButton" type="Button" parent="Player/MinimapHUD" unique_id=1516102065]
+z_index = 7
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = -188.66667
+offset_top = 79.33333
+offset_right = -124.66667
+offset_bottom = 145.33333
+scale = Vector2(0.4, 0.4)
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_c7t5c")
+text = "II"
+
+[node name="PauseOverlay" type="Control" parent="Player/MinimapHUD" unique_id=1917077636]
+process_mode = 3
+anchors_preset = 0
+offset_left = 28.333313
+offset_top = -23.333344
+offset_right = 36.333313
+offset_bottom = -15.3333435
+scale = Vector2(0.6, 0.6)
+
+[node name="ResumeButton" type="Button" parent="Player/MinimapHUD/PauseOverlay" unique_id=863639716]
+z_index = 7
+layout_mode = 0
+offset_left = -187.22226
+offset_top = -14.4444275
+offset_right = 274.77774
+offset_bottom = 81.55557
+scale = Vector2(0.6, 0.6)
+theme_override_font_sizes/font_size = 64
+text = "RESUME GAME"
+
+[node name="MainMenuButton" type="Button" parent="Player/MinimapHUD/PauseOverlay" unique_id=1942204175]
+z_index = 7
+layout_mode = 0
+offset_left = -268.88882
+offset_top = 48.333347
+offset_right = 490.11118
+offset_bottom = 144.33334
+scale = Vector2(0.6, 0.6)
+theme_override_font_sizes/font_size = 64
+text = "RETURN TO MAIN MENU"
 
 [node name="AttackArea" type="Area2D" parent="Player" unique_id=1171411750]
 monitoring = false
@@ -1441,5 +1500,74 @@ position = Vector2(-365, -1163)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1571445375]
 position = Vector2(2416, 656)
 shape = SubResource("RectangleShape2D_niml6")
+
+[node name="Palm Tree Shadow" type="Sprite2D" parent="." unique_id=1512094983]
+modulate = Color(0, 0, 0, 0.2509804)
+texture_filter = 1
+position = Vector2(565, 397.00003)
+rotation = -3.1388695
+scale = Vector2(0.5, 0.3801123)
+texture = ExtResource("33_61fmk")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 555.5204, 382.78748)
+
+[node name="Palm Tree1" type="Sprite2D" parent="." unique_id=1459053284]
+texture_filter = 1
+position = Vector2(583.00946, 258.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_61fmk")
+
+[node name="Palm Tree Shadow2" type="Sprite2D" parent="." unique_id=1287251606]
+modulate = Color(0, 0, 0, 0.2509804)
+texture_filter = 1
+position = Vector2(-232.0528, -133.99991)
+rotation = -3.1388695
+scale = Vector2(0.5, 0.3801123)
+texture = ExtResource("33_61fmk")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 555.5204, 382.78748)
+
+[node name="Palm Tree2" type="Sprite2D" parent="." unique_id=1983027599]
+texture_filter = 1
+position = Vector2(-214.04333, -272.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_61fmk")
+
+[node name="Palm Tree Shadow3" type="Sprite2D" parent="." unique_id=593090513]
+modulate = Color(0, 0, 0, 0.2509804)
+texture_filter = 1
+position = Vector2(-565.0528, 395.00006)
+rotation = -3.1388695
+scale = Vector2(0.5, 0.3801123)
+texture = ExtResource("33_61fmk")
+region_enabled = true
+region_rect = Rect2(0, 0, 555.5204, 382.78748)
+
+[node name="Palm Tree3" type="Sprite2D" parent="." unique_id=1022974654]
+texture_filter = 1
+position = Vector2(-585, 248)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_61fmk")
+flip_h = true
+
+[node name="Bush Shadow" type="Sprite2D" parent="." unique_id=793851195]
+modulate = Color(0, 0, 0, 0.23921569)
+texture_filter = 1
+position = Vector2(820, 388.00003)
+rotation = 3.1348321
+scale = Vector2(0.20422037, 0.18181664)
+texture = ExtResource("34_lhqqy")
+region_enabled = true
+region_rect = Rect2(630.3798, 376.67084, 560.64923, 472.271)
+
+[node name="Bush1" type="Sprite2D" parent="." unique_id=1842156408]
+texture_filter = 1
+position = Vector2(815, 384)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("34_lhqqy")
+region_enabled = true
+region_rect = Rect2(630.3798, 376.67084, 560.64923, 472.271)
 
 [connection signal="area_entered" from="Player/AttackArea" to="Player" method="_on_attack_area_area_entered"]

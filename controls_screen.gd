@@ -33,6 +33,7 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
+		get_viewport().set_input_as_handled()
 		current_slide += 1
 		if current_slide >= slides.size():
 			var tween = create_tween()

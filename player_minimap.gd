@@ -2,6 +2,8 @@ extends Control
 
 @onready var player_dot = $TextureRect/ColorRect
 @onready var player = get_node("/root/IslandRoot/Player")
+@onready var pause_button = $PauseButton
+@onready var overlay = $PauseOverlay
 
 # Define your island bounds (adjust to match your TileMapLayer size)
 const MAP_MIN = Vector2(-3000, -4500)
@@ -15,6 +17,26 @@ var enemy_markers = []  # list of {"node": enemy, "marker": ColorRect}
 func _ready():
 	_setup_enemy_markers()
 	_flash_minimap_icons()
+	pause_button.pressed.connect(_on_pause_pressed)
+	$"PauseOverlay/ResumeButton".pressed.connect(_on_resume_pressed)
+	$"PauseOverlay/MainMenuButton".pressed.connect(_on_main_menu_pressed)
+	overlay.hide()
+
+func _on_pause_pressed():
+	get_tree().paused = true
+	overlay.show()
+	pause_button.hide()
+	
+func _on_resume_pressed():
+	get_tree().paused = false
+	overlay.hide()
+	pause_button.show()
+	
+func _on_main_menu_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://MainMenu.tscn")
+	
+
 
 func _process(delta):
 	var pos = player.global_position

@@ -8,6 +8,8 @@ extends Panel
 @onready var health_label = $"../HealthBar/HealthLabel"
 @onready var fuel_bar = $"../FuelBar/HBoxContainer"
 @onready var damage_flash = $"../DamageFlash"
+@onready var pause_button = $"../PauseButton"
+@onready var overlay = $"../PauseOverlay"
 
 var boat: Node2D
 var enemy_data: Array = []
@@ -27,7 +29,26 @@ func _ready():
 	_setup_enemy_markers()
 	_update_bar()
 	_setup_fuel_bar()
+	pause_button.pressed.connect(_on_pause_pressed)
+	$"../PauseOverlay/ResumeButton".pressed.connect(_on_resume_pressed)
+	$"../PauseOverlay/MainMenuButton".pressed.connect(_on_main_menu_pressed)
+	overlay.hide()
 	
+func _on_pause_pressed():
+	get_tree().paused = true
+	overlay.show()
+	pause_button.hide()
+	
+func _on_resume_pressed():
+	get_tree().paused = false
+	overlay.hide()
+	pause_button.show()
+
+func _on_main_menu_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://MainMenu.tscn")
+	
+
 func _setup_fuel_bar():
 	for i in max_fuel:
 		var seg = ColorRect.new()
