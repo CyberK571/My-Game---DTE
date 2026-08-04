@@ -1,16 +1,16 @@
-[gd_scene format=3 uid="uid://wv8yefn0gxkv"]
+[gd_scene load_steps=3 format=3 uid="uid://wv8yefn0gxkv"]
 
 [ext_resource type="Script" uid="uid://m5cjnyrg0yx0" path="res://main_menu.gd" id="1_eiy7p"]
 [ext_resource type="Texture2D" uid="uid://drt1kfbo5157x" path="res://Images/Menu/Snack Supreme and the Seven Seas (8).png" id="2_eiy7p"]
 
-[node name="MainMenu" type="Control" unique_id=1347863009]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 script = ExtResource("1_eiy7p")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=546662460]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = -8.0
 offset_top = -9.0
@@ -19,7 +19,7 @@ offset_bottom = 31.0
 scale = Vector2(29.16, 16.6)
 color = Color(0, 0, 0, 1)
 
-[node name="Background" type="TextureRect" parent="." unique_id=315463687]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -27,7 +27,7 @@ scale = Vector2(0.6, 0.6)
 mouse_filter = 2
 texture = ExtResource("2_eiy7p")
 
-[node name="PlayButton2" type="Button" parent="." unique_id=560514445]
+[node name="PlayButton2" type="Button" parent="."]
 layout_mode = 0
 offset_left = 412.0
 offset_top = 293.0
@@ -38,7 +38,7 @@ theme_override_font_sizes/font_size = 60
 text = "
 "
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=508050836]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 texture_filter = 1
 layout_mode = 0
 offset_left = 455.0
@@ -47,42 +47,42 @@ offset_right = 708.0
 offset_bottom = 607.0
 scale = Vector2(0.9, 0.829)
 
-[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=51387176]
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Play
 "
 
-[node name="ControlsButton" type="Button" parent="VBoxContainer" unique_id=32859736]
+[node name="ControlsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Controls"
 
-[node name="CreditsButton" type="Button" parent="VBoxContainer" unique_id=1460447761]
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Credits
 "
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=2009381267]
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 1039.0
 offset_top = 23.0
 offset_right = 1130.0
 offset_bottom = 124.0
 
-[node name="Island Scene" type="Button" parent="VBoxContainer2" unique_id=353363240]
+[node name="Island Scene" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 text = "1st Island"
 
-[node name="Second Ocean Scene" type="Button" parent="VBoxContainer2" unique_id=280537100]
+[node name="Second Ocean Scene" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 text = "2nd Ocean"
 
-[node name="Second Island Scene" type="Button" parent="VBoxContainer2" unique_id=540226163]
+[node name="Second Island Scene" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 text = "2nd Island"
 
-[node name="Third Ocean Scene" type="Button" parent="VBoxContainer2" unique_id=836297987]
+[node name="Third Ocean Scene" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 text = "3rd Ocean"

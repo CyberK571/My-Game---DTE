@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://br0jv7c7bxw44"]
+[gd_scene load_steps=9 format=3 uid="uid://br0jv7c7bxw44"]
 
 [ext_resource type="Script" uid="uid://c2trrqdvn5fk3" path="res://minimap.gd" id="1_cvo86"]
 [ext_resource type="Texture2D" uid="uid://dn8gl1j8ve6u8" path="res://Images/Player/FUG0Z1etS2-HrNkYam_Vfg (1).png" id="1_yfyr0"]
@@ -13,23 +13,23 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.14117648, 0.14117648, 0.14117648, 0.4745098)
+bg_color = Color(0.141176, 0.141176, 0.141176, 0.47451)
 corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 corner_detail = 5
 
-[node name="MinimapHUD" type="CanvasLayer" unique_id=473385067]
+[node name="MinimapHUD" type="CanvasLayer"]
 
-[node name="Panel" type="Panel" parent="." unique_id=100185020]
+[node name="Panel" type="Panel" parent="."]
 offset_left = 28.0
 offset_top = 22.0
 offset_right = 208.0
 offset_bottom = 142.0
 script = ExtResource("1_cvo86")
 
-[node name="Shadow" type="TextureRect" parent="Panel" unique_id=1745416638]
+[node name="Shadow" type="TextureRect" parent="Panel"]
 modulate = Color(0.605002, 0.279747, 0, 1)
 texture_filter = 1
 layout_mode = 1
@@ -41,7 +41,7 @@ scale = Vector2(1.05, 1.05)
 texture = ExtResource("1_yfyr0")
 expand_mode = 1
 
-[node name="MapImage" type="TextureRect" parent="Panel" unique_id=92061836]
+[node name="MapImage" type="TextureRect" parent="Panel"]
 texture_filter = 1
 layout_mode = 1
 offset_left = -50.0
@@ -51,19 +51,19 @@ offset_bottom = 177.0
 texture = ExtResource("1_yfyr0")
 expand_mode = 1
 
-[node name="BoatMarker" type="ColorRect" parent="Panel" unique_id=2035135233]
+[node name="BoatMarker" type="ColorRect" parent="Panel"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(1, 0, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1307325025]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(60, 54)
 scale = Vector2(0.012, 0.012)
 texture = ExtResource("3_0pgu0")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1734047759]
+[node name="Sprite2D2" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.490196)
 texture_filter = 1
 position = Vector2(119, 86)
@@ -72,7 +72,7 @@ texture = ExtResource("4_4iigp")
 region_enabled = true
 region_rect = Rect2(0, 6.90657, 666.042, 368.093)
 
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=91869127]
+[node name="Sprite2D3" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.490196)
 texture_filter = 1
 position = Vector2(119, 86)
@@ -81,19 +81,19 @@ texture = ExtResource("5_2q82h")
 region_enabled = true
 region_rect = Rect2(0, 6.90657, 666.042, 368.093)
 
-[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=810935517]
+[node name="Sprite2D4" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(74, 114)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("5_3lsvx")
 
-[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=656634170]
+[node name="Sprite2D5" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(164, 53)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("5_3lsvx")
 
-[node name="HealthBar" type="Control" parent="." unique_id=1838277341]
+[node name="HealthBar" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 931.0
@@ -101,13 +101,13 @@ offset_top = 23.0
 offset_right = 1131.0
 offset_bottom = 47.0
 
-[node name="BarBackground" type="ColorRect" parent="HealthBar" unique_id=1097361194]
+[node name="BarBackground" type="ColorRect" parent="HealthBar"]
 modulate = Color(0.14902, 0.14902, 0.14902, 0.501961)
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 24.0
 
-[node name="BarBackground" type="ColorRect" parent="HealthBar/BarBackground" unique_id=1543087208]
+[node name="BarBackground" type="ColorRect" parent="HealthBar/BarBackground"]
 modulate = Color(0.14902, 0.14902, 0.14902, 0.501961)
 layout_mode = 0
 offset_left = 16.0
@@ -115,7 +115,7 @@ offset_top = 24.0
 offset_right = 200.0
 offset_bottom = 43.0
 
-[node name="BarFill" type="ColorRect" parent="HealthBar" unique_id=2117066604]
+[node name="BarFill" type="ColorRect" parent="HealthBar"]
 modulate = Color(0.2, 0.8, 0.2, 1)
 layout_mode = 0
 offset_left = 2.0
@@ -123,13 +123,13 @@ offset_top = 2.0
 offset_right = 198.0
 offset_bottom = 22.0
 
-[node name="HealthLabel" type="Label" parent="HealthBar" unique_id=390096578]
+[node name="HealthLabel" type="Label" parent="HealthBar"]
 visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="FuelBar" type="Control" parent="." unique_id=1598578787]
+[node name="FuelBar" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 963.0
@@ -137,21 +137,21 @@ offset_top = 55.0
 offset_right = 1003.0
 offset_bottom = 95.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="FuelBar" unique_id=1908639937]
+[node name="HBoxContainer" type="HBoxContainer" parent="FuelBar"]
 layout_mode = 0
 offset_left = -13.0
 offset_top = -6.0
 offset_right = 27.0
 offset_bottom = 7.0
 
-[node name="DamageFlash" type="TextureRect" parent="." unique_id=1103032524]
+[node name="DamageFlash" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_left = -3.0
 offset_right = 1153.0
 offset_bottom = 654.0
 texture = ExtResource("4_uxthi")
 
-[node name="PauseButton" type="Button" parent="." unique_id=76917119]
+[node name="PauseButton" type="Button" parent="."]
 custom_minimum_size = Vector2(64, 64)
 offset_left = 18.0
 offset_top = 564.0
@@ -161,7 +161,7 @@ theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_3lsvx")
 text = "II"
 
-[node name="PauseOverlay" type="Control" parent="." unique_id=684502250]
+[node name="PauseOverlay" type="Control" parent="."]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 0
@@ -170,7 +170,7 @@ offset_top = 328.0
 offset_right = 493.0
 offset_bottom = 336.0
 
-[node name="ResumeButton" type="Button" parent="PauseOverlay" unique_id=1416369734]
+[node name="ResumeButton" type="Button" parent="PauseOverlay"]
 layout_mode = 0
 offset_left = -144.0
 offset_top = -93.0
@@ -179,7 +179,7 @@ offset_bottom = 3.0
 theme_override_font_sizes/font_size = 64
 text = "RESUME GAME"
 
-[node name="MainMenuButton" type="Button" parent="PauseOverlay" unique_id=2057947151]
+[node name="MainMenuButton" type="Button" parent="PauseOverlay"]
 layout_mode = 0
 offset_left = -287.0
 offset_top = 12.0
