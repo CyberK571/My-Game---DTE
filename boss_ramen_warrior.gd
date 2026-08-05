@@ -278,9 +278,6 @@ func _process_telegraph(delta: float) -> void:
 func _start_attack() -> void:
 	state = State.ATTACK
 
-	# Lunge toward wherever the player actually is (full 2D direction,
-	# not just left/right) so the attack visually reaches them even if
-	# they're above/below the boss, not only beside it.
 	var lunge_dir := Vector2.ZERO
 	if player and is_instance_valid(player):
 		lunge_dir = (player.global_position - global_position).normalized()
@@ -416,13 +413,9 @@ func _die() -> void:
 
 
 func _death_effect() -> void:
-	# Quick white flicker (a handful of flashes, not a rapid strobe —
-	# kept brief since fast full-brightness flashing can be genuinely
-	# uncomfortable/triggering for photosensitive players), then a
-	# fade-out.
 	var flash_count := 8
 	for i in range(flash_count):
-		sprite.modulate = Color(3, 3, 3)  # blown-out white, additive-looking
+		sprite.modulate = Color(3, 3, 3)  
 		await get_tree().create_timer(0.05).timeout
 		if not is_instance_valid(sprite):
 			return
