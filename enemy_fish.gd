@@ -70,6 +70,7 @@ func _process(delta):
 	move_and_slide()
 
 
+
 func _on_hit_box_body_entered(body):
 	if body == player and not is_chomping:
 		explode()

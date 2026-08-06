@@ -43,8 +43,6 @@ func seal_shut():
 	$CollisionShape2D.set_deferred("disabled", false)
 
 func open_on_boss_defeat():
-	# Called once the boss dies — releases the lock for good, for every
-	# gate in the group including ones flagged only_opens_on_boss_defeat.
 	is_sealed = false
 	$CollisionShape2D.set_deferred("disabled", true)
 	var fade_out = create_tween()
