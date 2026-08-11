@@ -6,6 +6,7 @@ var shooter = null
 @export var lifetime = 3.0
 
 func _ready():
+	add_to_group("enemy_projectile")
 	$AnimatedSprite2D.play("Bullet")
 	await get_tree().create_timer(lifetime).timeout
 	fade_and_remove()
@@ -20,6 +21,8 @@ func _on_body_entered(body: Node2D) -> void:
 
 func fade_and_remove():
 	set_physics_process(false)
+	monitoring = false
+	monitorable = false
 	var tween = create_tween()
 	tween.tween_property($AnimatedSprite2D, "modulate:a", 0.0, 1.0)
 	await tween.finished

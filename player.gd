@@ -14,6 +14,8 @@ var current_health = 3
 var is_invincible = false
 var keys_collected = 0
 var keys_required = 3
+var shield_active = false
+var can_shield = true
 
 @onready var hearts = [$CanvasLayer/Heart1, $CanvasLayer/Heart2, $CanvasLayer/Heart3]
 @export var full_heart_texture: Texture2D
@@ -31,6 +33,32 @@ func _ready():
 		"Follow Your Minimap towards the Customer, Remember, your main quest is to deliver!",
 	])
 
+func _unhandled_input(event):
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F:
+		activate_shield()
+
+func activate_shield():
+	if not can_shield or shield_active:
+		return
+	can_shield = false
+	shield_active = true
+
+	$ParryFlash.visible = true
+	$ParryFlash.play_flash()
+	flash_player_white()
+
+	await get_tree().create_timer(1.0).timeout
+	shield_active = false
+	await $ParryFlash.fade_out()
+	$ParryFlash.visible = false
+
+	await get_tree().create_timer(1.0).timeout
+	can_shield = true
+
+func flash_player_white():
+	var tween = create_tween()
+	tween.tween_property($PlayerAnim, "modulate", Color(2, 2, 2, 1), 0.08)
+	tween.tween_property($PlayerAnim, "modulate", Color(1, 1, 1, 1), 0.15)
 	
 func take_damage(amount = 1):
 	if is_invincible:
