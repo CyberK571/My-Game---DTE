@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=4 uid="uid://dh7b3nr423g7s"]
+[gd_scene load_steps=154 format=4 uid="uid://dh7b3nr423g7s"]
 
 [ext_resource type="Texture2D" uid="uid://71cb13m4xx1c" path="res://Images/1st Island/Tileset Spring.png" id="1_3bpgs"]
 [ext_resource type="Script" uid="uid://bjq5v2hiwv34w" path="res://player.gd" id="2_gv04r"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://dvv5f2ddeovsi" path="res://boss_ramen_warrior.tscn" id="29_7l84m"]
 [ext_resource type="Texture2D" uid="uid://dtyn4b7q8q7i4" path="res://Images/1st Island/Untitled - 04 August 2026 at 21.18.25.png" id="33_61fmk"]
 [ext_resource type="Texture2D" uid="uid://cqoeg5p8vf47h" path="res://Images/1st Island/Untitled - 04 August 2026 at 22.09.52.png" id="34_lhqqy"]
+[ext_resource type="PackedScene" uid="uid://7tkfotxi5yjj" path="res://fuel.tscn" id="35_bcfwd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ne40f"]
 texture = ExtResource("1_3bpgs")
@@ -1574,6 +1575,23 @@ position = Vector2(1546.96, -257.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("33_61fmk")
 
+[node name="Palm Tree Shadow18" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.25098)
+texture_filter = 1
+position = Vector2(-1587.05, -1240)
+rotation = -3.13887
+scale = Vector2(0.5, 0.380112)
+texture = ExtResource("33_61fmk")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 555.52, 382.787)
+
+[node name="Palm Tree19" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1569.04, -1378.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_61fmk")
+
 [node name="Palm Tree Shadow7" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.25098)
 texture_filter = 1
@@ -2141,5 +2159,14 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("34_lhqqy")
 region_enabled = true
 region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
+
+[node name="Fuel" parent="." instance=ExtResource("35_bcfwd")]
+position = Vector2(1825, -892)
+
+[node name="Fuel3" parent="." instance=ExtResource("35_bcfwd")]
+position = Vector2(-1286, 408)
+
+[node name="Fuel2" parent="." instance=ExtResource("35_bcfwd")]
+position = Vector2(-1270, -556)
 
 [connection signal="area_entered" from="Player/AttackArea" to="Player" method="_on_attack_area_area_entered"]

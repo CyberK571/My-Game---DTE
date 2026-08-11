@@ -50,6 +50,10 @@ func take_damage(amount = 1):
 func collect_key():
 	keys_collected += 1
 	update_key_label()
+	
+func heal_full():
+	current_health = max_health
+	update_hearts()
 
 func update_key_label():
 	key_label.text = "Keys: " + str(keys_collected) + "/" + str(keys_required)
