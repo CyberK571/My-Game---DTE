@@ -1,0 +1,117 @@
+[gd_scene load_steps=16 format=3 uid="uid://fu6qk7xe6gea"]
+
+[ext_resource type="Script" uid="uid://b3aqdnvulh7tn" path="res://worm_enemy.gd" id="1_8705g"]
+[ext_resource type="Texture2D" uid="uid://blq365leot8yw" path="res://Images/1st Island/Enemy's/Worm Sprite Sheet.png" id="1_j67i2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j67i2"]
+atlas = ExtResource("1_j67i2")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8705g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j67i2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8705g"]
+atlas = ExtResource("1_j67i2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21lro"]
+atlas = ExtResource("1_j67i2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3mjc"]
+atlas = ExtResource("1_j67i2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmx1f"]
+atlas = ExtResource("1_j67i2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibumt"]
+atlas = ExtResource("1_j67i2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vehh"]
+atlas = ExtResource("1_j67i2")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqcis"]
+atlas = ExtResource("1_j67i2")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpj6u"]
+atlas = ExtResource("1_j67i2")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h6hus"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8705g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21lro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3mjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmx1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibumt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vehh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqcis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpj6u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j67i2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8705g"]
+radius = 56.0089
+
+[node name="WormEnemy" type="CharacterBody2D"]
+script = ExtResource("1_8705g")
+
+[node name="Dirt" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_8705g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_h6hus")
+frame = 7
+frame_progress = 0.863177
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_j67i2")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_8705g")
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="MuzzlePoint" type="Marker2D" parent="."]
+position = Vector2(0, -1)

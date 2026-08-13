@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dafrai34jooc"
-path="res://.godot/imported/run_left.png-6b87398e2d50bd7d00ad2fc2236976c2.ctex"
+uid="uid://blq365leot8yw"
+path="res://.godot/imported/Worm Sprite Sheet.png-52fe51ee8173ee669a9d04a9a2a4e15a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Player/run_left.png"
-dest_files=["res://.godot/imported/run_left.png-6b87398e2d50bd7d00ad2fc2236976c2.ctex"]
+source_file="res://Images/1st Island/Enemy's/Worm Sprite Sheet.png"
+dest_files=["res://.godot/imported/Worm Sprite Sheet.png-52fe51ee8173ee669a9d04a9a2a4e15a.ctex"]
 
 [params]
 
