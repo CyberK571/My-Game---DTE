@@ -128,6 +128,10 @@ func shoot():
 	await get_tree().create_timer(1.0).timeout
 	can_shoot = true
 
+func refuel():
+	var hud = get_tree().get_root().find_child("Panel", true, false)
+	if hud and hud.has_method("refuel"):
+		hud.refuel()
 
 func _on_island_trigger_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.

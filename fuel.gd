@@ -22,3 +22,7 @@ func _on_body_entered(body):
 		TutorialManager.report_action("collected_health")
 		body.heal_full()
 		queue_free()
+	elif body.name == "Ship" and body.has_method("refuel"):
+		body.refuel()
+		queue_free()
+		
