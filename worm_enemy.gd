@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var projectile_scene: PackedScene
-@export var shoot_interval: float = 2.0
+@export var shoot_interval: float = 0.8
 
 var player_in_range: Node2D = null
 
@@ -20,6 +20,8 @@ var is_jumping := false
 @onready var detection_area = $DetectionArea
 @export var jump_distance: float = 150.0
 @onready var territory = $Territory
+@export var projectile_color: Color = Color(0.5, 1.0, 0.1)
+@export var projectile_speed: float = 300.0
 
 func _ready():
 	sprite.visible = false
@@ -59,13 +61,16 @@ func _decide_next_move():
 		return
 
 	var dist_to_player = global_position.distance_to(player_in_range.global_position)
+	print("dist to player: ", dist_to_player, " | shoot_range: ", shoot_range)
 
 	if dist_to_player <= shoot_range:
 		state = State.ATTACKING
 		sprite.play("Idle")
-		shoot_timer.stop() # no shooting, just idle
+		shoot_timer.start()
+		_shoot() # fire immediately instead of waiting a full interval first
 	else:
 		if state != State.JUMPING:
+			shoot_timer.stop()
 			state = State.JUMPING
 		_do_jump()
 		
@@ -134,6 +139,7 @@ func _bury():
 	dirt.play("Normal")
 
 func _on_shoot_timer_timeout():
+	print("timer fired, state: ", state, " player_in_range: ", player_in_range)
 	if not player_in_range:
 		return
 	var dist_to_player = global_position.distance_to(player_in_range.global_position)
@@ -150,8 +156,14 @@ func _shoot():
 	var proj = projectile_scene.instantiate()
 	get_tree().current_scene.add_child(proj)
 	proj.global_position = muzzle.global_position
+	proj.modulate = projectile_color
+	proj.shooter = self
+	proj.speed = projectile_speed
 	var direction = (player_in_range.global_position - muzzle.global_position).normalized()
-	proj.set_direction(direction)
+	proj.direction = direction
+	proj.rotation = direction.angle()
+	await get_tree().create_timer(0.15).timeout
+	sprite.play("Idle")
 	
 func _pick_jump_target() -> Vector2:
 	if not player_in_range:

@@ -13,7 +13,7 @@ var max_health = 3
 var current_health = 3
 var is_invincible = false
 var keys_collected = 0
-var keys_required = 3
+@export var keys_required = 3
 var shield_active = false
 var can_shield = true
 
