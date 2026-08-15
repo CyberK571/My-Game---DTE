@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dh7b3nr423g7s"]
 
 [ext_resource type="Texture2D" uid="uid://71cb13m4xx1c" path="res://Images/1st Island/Tileset Spring.png" id="1_3bpgs"]
+[ext_resource type="Script" uid="uid://h16ih16326qr" path="res://island_root.gd" id="1_85qhe"]
 [ext_resource type="Script" uid="uid://bjq5v2hiwv34w" path="res://player.gd" id="2_gv04r"]
 [ext_resource type="Texture2D" uid="uid://b10p8qaxtbxg" path="res://Images/1st Island/Grass.png" id="2_nsgda"]
 [ext_resource type="PackedScene" uid="uid://jmrpcvgtcsn0" path="res://gate.tscn" id="2_ykctw"]
@@ -1167,6 +1168,7 @@ size = Vector2(86, 308)
 [sub_resource type="CircleShape2D" id="CircleShape2D_kxa2d"]
 
 [node name="IslandRoot" type="Node2D" unique_id=1755206960]
+script = ExtResource("1_85qhe")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1638778182]
 texture_filter = 1
@@ -1458,11 +1460,22 @@ frame_progress = 0.579353
 flip_h = true
 script = ExtResource("16_4lbjc")
 
-[node name="InteractArea" type="Area2D" parent="Man2" unique_id=583400514]
+[node name="Man1" type="AnimatedSprite2D" parent="." unique_id=2143251366]
+texture_filter = 1
+position = Vector2(-262, -2087)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_lhqqy")
+frame_progress = 0.287155
+flip_h = true
+script = ExtResource("16_4lbjc")
+
+[node name="InteractArea" type="Area2D" parent="Man1" unique_id=583400514]
 modulate = Color(0.779291, 0.779291, 0.779291, 1)
+position = Vector2(1.5, 1.75)
+scale = Vector2(0.95, 0.95)
 script = ExtResource("26_uwto8")
 
-[node name="Label" type="Label" parent="Man2/InteractArea" unique_id=2116922625]
+[node name="Label" type="Label" parent="Man1/InteractArea" unique_id=2116922625]
 offset_left = -22.3684
 offset_top = -10.2632
 offset_right = 612.632
@@ -1476,19 +1489,10 @@ theme_override_font_sizes/font_size = 90
 text = "E to Interact"
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Man2/InteractArea" unique_id=1294100928]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Man1/InteractArea" unique_id=1294100928]
 position = Vector2(-1.57895, 28.1579)
 scale = Vector2(3, -2.519)
 shape = SubResource("CircleShape2D_3q1gl")
-
-[node name="Man1" type="AnimatedSprite2D" parent="." unique_id=2143251366]
-texture_filter = 1
-position = Vector2(-262, -2087)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_lhqqy")
-frame_progress = 0.287155
-flip_h = true
-script = ExtResource("16_4lbjc")
 
 [node name="Enemy" parent="." unique_id=1601214042 groups=["enemy"] instance=ExtResource("23_w51xl")]
 position = Vector2(191, 630)

@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-# ── Boss: Ramen Warrior (Island 1) ────────────────────────────────
-# Punch-only boss for this island. Needle/lasso attacks are saved for
-# a later island's version of this boss.
+# ── Boss: Ramen Warrior (Island 2) ────────────────────────────────
+# Same punch + rage system as Island 1, plus both needle/lasso attacks
+# as long-range options: punch when close, lasso when far.
 #
-# Phase 1 (100%–50% HP): normal punches, normal speed
-# Phase 2 (50%–33% HP): RAGE — red tint, faster movement, shorter attack cooldowns
-# Phase 3 (below 33% HP): RAGE 2 — even faster, minimal cooldowns
+# Rage phases (speed + cooldown ramp) still apply on top of this,
+# same as Island 1 — they don't unlock anything new here since both
+# lasso attacks are already available from the start.
 
 signal phase_changed(new_phase: int)
 signal boss_died
@@ -27,6 +27,48 @@ signal boss_died
 # on top of whatever base color it's already at.
 @export var rage_tint: Color = Color(1.0, 0.6, 0.6)
 
+# Left Punch — short, direct forward strike (close range)
+@export var left_punch_range: float = 175.0
+@export var left_punch_damage: int = 1
+@export var left_punch_windup: float = 0.05
+@export var left_punch_cooldown: float = 0.8
+@export var left_punch_hit_fraction: float = 0.8
+
+# Right Punch — hook with rotation (close range)
+@export var right_punch_range: float = 180.0
+@export var right_punch_damage: int = 1
+@export var right_punch_windup: float = 0.05
+@export var right_punch_cooldown: float = 1.1
+@export var right_punch_hit_fraction: float = 0.8
+
+# Needle Attack 1 — forward-thrusting lasso, long reach
+@export var needle1_range: float = 280.0
+@export var needle1_damage: int = 2
+@export var needle1_windup: float = 0.1
+@export var needle1_cooldown: float = 1.6
+@export var needle1_hit_fraction: float = 0.7
+
+# Needle Attack 2 — diagonal whipping lasso, long reach
+@export var needle2_range: float = 260.0
+@export var needle2_damage: int = 2
+@export var needle2_windup: float = 0.1
+@export var needle2_cooldown: float = 1.4
+@export var needle2_hit_fraction: float = 0.7
+
+# How far the boss steps toward the player during an attack, and how
+# quickly — in the exact direction to the player (any angle), so it
+# reaches properly whether they're beside, above, or below it.
+@export var lunge_distance: float = 40.0
+@export var lunge_time: float = 0.15
+@export var needle_lunge_distance: float = 15.0  # lasso attacks reach on their own, so lunge less
+
+# The attack frames are 128px wide vs 64px for idle/walk/jump, and the
+# body sits left-of-center in that wider frame. This nudges it back so
+# the torso lines up across all animations instead of visibly jumping
+# when switching animations or flipping.
+@export var wide_frame_offset_x: float = 20.0  # tune by eye in the editor
+const WIDE_ANIMS = ["Left_Punch", "Right_Punch", "Needle_Attack_1", "Needle_Attack_2"]
+
 # Health bar shown above the boss's head — built automatically at
 # runtime, no manual scene setup needed.
 @export var health_bar_width: float = 56.0
@@ -41,35 +83,8 @@ signal boss_died
 # Assign a Marker2D placed at the arena's center in the editor.
 @export var arena_center_path: NodePath
 
-# Left Punch — short, direct forward strike
-@export var left_punch_range: float = 175.0
-@export var left_punch_damage: int = 1
-@export var left_punch_windup: float = 0.05
-@export var left_punch_cooldown: float = 0.8
-@export var left_punch_hit_fraction: float = 0.8
-
-# Right Punch — hook with rotation, higher damage
-@export var right_punch_range: float = 180.0
-@export var right_punch_damage: int = 1
-@export var right_punch_windup: float = 0.05
-@export var right_punch_cooldown: float = 1.1
-@export var right_punch_hit_fraction: float = 0.8
-
-# How far the boss steps toward the player during an attack, and how
-# quickly — in the exact direction to the player (any angle), so it
-# reaches properly whether they're beside, above, or below it.
-@export var lunge_distance: float = 40.0
-@export var lunge_time: float = 0.15
-
-# The attack frames are 128px wide vs 64px for idle/walk/jump, and the
-# body sits left-of-center in that wider frame. This nudges it back so
-# the torso lines up across all animations instead of visibly jumping
-# when switching animations or flipping.
-@export var wide_frame_offset_x: float = 20.0  # tune by eye in the editor
-const WIDE_ANIMS = ["Left_Punch", "Right_Punch"]
-
 enum State { INACTIVE, CHASE, TELEGRAPH, ATTACK, RECOVER, DEAD }
-enum AttackType { LEFT_PUNCH, RIGHT_PUNCH }
+enum AttackType { LEFT_PUNCH, RIGHT_PUNCH, NEEDLE_1, NEEDLE_2 }
 
 var current_health: int
 var current_phase: int = 1
@@ -80,10 +95,14 @@ var state_timer: float = 0.0
 var attack_cooldowns := {
 	AttackType.LEFT_PUNCH: 0.0,
 	AttackType.RIGHT_PUNCH: 0.0,
+	AttackType.NEEDLE_1: 0.0,
+	AttackType.NEEDLE_2: 0.0,
 }
 # Current cooldown durations, scaled down as rage phases kick in.
 var left_punch_cooldown_current: float
 var right_punch_cooldown_current: float
+var needle1_cooldown_current: float
+var needle2_cooldown_current: float
 # The boss's persistent color when not mid-flash — white normally,
 # switches to rage_tint once phase 2 hits.
 var base_tint: Color = Color(1, 1, 1)
@@ -170,6 +189,8 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	left_punch_cooldown_current = left_punch_cooldown
 	right_punch_cooldown_current = right_punch_cooldown
+	needle1_cooldown_current = needle1_cooldown
+	needle2_cooldown_current = needle2_cooldown
 	_play_anim("Idle")
 	_create_health_bar()
 
@@ -245,10 +266,24 @@ func _process_chase(delta: float) -> void:
 
 
 func _pick_attack(distance: float) -> int:
-	if distance <= right_punch_range and attack_cooldowns[AttackType.RIGHT_PUNCH] <= 0.0 and randf() < 0.4:
-		return AttackType.RIGHT_PUNCH
-	if distance <= left_punch_range and attack_cooldowns[AttackType.LEFT_PUNCH] <= 0.0:
-		return AttackType.LEFT_PUNCH
+	# Close range: punch. Long range: lasso (needle) attacks, picked
+	# randomly between the two whenever both are off cooldown.
+	if distance <= right_punch_range:
+		if attack_cooldowns[AttackType.RIGHT_PUNCH] <= 0.0 and randf() < 0.4:
+			return AttackType.RIGHT_PUNCH
+		if attack_cooldowns[AttackType.LEFT_PUNCH] <= 0.0:
+			return AttackType.LEFT_PUNCH
+		return -1
+
+	var needle1_ready: bool = distance <= needle1_range and attack_cooldowns[AttackType.NEEDLE_1] <= 0.0
+	var needle2_ready: bool = distance <= needle2_range and attack_cooldowns[AttackType.NEEDLE_2] <= 0.0
+
+	if needle1_ready and needle2_ready:
+		return AttackType.NEEDLE_1 if randf() < 0.5 else AttackType.NEEDLE_2
+	if needle1_ready:
+		return AttackType.NEEDLE_1
+	if needle2_ready:
+		return AttackType.NEEDLE_2
 	return -1
 
 
@@ -264,6 +299,10 @@ func _start_telegraph(attack: int) -> void:
 			state_timer = left_punch_windup
 		AttackType.RIGHT_PUNCH:
 			state_timer = right_punch_windup
+		AttackType.NEEDLE_1:
+			state_timer = needle1_windup
+		AttackType.NEEDLE_2:
+			state_timer = needle2_windup
 
 	if player:
 		_update_facing(player.global_position - global_position)
@@ -279,19 +318,11 @@ func _process_telegraph(delta: float) -> void:
 func _start_attack() -> void:
 	state = State.ATTACK
 
-	# Lunge toward wherever the player actually is (full 2D direction,
-	# not just left/right) so the attack visually reaches them even if
-	# they're above/below the boss, not only beside it.
-	var lunge_dir := Vector2.ZERO
-	if player and is_instance_valid(player):
-		lunge_dir = (player.global_position - global_position).normalized()
-	var lunge_tween := create_tween()
-	lunge_tween.tween_property(self, "position", position + lunge_dir * lunge_distance, lunge_time)
-
 	var anim_name: String
 	var atk_range: float
 	var dmg: int
 	var hit_fraction: float
+	var this_lunge_distance: float = lunge_distance
 
 	match current_attack:
 		AttackType.LEFT_PUNCH:
@@ -304,12 +335,33 @@ func _start_attack() -> void:
 			atk_range = right_punch_range
 			dmg = right_punch_damage
 			hit_fraction = right_punch_hit_fraction
+		AttackType.NEEDLE_1:
+			anim_name = "Needle_Attack_1"
+			atk_range = needle1_range
+			dmg = needle1_damage
+			hit_fraction = needle1_hit_fraction
+			this_lunge_distance = needle_lunge_distance
+		AttackType.NEEDLE_2:
+			anim_name = "Needle_Attack_2"
+			atk_range = needle2_range
+			dmg = needle2_damage
+			hit_fraction = needle2_hit_fraction
+			this_lunge_distance = needle_lunge_distance
+
+	# Lunge toward wherever the player actually is (full 2D direction,
+	# not just left/right) so the attack visually reaches them even if
+	# they're above/below the boss, not only beside it.
+	var lunge_dir := Vector2.ZERO
+	if player and is_instance_valid(player):
+		lunge_dir = (player.global_position - global_position).normalized()
+	var lunge_tween := create_tween()
+	lunge_tween.tween_property(self, "position", position + lunge_dir * this_lunge_distance, lunge_time)
 
 	_play_anim(anim_name)
 	var duration := _anim_duration(anim_name)
 	var hit_delay := duration * hit_fraction
 
-	# One strict sequential timeline instead of two independent timers —
+	# One strict sequential timeline instead of parallel timers —
 	# guarantees the hit lands exactly once, in order, with no race
 	# between the damage timer and the animation ending.
 	await get_tree().create_timer(hit_delay).timeout
@@ -343,6 +395,12 @@ func _start_recover() -> void:
 		AttackType.RIGHT_PUNCH:
 			state_timer = right_punch_cooldown_current
 			attack_cooldowns[AttackType.RIGHT_PUNCH] = right_punch_cooldown_current
+		AttackType.NEEDLE_1:
+			state_timer = needle1_cooldown_current
+			attack_cooldowns[AttackType.NEEDLE_1] = needle1_cooldown_current
+		AttackType.NEEDLE_2:
+			state_timer = needle2_cooldown_current
+			attack_cooldowns[AttackType.NEEDLE_2] = needle2_cooldown_current
 
 	_play_anim("Idle")
 
@@ -386,6 +444,8 @@ func _check_phase_transition() -> void:
 		move_speed *= phase_2_speed_multiplier
 		left_punch_cooldown_current = left_punch_cooldown * phase_2_cooldown_multiplier
 		right_punch_cooldown_current = right_punch_cooldown * phase_2_cooldown_multiplier
+		needle1_cooldown_current = needle1_cooldown * phase_2_cooldown_multiplier
+		needle2_cooldown_current = needle2_cooldown * phase_2_cooldown_multiplier
 		base_tint = rage_tint
 		sprite.modulate = base_tint
 		emit_signal("phase_changed", current_phase)
@@ -394,6 +454,8 @@ func _check_phase_transition() -> void:
 		move_speed *= phase_3_speed_multiplier / phase_2_speed_multiplier
 		left_punch_cooldown_current = left_punch_cooldown * phase_3_cooldown_multiplier
 		right_punch_cooldown_current = right_punch_cooldown * phase_3_cooldown_multiplier
+		needle1_cooldown_current = needle1_cooldown * phase_3_cooldown_multiplier
+		needle2_cooldown_current = needle2_cooldown * phase_3_cooldown_multiplier
 		emit_signal("phase_changed", current_phase)
 
 
@@ -404,23 +466,7 @@ func _flash_damage() -> void:
 		sprite.modulate = base_tint
 
 
-func _die() -> void:
-	state = State.DEAD
-	velocity = Vector2.ZERO
-	_play_anim("Idle")
-	emit_signal("boss_died")
-	for gate in get_tree().get_nodes_in_group("gate"):
-		if gate.has_method("open_on_boss_defeat"):
-			gate.open_on_boss_defeat()
-	await _death_effect()
-	queue_free()
-
-
 func _death_effect() -> void:
-	# Quick white flicker (a handful of flashes, not a rapid strobe —
-	# kept brief since fast full-brightness flashing can be genuinely
-	# uncomfortable/triggering for photosensitive players), then a
-	# fade-out.
 	var flash_count := 8
 	for i in range(flash_count):
 		sprite.modulate = Color(3, 3, 3)  # blown-out white, additive-looking
@@ -441,3 +487,15 @@ func _death_effect() -> void:
 	fade_tween.tween_property(sprite, "modulate:a", 0.0, 0.6)
 	await fade_tween.finished
 	# Add loot drop / scene transition hook here, before queue_free() runs.
+
+
+func _die() -> void:
+	state = State.DEAD
+	velocity = Vector2.ZERO
+	_play_anim("Idle")
+	emit_signal("boss_died")
+	for gate in get_tree().get_nodes_in_group("gate"):
+		if gate.has_method("open_on_boss_defeat"):
+			gate.open_on_boss_defeat()
+	await _death_effect()
+	queue_free()

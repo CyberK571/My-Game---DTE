@@ -24,6 +24,7 @@ Transition="*res://transition.tscn"
 TutorialManager="*uid://bx2mpy4hallq0"
 DialogueManager="*uid://crnk1ga0ganpp"
 DialogueUi="*res://DialogueUI.tscn"
+LevelUnlock="*uid://bkys3ni46nogu"
 
 [display]
 
