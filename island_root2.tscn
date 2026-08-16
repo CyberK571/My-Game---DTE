@@ -20,10 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://dafrai34jooc" path="res://Images/Player/run_left.png" id="15_a128d"]
 [ext_resource type="Texture2D" uid="uid://7jdyw20exgde" path="res://Images/Player/run_right.png" id="16_fqtir"]
 [ext_resource type="Texture2D" uid="uid://cu5x7sofivj7r" path="res://Images/Player/run_up.png" id="17_2x2nb"]
-[ext_resource type="Script" uid="uid://tsv758keevlv" path="res://player_minimap.gd" id="18_jjqv4"]
 [ext_resource type="Texture2D" uid="uid://dn8gl1j8ve6u8" path="res://Images/Player/FUG0Z1etS2-HrNkYam_Vfg (1).png" id="19_cogg7"]
 [ext_resource type="Texture2D" uid="uid://baxr6mrvqhogg" path="res://Images/Ship/Colorful-Pixelated-Graphic-Element-PNG.png" id="20_v7sok"]
 [ext_resource type="Texture2D" uid="uid://yf2vk3osu3ip" path="res://Images/Ship/360_F_484785645_D98p9gFWxxs9PX49kEVN1cH0ewNjMNE8-removebg-preview (1).png" id="21_1k0u0"]
+[ext_resource type="Script" uid="uid://62jbj6kqp2d2" path="res://player_minimap2.gd" id="21_e3eah"]
 [ext_resource type="Texture2D" uid="uid://8tthrql2erde" path="res://Images/Ship/image-removebg-preview (10).png" id="22_7y4to"]
 [ext_resource type="FontFile" uid="uid://cmpj2htfcs46m" path="res://Images/1st Island/Peaberry-Bold.ttf" id="23_kkjn5"]
 [ext_resource type="Texture2D" uid="uid://d3tx1tlyft6ai" path="res://Images/1st Island/Untitled - June 13, 2026 at 14.45.10.png" id="24_y5vkc"]
@@ -1179,7 +1179,7 @@ tile_set = SubResource("TileSet_ye2ux")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1667723038 groups=["player"]]
 texture_filter = 1
-position = Vector2(351, 2397)
+position = Vector2(347, 2339)
 scale = Vector2(3, 3)
 script = ExtResource("4_5mr5r")
 keys_required = 4
@@ -1188,13 +1188,12 @@ empty_heart_texture = ExtResource("5_hr82m")
 
 [node name="ParryFlash" type="Area2D" parent="Player" unique_id=182913883]
 visible = false
-scale = Vector2(0.035, 0.035)
 script = ExtResource("6_qorcm")
 
 [node name="Shield" type="Sprite2D" parent="Player/ParryFlash" unique_id=1758413241]
 z_index = 1
 position = Vector2(0.333333, 4.66667)
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.03, 0.03)
 texture = ExtResource("7_i5fu7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ParryFlash" unique_id=2018981180]
@@ -1227,29 +1226,29 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("18_jjqv4")
+script = ExtResource("21_e3eah")
 metadata/_edit_use_anchors_ = true
 
 [node name="Shadow" type="TextureRect" parent="Player/MinimapHUD" unique_id=1764027522]
 modulate = Color(0.605002, 0.279747, 0, 1)
 texture_filter = 1
 layout_mode = 0
-offset_left = -255.99998
-offset_top = -158.66667
-offset_right = 18.99971
-offset_bottom = 81.33333
-scale = Vector2(0.48837054, 0.49467155)
+offset_left = -259.66666
+offset_top = -164.66667
+offset_right = 15.333038
+offset_bottom = 75.33333
+scale = Vector2(0.5950372, 0.56134474)
 texture = ExtResource("19_cogg7")
 expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="Player/MinimapHUD" unique_id=424666672]
 texture_filter = 1
 layout_mode = 0
-offset_left = -253.33333
-offset_top = -156.33333
-offset_right = 514.6667
-offset_bottom = 1251.6697
-scale = Vector2(0.16744132, 0.0805608)
+offset_left = -255.99997
+offset_top = -162.33333
+offset_right = 512.0
+offset_bottom = 1245.6697
+scale = Vector2(0.20401275, 0.091419004)
 texture = ExtResource("19_cogg7")
 
 [node name="ColorRect" type="ColorRect" parent="Player/MinimapHUD/TextureRect" unique_id=1576710827]
@@ -1264,35 +1263,35 @@ color = Color(1, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/MinimapHUD" unique_id=1644949688]
 texture_filter = 1
-position = Vector2(-170.33333, -121.00001)
+position = Vector2(-153.33333, -122.00001)
 scale = Vector2(0.003, 0.003)
 texture = ExtResource("20_v7sok")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Player/MinimapHUD" unique_id=1273885258 groups=["minimap_icons"]]
-position = Vector2(-170.66669, -112.66667)
+position = Vector2(-160, -112.00001)
 scale = Vector2(0.025, 0.025)
 texture = ExtResource("21_1k0u0")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Player/MinimapHUD" unique_id=1830398656 groups=["minimap_icons"]]
-position = Vector2(-217.66664, -80.6667)
+position = Vector2(-222.66666, -77.6667)
 rotation = 1.04546
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("22_7y4to")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Player/MinimapHUD" unique_id=1482420147 groups=["minimap_icons"]]
-position = Vector2(-161.66667, -79.00004)
+position = Vector2(-131.66667, -82.33337)
 rotation = 1.04546
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("22_7y4to")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Player/MinimapHUD" unique_id=728292307 groups=["minimap_icons"]]
-position = Vector2(-217.33334, -100.99999)
+position = Vector2(-222.00002, -100.99999)
 rotation = 1.04546
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("22_7y4to")
 
 [node name="Sprite2D6" type="Sprite2D" parent="Player/MinimapHUD" unique_id=1273888981 groups=["minimap_icons"]]
-position = Vector2(-163.00002, -99.666664)
+position = Vector2(-132.00002, -100.666664)
 rotation = 1.04546
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("22_7y4to")
@@ -1510,19 +1509,19 @@ position = Vector2(1711, 1010)
 projectile_scene = ExtResource("30_ea6h6")
 
 [node name="Key" parent="." unique_id=688968762 node_paths=PackedStringArray("minimap_icon") instance=ExtResource("31_2irv7")]
-position = Vector2(-2128, 1102)
+position = Vector2(-2102.0002, 1109.0001)
 minimap_icon = NodePath("../Player/MinimapHUD/Sprite2D3")
 
 [node name="Key2" parent="." unique_id=1125926368 node_paths=PackedStringArray("minimap_icon") instance=ExtResource("31_2irv7")]
-position = Vector2(-2340, -646)
+position = Vector2(-2319, -645.00006)
 minimap_icon = NodePath("../Player/MinimapHUD/Sprite2D5")
 
 [node name="Key3" parent="." unique_id=2138386086 node_paths=PackedStringArray("minimap_icon") instance=ExtResource("31_2irv7")]
-position = Vector2(2458.9998, 976.9995)
+position = Vector2(2414, 974)
 minimap_icon = NodePath("../Player/MinimapHUD/Sprite2D4")
 
 [node name="Key4" parent="." unique_id=1918141740 node_paths=PackedStringArray("minimap_icon") instance=ExtResource("31_2irv7")]
-position = Vector2(2651, -664)
+position = Vector2(2594, -668)
 minimap_icon = NodePath("../Player/MinimapHUD/Sprite2D6")
 
 [node name="BossRamenWarrior" parent="." unique_id=1420269866 groups=["boss"] instance=ExtResource("32_f1vip")]
@@ -1549,6 +1548,42 @@ rotation = 1.57226
 scale = Vector2(1.01158, 1.31397)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entry" unique_id=1328552805]
+position = Vector2(2416, 656)
+shape = SubResource("RectangleShape2D_niml6")
+
+[node name="Entry2" type="StaticBody2D" parent="." unique_id=36922353]
+position = Vector2(228.00002, 2281)
+rotation = 3.1363328
+scale = Vector2(1.0010008, 1.8116682)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entry2" unique_id=1534820303]
+position = Vector2(2416, 656)
+shape = SubResource("RectangleShape2D_niml6")
+
+[node name="Entry3" type="StaticBody2D" parent="." unique_id=2072760769]
+position = Vector2(11.999999, 533.00006)
+rotation = 3.1363328
+scale = Vector2(1.0010008, 1.8116682)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entry3" unique_id=1155650200]
+position = Vector2(2416, 656)
+shape = SubResource("RectangleShape2D_niml6")
+
+[node name="Entry4" type="StaticBody2D" parent="." unique_id=1405750549]
+position = Vector2(4934, 2162)
+rotation = 3.1363328
+scale = Vector2(1.0010008, 1.8116682)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entry4" unique_id=902674868]
+position = Vector2(2416, 656)
+shape = SubResource("RectangleShape2D_niml6")
+
+[node name="Entry5" type="StaticBody2D" parent="." unique_id=2086957580]
+position = Vector2(5117.0005, 526)
+rotation = 3.1363328
+scale = Vector2(1.0010008, 1.8116682)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entry5" unique_id=277987426]
 position = Vector2(2416, 656)
 shape = SubResource("RectangleShape2D_niml6")
 
@@ -2959,6 +2994,7 @@ scale = Vector2(1.3432869, 0.92422986)
 
 [connection signal="area_entered" from="Player/AttackArea" to="Player" method="_on_attack_area_area_entered"]
 
+[editable path="Enemy"]
 [editable path="BossRamenWarrior"]
 [editable path="WormEnemy"]
 [editable path="WormEnemy11"]
