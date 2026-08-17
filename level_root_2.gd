@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	$Camera2D.zoom = Vector2(0.7, 0.7)
 	if DialogueManager.second_ocean_intro_shown:
 		return
 	DialogueManager.second_ocean_intro_shown = true
