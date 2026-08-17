@@ -41,12 +41,12 @@ func activate_shield():
 	$ParryFlash.play_flash()
 	flash_player_white()
 
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	shield_active = false
 	await $ParryFlash.fade_out()
 	$ParryFlash.visible = false
 
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	can_shield = true
 
 func flash_player_white():

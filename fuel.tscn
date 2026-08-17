@@ -1,27 +1,27 @@
-[gd_scene format=3 uid="uid://7tkfotxi5yjj"]
+[gd_scene load_steps=4 format=3 uid="uid://7tkfotxi5yjj"]
 
 [ext_resource type="Script" uid="uid://c2da0164yln46" path="res://fuel.gd" id="1_2yow3"]
 [ext_resource type="Texture2D" uid="uid://dlqc8wvrxku6f" path="res://Images/1st Ocean/image-removebg-preview (45).png" id="2_2yow3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ila7f"]
-size = Vector2(453.3333, 376.66687)
+size = Vector2(453.333, 376.667)
 
-[node name="Fuel" type="Area2D" unique_id=2066921829]
+[node name="Fuel" type="Area2D"]
 scale = Vector2(0.3, 0.3)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_2yow3")
 
-[node name="Shadow" type="Sprite2D" parent="." unique_id=1896519655]
+[node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.180392)
 position = Vector2(16.6667, 3.33333)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_2yow3")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1885099903]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_2yow3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617919746]
-position = Vector2(3.3333304, -1.6667683)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.33333, -1.66677)
 shape = SubResource("RectangleShape2D_ila7f")
