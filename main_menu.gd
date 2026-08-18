@@ -4,7 +4,8 @@ const LEVEL_SCENES = {
 	"Island Scene": "res://island_root.tscn",
 	"Second Ocean Scene": "res://level_root2.tscn",
 	"Second Island Scene": "res://island_root2.tscn",
-	"Third Ocean Scene": "res://level_root3.tscn",  # fill in when ready
+	"Third Ocean Scene": "res://level_root3.tscn",
+	"Third Island Scene": "res://island_root3.tscn",  # fill in when ready
 }
 
 func _ready():
@@ -42,3 +43,6 @@ func _on_Second_Island_Scene():
 	
 func _on_Third_Ocean_Scene():
 	Transition.change_scene("res://level_root3.tscn")
+
+func _on_Third_Island_Scene():
+	Transition.change_scene("res://island_root3.tscn")

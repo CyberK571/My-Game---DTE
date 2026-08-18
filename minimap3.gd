@@ -1,0 +1,178 @@
+extends Panel
+
+@export var world_size: Vector2 = Vector2(14845, 8810)
+@export var world_offset: Vector2 = Vector2(-10631, -5954)
+
+@onready var boat_marker = $BoatMarker
+@onready var bar_fill = $"../HealthBar/BarFill"
+@onready var health_label = $"../HealthBar/HealthLabel"
+@onready var fuel_bar = $"../FuelBar/HBoxContainer"
+@onready var damage_flash = $"../DamageFlash"
+@onready var pause_button = $"../PauseButton"
+@onready var overlay = $"../PauseOverlay"
+
+var boat: Node2D
+var enemy_data: Array = []
+var max_health: int = 3
+var current_health: int = 3
+var bar_max_width: float = 196.0
+var enemy_markers: Array = []
+
+var max_fuel: int = 10
+var current_fuel: int = 10
+var fuel_timer: float = 0.0
+var fuel_drain_time: float = 5.0
+
+func _ready():
+	boat = get_tree().get_root().find_child("Ship", true, false)
+	boat_marker.size = Vector2(8, 8)
+	_setup_enemy_markers()
+	_update_bar()
+	_setup_fuel_bar()
+	pause_button.pressed.connect(_on_pause_pressed)
+	$"../PauseOverlay/ResumeButton".pressed.connect(_on_resume_pressed)
+	$"../PauseOverlay/MainMenuButton".pressed.connect(_on_main_menu_pressed)
+	overlay.hide()
+	
+func _on_pause_pressed():
+	get_tree().paused = true
+	overlay.show()
+	pause_button.hide()
+	
+func _on_resume_pressed():
+	get_tree().paused = false
+	overlay.hide()
+	pause_button.show()
+
+func _on_main_menu_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://MainMenu.tscn")
+	
+
+func _setup_fuel_bar():
+	for i in max_fuel:
+		var seg = ColorRect.new()
+		seg.custom_minimum_size = Vector2(16, 12)
+		seg.color = Color(1, 0.6, 0, 1)  # orange
+		fuel_bar.add_child(seg)
+	# Add gaps between segments
+	fuel_bar.add_theme_constant_override("separation", 2)
+
+func refuel():
+	current_fuel = max_fuel
+	_update_fuel_bar()
+
+func _update_fuel_bar():
+	for i in fuel_bar.get_child_count():
+		var seg = fuel_bar.get_child(i)
+		seg.color = Color(1, 0.6, 0, 1) if i < current_fuel else Color(0.3, 0.3, 0.3, 0.8)
+   
+	if current_fuel <= 3:
+		_start_flash_warning()
+var flashing: bool = false
+
+func _start_flash_warning():
+	if flashing:
+		return
+	flashing = true
+	_flash()
+
+func _flash():
+	if current_fuel > 3:
+		flashing = false
+		return
+	for i in current_fuel:
+		fuel_bar.get_child(i).color = Color(1, 0.1, 0.1, 1)  # red
+	await get_tree().create_timer(0.3).timeout
+	for i in current_fuel:
+		fuel_bar.get_child(i).color = Color(1, 0.6, 0, 1)  # orange
+	await get_tree().create_timer(0.3).timeout
+	_flash()  # loop
+	
+func _setup_enemy_markers():
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	for enemy in enemies:
+		var marker = ColorRect.new()
+		marker.size = Vector2(5, 5)  # was 8, 8 — smaller dot
+		marker.color = Color(1, 0.4, 0, 1)
+		add_child(marker)
+		enemy_markers.append({"node": enemy, "marker": marker})
+
+func take_damage():
+	current_health -= 1
+	_update_bar()
+	_flash_damage()
+	if current_health <= 0:
+		if boat and boat.has_method("die"):
+			boat.die()
+		
+func die():
+	print("player died")
+	await Transition.fade_out()
+
+	get_tree().paused = true
+	var death_screen = preload("res://DeathScreen.tscn").instantiate()
+	death_screen.process_mode = Node.PROCESS_MODE_ALWAYS
+	Transition.add_child(death_screen)
+	
+	
+
+func _flash_damage():
+	damage_flash.modulate.a = 0.5
+	var tween = create_tween()
+	tween.tween_property(damage_flash, "modulate:a", 0.0, 0.8)
+
+func _update_bar():
+	var pct = float(current_health) / float(max_health)
+	bar_fill.size.x = bar_max_width * pct
+	if health_label:
+		health_label.text = str(current_health) + " / " + str(max_health)
+	if pct > 0.6:
+		bar_fill.color = Color(0.2, 0.8, 0.2, 1)
+	elif pct > 0.3:
+		bar_fill.color = Color(0.9, 0.7, 0.1, 1)
+	else:
+		bar_fill.color = Color(0.9, 0.2, 0.1, 1)
+
+func _process(delta):
+	if boat:
+		var norm = (boat.global_position - world_offset) / world_size
+		norm = norm.clamp(Vector2.ZERO, Vector2.ONE)
+		boat_marker.position = norm * size - boat_marker.size / 2
+		boat_marker.modulate.a = 0.7 + 0.3 * sin(Time.get_ticks_msec() * 0.005)
+	queue_redraw()
+	fuel_timer += delta
+	if fuel_timer >= fuel_drain_time:
+		fuel_timer = 0.0
+		current_fuel -= 1
+		current_fuel = max(current_fuel, 0)
+		_update_fuel_bar()
+		if current_fuel <= 0:
+			if boat and boat.has_method("die"):
+				boat.die()
+				
+	for i in range(enemy_markers.size() - 1, -1, -1):
+		var entry = enemy_markers[i]
+		var enemy = entry["node"]
+		var marker = entry["marker"]
+		if is_instance_valid(enemy):
+			var norm = (enemy.global_position - world_offset) / world_size
+			norm = norm.clamp(Vector2.ZERO, Vector2.ONE)
+			marker.position = norm * size - marker.size / 2
+			marker.modulate.a = 0.6 + 0.4 * sin(Time.get_ticks_msec() * 0.01)
+		else:
+			marker.queue_free()
+			enemy_markers.remove_at(i)
+			
+func _draw():
+	var pulse = 0.6 + 0.4 * sin(Time.get_ticks_msec() * 0.01)
+	for enemy in enemy_data:
+		if is_instance_valid(enemy) and enemy.is_inside_tree():
+			var norm = (enemy.global_position - world_offset) / world_size
+			norm = norm.clamp(Vector2.ZERO, Vector2.ONE)
+			var pos = norm * size
+			draw_circle(pos, 5, Color(1, 0.4, 0, pulse))
+			draw_circle(pos, 2.5, Color(1, 0.6, 0.2, 1))
+			
+			
+			
