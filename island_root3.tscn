@@ -28,14 +28,14 @@
 [ext_resource type="FontFile" uid="uid://cmpj2htfcs46m" path="res://Images/1st Island/Peaberry-Bold.ttf" id="26_4c0g3"]
 [ext_resource type="Texture2D" uid="uid://d3tx1tlyft6ai" path="res://Images/1st Island/Untitled - June 13, 2026 at 14.45.10.png" id="27_7ueh6"]
 [ext_resource type="Texture2D" uid="uid://clchpov1gssou" path="res://Images/1st Island/Screenshot 2026-06-13 164337.png" id="28_a02gd"]
-[ext_resource type="Texture2D" uid="uid://blcx24oygbu37" path="res://Images/1st Island/Warrior_Sheet-Effect.png" id="29_jeir8"]
+[ext_resource type="Texture2D" uid="uid://cnaictwsg3c7l" path="res://Images/1st Island/male_hero-idle.png" id="29_v6x4p"]
 [ext_resource type="Script" uid="uid://cg7hkai2juwqe" path="res://man_1.gd" id="30_a64e0"]
-[ext_resource type="Script" uid="uid://c4vs86vrivgkv" path="res://interact_area2.gd" id="31_u3vad"]
+[ext_resource type="Script" uid="uid://ihykopd58sn3" path="res://interact_area3.gd" id="31_v6x4p"]
 [ext_resource type="PackedScene" uid="uid://r48yni2b75nb" path="res://1st_Island_Enemy.tscn" id="32_lmi48"]
 [ext_resource type="PackedScene" uid="uid://4sl7gyrebp7s" path="res://1st_enemy_projectile.tscn" id="33_j0qf1"]
 [ext_resource type="PackedScene" uid="uid://q2w21ba7845s" path="res://key.tscn" id="34_355h4"]
 [ext_resource type="PackedScene" uid="uid://dvv5f2ddeovsi" path="res://boss_ramen_warrior.tscn" id="35_v3sy1"]
-[ext_resource type="Script" uid="uid://clx2afvbysrfk" path="res://boss_ramen_warrior2.gd" id="36_e022f"]
+[ext_resource type="Script" uid="uid://xsgs6kc0o04" path="res://boss_ramen_warrior3.gd" id="36_v6x4p"]
 [ext_resource type="Texture2D" uid="uid://dtyn4b7q8q7i4" path="res://Images/1st Island/Untitled - 04 August 2026 at 21.18.25.png" id="37_b28ms"]
 [ext_resource type="Texture2D" uid="uid://cqoeg5p8vf47h" path="res://Images/1st Island/Untitled - 04 August 2026 at 22.09.52.png" id="38_l1yfp"]
 [ext_resource type="PackedScene" uid="uid://7tkfotxi5yjj" path="res://fuel.tscn" id="39_vi4hy"]
@@ -1084,54 +1084,82 @@ radius = 12.0363
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikmfe"]
 size = Vector2(2011.19, 303.455)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oki0t"]
-atlas = ExtResource("29_jeir8")
-region = Rect2(0, 0, 69, 49)
+[sub_resource type="AtlasTexture" id="AtlasTexture_swufe"]
+atlas = ExtResource("29_v6x4p")
+region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kddqw"]
-atlas = ExtResource("29_jeir8")
-region = Rect2(69, 0, 69, 49)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rxel"]
+atlas = ExtResource("29_v6x4p")
+region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_745b1"]
-atlas = ExtResource("29_jeir8")
-region = Rect2(138, 0, 69, 49)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gr47"]
+atlas = ExtResource("29_v6x4p")
+region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0g1d3"]
-atlas = ExtResource("29_jeir8")
-region = Rect2(207, 0, 69, 49)
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7jkk"]
+atlas = ExtResource("29_v6x4p")
+region = Rect2(384, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a128d"]
-atlas = ExtResource("29_jeir8")
-region = Rect2(276, 0, 69, 49)
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5vxi"]
+atlas = ExtResource("29_v6x4p")
+region = Rect2(512, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fqtir"]
-atlas = ExtResource("29_jeir8")
-region = Rect2(345, 0, 69, 49)
+[sub_resource type="AtlasTexture" id="AtlasTexture_32gcd"]
+atlas = ExtResource("29_v6x4p")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvric"]
+atlas = ExtResource("29_v6x4p")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r7b2"]
+atlas = ExtResource("29_v6x4p")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lbtb"]
+atlas = ExtResource("29_v6x4p")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6a7vj"]
+atlas = ExtResource("29_v6x4p")
+region = Rect2(1152, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lhqqy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oki0t")
+"texture": SubResource("AtlasTexture_swufe")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kddqw")
+"texture": SubResource("AtlasTexture_8rxel")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_745b1")
+"texture": SubResource("AtlasTexture_7gr47")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0g1d3")
+"texture": SubResource("AtlasTexture_l7jkk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a128d")
+"texture": SubResource("AtlasTexture_a5vxi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fqtir")
+"texture": SubResource("AtlasTexture_32gcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvric")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3r7b2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lbtb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6a7vj")
 }],
 "loop": 1,
 "name": &"default",
-"speed": 8.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3q1gl"]
@@ -1439,32 +1467,35 @@ shape = SubResource("RectangleShape2D_ikmfe")
 [node name="Man2" type="AnimatedSprite2D" parent="." unique_id=1434361539]
 modulate = Color(0, 0, 0, 0.243137)
 texture_filter = 1
-position = Vector2(378, -2511)
+position = Vector2(408, -2481)
 scale = Vector2(3.8, 3.8)
 sprite_frames = SubResource("SpriteFrames_lhqqy")
+frame_progress = 0.7432167
 flip_h = true
 script = ExtResource("30_a64e0")
 
 [node name="Man1" type="AnimatedSprite2D" parent="." unique_id=2074431948]
 texture_filter = 1
-position = Vector2(371, -2514)
+position = Vector2(401, -2482)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_lhqqy")
+frame = 5
+frame_progress = 0.057858672
 flip_h = true
 script = ExtResource("30_a64e0")
 
 [node name="InteractArea" type="Area2D" parent="Man1" unique_id=896945233]
 modulate = Color(0.779291, 0.779291, 0.779291, 1)
-position = Vector2(9.75, -10)
+position = Vector2(2.75, -11.25)
 scale = Vector2(0.95, 0.95)
-script = ExtResource("31_u3vad")
+script = ExtResource("31_v6x4p")
 
 [node name="Label" type="Label" parent="Man1/InteractArea" unique_id=1157581595]
 modulate = Color(1, 1, 1, 0.239216)
-offset_left = -22.3684
-offset_top = -10.7895
-offset_right = 612.632
-offset_bottom = 113.211
+offset_left = -22.105259
+offset_top = -16.578974
+offset_right = 612.89514
+offset_bottom = 107.421524
 scale = Vector2(0.0620541, 0.074801)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -1513,7 +1544,7 @@ minimap_icon = NodePath("../Player/MinimapHUD/Sprite2D6")
 
 [node name="BossRamenWarrior" parent="." unique_id=1766745653 groups=["boss"] instance=ExtResource("35_v3sy1")]
 position = Vector2(357.00018, -1626.0001)
-script = ExtResource("36_e022f")
+script = ExtResource("36_v6x4p")
 needle1_range = 280.0
 needle1_damage = 2
 needle1_windup = 0.1
@@ -1539,13 +1570,12 @@ position = Vector2(2416, 656)
 shape = SubResource("RectangleShape2D_niml6")
 
 [node name="Trees and Bushes" type="Area2D" parent="." unique_id=1678580174]
-visible = false
 
 [node name="Palm Tree Shadow" type="Sprite2D" parent="Trees and Bushes" unique_id=590932517]
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(1191.95, 292)
+position = Vector2(426.94714, 510)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1556,7 +1586,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree1" type="Sprite2D" parent="Trees and Bushes" unique_id=985909618]
 z_index = 5
 texture_filter = 1
-position = Vector2(1209.96, 153.5)
+position = Vector2(444.9571, 371.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 
@@ -1564,7 +1594,7 @@ texture = ExtResource("37_b28ms")
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(1365.95, 920)
+position = Vector2(-649.05286, 309.00003)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1575,7 +1605,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree18" type="Sprite2D" parent="Trees and Bushes" unique_id=1103127684]
 z_index = 5
 texture_filter = 1
-position = Vector2(1383.96, 781.5)
+position = Vector2(-631.0431, 170.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 
@@ -1583,7 +1613,7 @@ texture = ExtResource("37_b28ms")
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(-188.053, -344)
+position = Vector2(-24.052887, -114.00003)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1594,7 +1624,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree2" type="Sprite2D" parent="Trees and Bushes" unique_id=945092324]
 z_index = 5
 texture_filter = 1
-position = Vector2(-170.043, -482.5)
+position = Vector2(-6.042877, -252.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 
@@ -1602,7 +1632,7 @@ texture = ExtResource("37_b28ms")
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(1462.95, -199)
+position = Vector2(-529.05286, 1192.9999)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1613,7 +1643,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree6" type="Sprite2D" parent="Trees and Bushes" unique_id=297574609]
 z_index = 5
 texture_filter = 1
-position = Vector2(1480.96, -337.5)
+position = Vector2(-511.0431, 1054.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 
@@ -1621,7 +1651,7 @@ texture = ExtResource("37_b28ms")
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(-1220.05, 1870)
+position = Vector2(73.94714, 1449)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1632,7 +1662,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree10" type="Sprite2D" parent="Trees and Bushes" unique_id=1178503602]
 z_index = 5
 texture_filter = 1
-position = Vector2(-1202.04, 1731.5)
+position = Vector2(91.957275, 1310.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 
@@ -1640,7 +1670,7 @@ texture = ExtResource("37_b28ms")
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(-1705.05, -875)
+position = Vector2(-1.0528603, -552)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1651,7 +1681,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree19" type="Sprite2D" parent="Trees and Bushes" unique_id=864078611]
 z_index = 5
 texture_filter = 1
-position = Vector2(-1687.04, -1013.5)
+position = Vector2(16.957275, -690.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 
@@ -1659,7 +1689,7 @@ texture = ExtResource("37_b28ms")
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(-4.05287, 2299)
+position = Vector2(0.947145, 2137)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1670,7 +1700,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree33" type="Sprite2D" parent="Trees and Bushes" unique_id=841756084]
 z_index = 5
 texture_filter = 1
-position = Vector2(13.9573, 2160.5)
+position = Vector2(18.957315, 1998.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 
@@ -1678,7 +1708,7 @@ texture = ExtResource("37_b28ms")
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(-1146.05, 438)
+position = Vector2(-2244.0527, -908.9999)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1689,7 +1719,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree7" type="Sprite2D" parent="Trees and Bushes" unique_id=1065950128]
 z_index = 5
 texture_filter = 1
-position = Vector2(-1128.04, 299.5)
+position = Vector2(-2226.043, -1047.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 
@@ -1697,7 +1727,7 @@ texture = ExtResource("37_b28ms")
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(-1855.05, -432)
+position = Vector2(-749.05286, 731.9999)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1708,45 +1738,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree9" type="Sprite2D" parent="Trees and Bushes" unique_id=143844963]
 z_index = 5
 texture_filter = 1
-position = Vector2(-1837.04, -570.5)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("37_b28ms")
-
-[node name="Palm Tree Shadow22" type="Sprite2D" parent="Trees and Bushes" unique_id=1236356876]
-modulate = Color(0, 0, 0, 0.25098)
-z_index = 5
-texture_filter = 1
-position = Vector2(1605.95, 1805)
-rotation = -3.13887
-scale = Vector2(0.5, 0.380112)
-texture = ExtResource("37_b28ms")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(0, 0, 555.52, 382.787)
-
-[node name="Palm Tree22" type="Sprite2D" parent="Trees and Bushes" unique_id=1477825629]
-z_index = 5
-texture_filter = 1
-position = Vector2(1623.96, 1666.5)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("37_b28ms")
-
-[node name="Palm Tree Shadow29" type="Sprite2D" parent="Trees and Bushes" unique_id=59522879]
-modulate = Color(0, 0, 0, 0.25098)
-z_index = 5
-texture_filter = 1
-position = Vector2(-1413.05, -1997)
-rotation = -3.13887
-scale = Vector2(0.5, 0.380112)
-texture = ExtResource("37_b28ms")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(0, 0, 555.52, 382.787)
-
-[node name="Palm Tree29" type="Sprite2D" parent="Trees and Bushes" unique_id=1325187824]
-z_index = 5
-texture_filter = 1
-position = Vector2(-1395.04, -2135.5)
+position = Vector2(-731.0427, 593.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 
@@ -1754,7 +1746,7 @@ texture = ExtResource("37_b28ms")
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(1107.95, -2210)
+position = Vector2(-991.05286, -63.000275)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1765,7 +1757,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree30" type="Sprite2D" parent="Trees and Bushes" unique_id=459318129]
 z_index = 5
 texture_filter = 1
-position = Vector2(1125.96, -2348.5)
+position = Vector2(-973.0431, -201.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 
@@ -1773,7 +1765,7 @@ texture = ExtResource("37_b28ms")
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(-1762.05, 103)
+position = Vector2(19.947138, -1056.9999)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1784,7 +1776,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree34" type="Sprite2D" parent="Trees and Bushes" unique_id=323315869]
 z_index = 5
 texture_filter = 1
-position = Vector2(-1744.04, -35.5)
+position = Vector2(37.957306, -1195.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 
@@ -1792,7 +1784,7 @@ texture = ExtResource("37_b28ms")
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(53.9471, 1122)
+position = Vector2(160.94714, -2169.9995)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1803,7 +1795,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree17" type="Sprite2D" parent="Trees and Bushes" unique_id=1910045511]
 z_index = 5
 texture_filter = 1
-position = Vector2(71.9571, 983.5)
+position = Vector2(178.95717, -2308.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 
@@ -1811,7 +1803,7 @@ texture = ExtResource("37_b28ms")
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(3080.95, -651)
+position = Vector2(-462.05286, -1766.9999)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1822,7 +1814,26 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree24" type="Sprite2D" parent="Trees and Bushes" unique_id=937500466]
 z_index = 5
 texture_filter = 1
-position = Vector2(3098.96, -789.5)
+position = Vector2(-444.0432, -1905.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("37_b28ms")
+
+[node name="Palm Tree Shadow37" type="Sprite2D" parent="Trees and Bushes" unique_id=1738626895]
+modulate = Color(0, 0, 0, 0.25098)
+z_index = 5
+texture_filter = 1
+position = Vector2(1253.9471, -575)
+rotation = -3.13887
+scale = Vector2(0.5, 0.380112)
+texture = ExtResource("37_b28ms")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 555.52, 382.787)
+
+[node name="Palm Tree37" type="Sprite2D" parent="Trees and Bushes" unique_id=111911455]
+z_index = 5
+texture_filter = 1
+position = Vector2(1271.9569, -713.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 
@@ -1830,7 +1841,7 @@ texture = ExtResource("37_b28ms")
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(2890.95, 990)
+position = Vector2(1568.9471, -917.99976)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1841,7 +1852,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree25" type="Sprite2D" parent="Trees and Bushes" unique_id=472566378]
 z_index = 5
 texture_filter = 1
-position = Vector2(2908.96, 851.5)
+position = Vector2(1586.957, -1056.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 
@@ -1849,7 +1860,7 @@ texture = ExtResource("37_b28ms")
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(-2539.05, 1107)
+position = Vector2(-2337.053, 1074)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1860,14 +1871,14 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree26" type="Sprite2D" parent="Trees and Bushes" unique_id=342976568]
 z_index = 5
 texture_filter = 1
-position = Vector2(-2521.04, 968.5)
+position = Vector2(-2319.043, 935.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 
 [node name="Palm Tree11" type="Sprite2D" parent="Trees and Bushes" unique_id=2135071909]
 z_index = 5
 texture_filter = 1
-position = Vector2(-906.043, 1074.5)
+position = Vector2(-1253.0428, 1153.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 
@@ -1875,7 +1886,7 @@ texture = ExtResource("37_b28ms")
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(-924.053, 1213)
+position = Vector2(-1271.0529, 1292)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1887,7 +1898,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(735.447, 397.5)
+position = Vector2(1216.447, -1421.4998)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1897,7 +1908,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree3" type="Sprite2D" parent="Trees and Bushes" unique_id=1391233819]
 z_index = 5
 texture_filter = 1
-position = Vector2(715.5, 250.5)
+position = Vector2(1196.5, -1568.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -1906,7 +1917,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(-967.553, -269.5)
+position = Vector2(-907.553, -964.49994)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1916,7 +1927,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree21" type="Sprite2D" parent="Trees and Bushes" unique_id=1131341581]
 z_index = 5
 texture_filter = 1
-position = Vector2(-987.5, -416.5)
+position = Vector2(-927.5, -1111.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -1925,7 +1936,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(2090.45, 36.4998)
+position = Vector2(2129.45, -524.5001)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1935,7 +1946,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree35" type="Sprite2D" parent="Trees and Bushes" unique_id=1777270270]
 z_index = 5
 texture_filter = 1
-position = Vector2(2070.5, -110.5)
+position = Vector2(2109.5, -671.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -1944,7 +1955,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(-2755.55, -639.5)
+position = Vector2(637.44965, -2168.4998)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1954,7 +1965,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree23" type="Sprite2D" parent="Trees and Bushes" unique_id=353765855]
 z_index = 5
 texture_filter = 1
-position = Vector2(-2775.5, -786.5)
+position = Vector2(617.5, -2315.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -1963,7 +1974,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(-89.5498, 1760.5)
+position = Vector2(654.4501, -1038.4995)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1973,7 +1984,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree15" type="Sprite2D" parent="Trees and Bushes" unique_id=1883221411]
 z_index = 5
 texture_filter = 1
-position = Vector2(-109.5, 1613.5)
+position = Vector2(634.5, -1185.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -1982,7 +1993,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(2016.45, 752.5)
+position = Vector2(1781.45, 0.5001221)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -1992,7 +2003,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree8" type="Sprite2D" parent="Trees and Bushes" unique_id=1058463302]
 z_index = 5
 texture_filter = 1
-position = Vector2(1996.5, 605.5)
+position = Vector2(1761.5, -146.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -2001,7 +2012,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(735.45, 2299.5)
+position = Vector2(692.45, 2147.5)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -2011,7 +2022,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree32" type="Sprite2D" parent="Trees and Bushes" unique_id=1144869872]
 z_index = 5
 texture_filter = 1
-position = Vector2(715.5, 2152.5)
+position = Vector2(672.5, 2000.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -2020,7 +2031,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(1004.45, -808.5)
+position = Vector2(-1344.5498, -453.50003)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -2030,7 +2041,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree27" type="Sprite2D" parent="Trees and Bushes" unique_id=1492600132]
 z_index = 5
 texture_filter = 1
-position = Vector2(984.5, -955.5)
+position = Vector2(-1364.5, -600.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -2039,7 +2050,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(1557.45, -2150.5)
+position = Vector2(712.45, -111.50018)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -2049,7 +2060,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree31" type="Sprite2D" parent="Trees and Bushes" unique_id=1907709994]
 z_index = 5
 texture_filter = 1
-position = Vector2(1537.5, -2297.5)
+position = Vector2(692.5, -258.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -2058,7 +2069,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(2159.45, -439.5)
+position = Vector2(1217.45, 304.49988)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -2068,7 +2079,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree20" type="Sprite2D" parent="Trees and Bushes" unique_id=576518428]
 z_index = 5
 texture_filter = 1
-position = Vector2(2139.5, -586.5)
+position = Vector2(1197.5, 157.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -2077,7 +2088,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(1873.45, 1432.5)
+position = Vector2(2560.45, 1030.5)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -2087,7 +2098,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree12" type="Sprite2D" parent="Trees and Bushes" unique_id=744199011]
 z_index = 5
 texture_filter = 1
-position = Vector2(1853.5, 1285.5)
+position = Vector2(2540.5, 883.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -2096,7 +2107,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(-598.553, -977.5)
+position = Vector2(171.44696, 787.49976)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -2106,7 +2117,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree13" type="Sprite2D" parent="Trees and Bushes" unique_id=964049735]
 z_index = 5
 texture_filter = 1
-position = Vector2(-618.5, -1107.5)
+position = Vector2(151.5, 657.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -2115,7 +2126,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(-561.553, -1600.5)
+position = Vector2(676.4469, -559.5001)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -2125,7 +2136,45 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree28" type="Sprite2D" parent="Trees and Bushes" unique_id=808296469]
 z_index = 5
 texture_filter = 1
-position = Vector2(-581.5, -1730.5)
+position = Vector2(656.5, -689.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("37_b28ms")
+flip_h = true
+
+[node name="Palm Tree Shadow29" type="Sprite2D" parent="Trees and Bushes" unique_id=1856305449]
+modulate = Color(0, 0, 0, 0.25098)
+z_index = 5
+texture_filter = 1
+position = Vector2(-407.55298, -419.50012)
+rotation = -3.13887
+scale = Vector2(0.5, 0.380112)
+texture = ExtResource("37_b28ms")
+region_enabled = true
+region_rect = Rect2(0, 0, 555.52, 382.787)
+
+[node name="Palm Tree29" type="Sprite2D" parent="Trees and Bushes" unique_id=1911148893]
+z_index = 5
+texture_filter = 1
+position = Vector2(-427.5, -549.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("37_b28ms")
+flip_h = true
+
+[node name="Palm Tree Shadow36" type="Sprite2D" parent="Trees and Bushes" unique_id=576168831]
+modulate = Color(0, 0, 0, 0.25098)
+z_index = 5
+texture_filter = 1
+position = Vector2(-1378.553, 755.49976)
+rotation = -3.13887
+scale = Vector2(0.5, 0.380112)
+texture = ExtResource("37_b28ms")
+region_enabled = true
+region_rect = Rect2(0, 0, 555.52, 382.787)
+
+[node name="Palm Tree36" type="Sprite2D" parent="Trees and Bushes" unique_id=125665426]
+z_index = 5
+texture_filter = 1
+position = Vector2(-1398.5, 625.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -2134,7 +2183,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(-416.553, 826.5)
+position = Vector2(1321.4469, 1283.5)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -2144,7 +2193,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree14" type="Sprite2D" parent="Trees and Bushes" unique_id=116655937]
 z_index = 5
 texture_filter = 1
-position = Vector2(-436.5, 679.5)
+position = Vector2(1301.5, 1136.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -2153,7 +2202,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(501.447, -337.5)
+position = Vector2(1271.4469, 751.4999)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -2163,7 +2212,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree4" type="Sprite2D" parent="Trees and Bushes" unique_id=2143568835]
 z_index = 5
 texture_filter = 1
-position = Vector2(481.5, -484.5)
+position = Vector2(1251.5, 604.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -2172,7 +2221,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(722.45, 918.5)
+position = Vector2(2994.4497, -745.49976)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -2182,7 +2231,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree5" type="Sprite2D" parent="Trees and Bushes" unique_id=1728829894]
 z_index = 5
 texture_filter = 1
-position = Vector2(702.5, 771.5)
+position = Vector2(2974.5, -892.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -2191,7 +2240,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.25098)
 z_index = 5
 texture_filter = 1
-position = Vector2(661.447, 1699.5)
+position = Vector2(632.447, 1456.5)
 rotation = -3.13887
 scale = Vector2(0.5, 0.380112)
 texture = ExtResource("37_b28ms")
@@ -2201,7 +2250,7 @@ region_rect = Rect2(0, 0, 555.52, 382.787)
 [node name="Palm Tree16" type="Sprite2D" parent="Trees and Bushes" unique_id=955539616]
 z_index = 5
 texture_filter = 1
-position = Vector2(641.5, 1552.5)
+position = Vector2(612.5, 1309.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_b28ms")
 flip_h = true
@@ -2210,7 +2259,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(523, 260.2)
+position = Vector2(87, 752.2)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2220,7 +2269,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush1" type="Sprite2D" parent="Trees and Bushes" unique_id=1782051828]
 z_index = 5
 texture_filter = 1
-position = Vector2(518, 256.2)
+position = Vector2(82, 748.2)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2230,7 +2279,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(-1074, -406.8)
+position = Vector2(521, 541.19995)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2240,7 +2289,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush6" type="Sprite2D" parent="Trees and Bushes" unique_id=1526592422]
 z_index = 5
 texture_filter = 1
-position = Vector2(-1079, -410.8)
+position = Vector2(516, 537.19995)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2250,7 +2299,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(1290, 375.2)
+position = Vector2(-1447, 793.2)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2260,7 +2309,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush5" type="Sprite2D" parent="Trees and Bushes" unique_id=1816527065]
 z_index = 5
 texture_filter = 1
-position = Vector2(1285, 371.2)
+position = Vector2(-1452, 789.2)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2270,7 +2319,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(425, -163.8)
+position = Vector2(984, 1334.2)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2280,7 +2329,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush3" type="Sprite2D" parent="Trees and Bushes" unique_id=678768452]
 z_index = 5
 texture_filter = 1
-position = Vector2(420, -167.8)
+position = Vector2(979, 1330.2)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2290,7 +2339,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(-188, 458.2)
+position = Vector2(1620, 838.19995)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2300,7 +2349,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush2" type="Sprite2D" parent="Trees and Bushes" unique_id=555244858]
 z_index = 5
 texture_filter = 1
-position = Vector2(-193, 454.2)
+position = Vector2(1615, 834.19995)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2310,7 +2359,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(-530, -17.8)
+position = Vector2(-923, 24.199951)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2320,7 +2369,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush19" type="Sprite2D" parent="Trees and Bushes" unique_id=525778185]
 z_index = 5
 texture_filter = 1
-position = Vector2(-535, -21.8)
+position = Vector2(-928, 20.199951)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2330,7 +2379,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(-1026, 440.2)
+position = Vector2(635, -982.8)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2340,7 +2389,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush20" type="Sprite2D" parent="Trees and Bushes" unique_id=437534048]
 z_index = 5
 texture_filter = 1
-position = Vector2(-1031, 436.2)
+position = Vector2(630, -986.8)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2350,7 +2399,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(-553, 1398.2)
+position = Vector2(44.00006, -977.8)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2360,7 +2409,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush4" type="Sprite2D" parent="Trees and Bushes" unique_id=531207887]
 z_index = 5
 texture_filter = 1
-position = Vector2(-558, 1394.2)
+position = Vector2(39.00006, -981.8)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2370,7 +2419,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(1372, 1026.2)
+position = Vector2(1343, -553.80005)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2380,7 +2429,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush7" type="Sprite2D" parent="Trees and Bushes" unique_id=487968667]
 z_index = 5
 texture_filter = 1
-position = Vector2(1367, 1022.2)
+position = Vector2(1338, -557.8)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2390,7 +2439,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(-1291, -2021.8)
+position = Vector2(-1155, 1253.2)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2400,7 +2449,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush27" type="Sprite2D" parent="Trees and Bushes" unique_id=229716777]
 z_index = 5
 texture_filter = 1
-position = Vector2(-1296, -2025.8)
+position = Vector2(-1160, 1249.2)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2410,7 +2459,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(-1744, -477.8)
+position = Vector2(-1468, -491.8)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2420,7 +2469,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush8" type="Sprite2D" parent="Trees and Bushes" unique_id=1893403246]
 z_index = 5
 texture_filter = 1
-position = Vector2(-1749, -481.8)
+position = Vector2(-1473, -495.8)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2430,7 +2479,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(2083, -473.8)
+position = Vector2(2072, -473.8)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2440,7 +2489,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush11" type="Sprite2D" parent="Trees and Bushes" unique_id=1825395383]
 z_index = 5
 texture_filter = 1
-position = Vector2(2078, -477.8)
+position = Vector2(2067, -477.8)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2450,7 +2499,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(1939, 783.2)
+position = Vector2(2276, 1172.2)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2460,7 +2509,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush18" type="Sprite2D" parent="Trees and Bushes" unique_id=1444805800]
 z_index = 5
 texture_filter = 1
-position = Vector2(1934, 779.2)
+position = Vector2(2271, 1168.2)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2470,7 +2519,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(-1745, 1292.2)
+position = Vector2(-2017, 1198.2)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2480,7 +2529,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush12" type="Sprite2D" parent="Trees and Bushes" unique_id=482770866]
 z_index = 5
 texture_filter = 1
-position = Vector2(-1750, 1288.2)
+position = Vector2(-2022, 1194.2)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2490,7 +2539,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(-1816, 898.2)
+position = Vector2(106.99997, 1520.2)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2500,7 +2549,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush23" type="Sprite2D" parent="Trees and Bushes" unique_id=804289881]
 z_index = 5
 texture_filter = 1
-position = Vector2(-1821, 894.2)
+position = Vector2(101.99997, 1516.2)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2510,7 +2559,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(-2055, -868.8)
+position = Vector2(-2075, -867.8)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2520,7 +2569,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush24" type="Sprite2D" parent="Trees and Bushes" unique_id=1611994943]
 z_index = 5
 texture_filter = 1
-position = Vector2(-2060, -872.8)
+position = Vector2(-2080, -871.8)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2530,7 +2579,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(2348, -880.8)
+position = Vector2(2785, -868.8)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2540,7 +2589,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush25" type="Sprite2D" parent="Trees and Bushes" unique_id=187807786]
 z_index = 5
 texture_filter = 1
-position = Vector2(2343, -884.8)
+position = Vector2(2780, -872.8)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2550,7 +2599,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(2148, 1181.2)
+position = Vector2(602, 1514.2)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2560,7 +2609,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush26" type="Sprite2D" parent="Trees and Bushes" unique_id=1715799336]
 z_index = 5
 texture_filter = 1
-position = Vector2(2143, 1177.2)
+position = Vector2(597, 1510.2)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2570,7 +2619,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(1993, 38.2)
+position = Vector2(1682, 3.2000036)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2580,7 +2629,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush13" type="Sprite2D" parent="Trees and Bushes" unique_id=2043254450]
 z_index = 5
 texture_filter = 1
-position = Vector2(1988, 34.2)
+position = Vector2(1677, -0.7999964)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2590,7 +2639,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(-616, 1621.2)
+position = Vector2(-851, -909.8)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2600,7 +2649,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush14" type="Sprite2D" parent="Trees and Bushes" unique_id=1861493065]
 z_index = 5
 texture_filter = 1
-position = Vector2(-621, 1617.2)
+position = Vector2(-856, -913.8)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2610,7 +2659,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(-1128, 1994.2)
+position = Vector2(1194, 355.2)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2620,7 +2669,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush21" type="Sprite2D" parent="Trees and Bushes" unique_id=1654204438]
 z_index = 5
 texture_filter = 1
-position = Vector2(-1133, 1990.2)
+position = Vector2(1189, 351.2)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2630,7 +2679,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(1330, 1681.2)
+position = Vector2(-450, 1231.2)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2640,7 +2689,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush15" type="Sprite2D" parent="Trees and Bushes" unique_id=309251472]
 z_index = 5
 texture_filter = 1
-position = Vector2(1325, 1677.2)
+position = Vector2(-455, 1227.2)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2650,7 +2699,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(1668, 2013.2)
+position = Vector2(243, -2126.8)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2660,7 +2709,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush22" type="Sprite2D" parent="Trees and Bushes" unique_id=1480301102]
 z_index = 5
 texture_filter = 1
-position = Vector2(1663, 2009.2)
+position = Vector2(238, -2130.8)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2670,7 +2719,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 4
 texture_filter = 1
-position = Vector2(1933, 1167.2)
+position = Vector2(559, -2125.8)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2680,7 +2729,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush16" type="Sprite2D" parent="Trees and Bushes" unique_id=196361029]
 z_index = 4
 texture_filter = 1
-position = Vector2(1928, 1163.2)
+position = Vector2(554, -2129.8)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2690,7 +2739,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(-195, 962.2)
+position = Vector2(-382, -337.8)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2700,7 +2749,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush17" type="Sprite2D" parent="Trees and Bushes" unique_id=1822347080]
 z_index = 5
 texture_filter = 1
-position = Vector2(-200, 958.2)
+position = Vector2(-387, -341.8)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2710,7 +2759,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 5
 texture_filter = 1
-position = Vector2(-524, -893.8)
+position = Vector2(-398, -1691.8)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2720,7 +2769,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush9" type="Sprite2D" parent="Trees and Bushes" unique_id=65302212]
 z_index = 5
 texture_filter = 1
-position = Vector2(-529, -897.8)
+position = Vector2(-403, -1695.8)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2730,7 +2779,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 modulate = Color(0, 0, 0, 0.239216)
 z_index = 4
 texture_filter = 1
-position = Vector2(1530, -379.8)
+position = Vector2(1114, -1383.8)
 rotation = 3.13483
 scale = Vector2(0.20422, 0.181817)
 texture = ExtResource("38_l1yfp")
@@ -2740,7 +2789,7 @@ region_rect = Rect2(630.38, 376.671, 560.649, 472.271)
 [node name="Bush10" type="Sprite2D" parent="Trees and Bushes" unique_id=7485070]
 z_index = 4
 texture_filter = 1
-position = Vector2(1525, -383.8)
+position = Vector2(1109, -1387.8)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("38_l1yfp")
 region_enabled = true
@@ -2767,6 +2816,9 @@ position = Vector2(331, -809)
 
 [node name="Fuel6" parent="." unique_id=981360945 instance=ExtResource("39_vi4hy")]
 position = Vector2(752, -1729.0001)
+
+[node name="Fuel7" parent="." unique_id=211225847 instance=ExtResource("39_vi4hy")]
+position = Vector2(-114, -1477)
 
 [node name="WormEnemy" parent="." unique_id=820174072 instance=ExtResource("41_my6p5")]
 position = Vector2(318, 614)
