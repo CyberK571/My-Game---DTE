@@ -1206,7 +1206,7 @@ tile_set = SubResource("TileSet_ye2ux")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=592575056 groups=["player"]]
 texture_filter = 1
-position = Vector2(342, 1769)
+position = Vector2(399.00003, -2222)
 scale = Vector2(3, 3)
 script = ExtResource("5_a5vxi")
 keys_required = 4
