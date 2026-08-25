@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://pooc31jejum5" path="res://Images/Rock Pile 9 - BEIGE - BIG.PNG" id="3_2johl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_46y1q"]
-radius = 14.006762
+radius = 13.003086
 
 [node name="Rock" type="StaticBody2D" unique_id=2131455104]
 scale = Vector2(5, 5)

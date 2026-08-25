@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	Transition.play_music(preload("res://Music/He's a Pirate 8-Bit Remix (Pirates of the Caribbean).mp3"))
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		print(enemy.name, ": ", enemy.global_position)
 	$Camera2D.zoom = Vector2(0.7, 0.7)

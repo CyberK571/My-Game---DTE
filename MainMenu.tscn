@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://m5cjnyrg0yx0" path="res://main_menu.gd" id="1_eiy7p"]
 [ext_resource type="Texture2D" uid="uid://drt1kfbo5157x" path="res://Images/Menu/Snack Supreme and the Seven Seas (8).png" id="2_eiy7p"]
+[ext_resource type="AudioStream" uid="uid://ctyv4uac435gk" path="res://Music/REALHOVER.mp3" id="3_qoqlk"]
+[ext_resource type="AudioStream" uid="uid://dg4sjdqamfkaa" path="res://Music/HOVERAUDIO.mp3" id="4_iwfq2"]
 
 [node name="MainMenu" type="Control" unique_id=451040619]
 layout_mode = 3
@@ -90,3 +92,11 @@ text = "3rd Ocean"
 [node name="Third Island Scene" type="Button" parent="VBoxContainer2" unique_id=439235798]
 layout_mode = 2
 text = "3rd Island"
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=36102337]
+stream = ExtResource("3_qoqlk")
+volume_db = 6.5
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=669442071]
+stream = ExtResource("4_iwfq2")
+volume_db = 15.295

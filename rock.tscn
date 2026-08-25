@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://djaf2abiqfxfl" path="res://Images/1st Ocean/Rock Pile 3 - AZURE - small.PNG" id="2_wecdg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_46y1q"]
-radius = 14.1421
+radius = 11.375986
 
 [node name="Rock" type="StaticBody2D" unique_id=2131455104]
 scale = Vector2(5, 5)
@@ -26,7 +26,7 @@ texture = ExtResource("2_wecdg")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1593286237]
-position = Vector2(-1, 2)
+position = Vector2(-0.19999981, 2.1999998)
 rotation = 0.380172
 scale = Vector2(1.28, 1)
 shape = SubResource("CircleShape2D_46y1q")

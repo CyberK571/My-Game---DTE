@@ -1,5 +1,8 @@
 extends Control
 
+@onready var hover_sound = $HoverSound
+@onready var click_sound = $ClickSound
+
 const LEVEL_SCENES = {
 	"Island Scene": "res://island_root.tscn",
 	"Second Ocean Scene": "res://level_root2.tscn",
@@ -9,14 +12,27 @@ const LEVEL_SCENES = {
 }
 
 func _ready():
+	Transition.play_music(preload("res://Music/Alestorm Pirate Song - 8 Bit.mp3"))
 	print("Unlocked levels: ", LevelUnlock.unlocked)
 	modulate.a = 0
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 1.0, 0.6)
+	for btn in $VBoxContainer.get_children():
+		btn.mouse_entered.connect(_on_button_hover)
+		btn.pressed.connect(_on_button_click)
+	for btn in $VBoxContainer2.get_children():
+		btn.mouse_entered.connect(_on_button_hover)
+		btn.pressed.connect(_on_button_click)
 
 	$VBoxContainer/PlayButton.pressed.connect(_on_play)
 	$VBoxContainer/ControlsButton.pressed.connect(_on_controls)
 	$VBoxContainer/CreditsButton.pressed.connect(_on_credits)
+	
+func _on_button_hover():
+	hover_sound.play()
+
+func _on_button_click():
+	click_sound.play()
 
 	# Show checkpoint buttons only if unlocked
 	for btn in $VBoxContainer2.get_children():

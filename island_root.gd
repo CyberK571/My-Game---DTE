@@ -1,8 +1,7 @@
 extends Node2D
 
-
-
 func _ready():
+	Transition.play_music(preload("res://Music/Title Theme.mp3"))
 	LevelUnlock.unlock("Island Scene")
 	print("Unlock called: Island Scene")
 	LevelUnlock.unlock("1st_island")  # match these IDs across all scripts

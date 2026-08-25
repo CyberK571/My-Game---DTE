@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxrnepmotc87l"
+path="res://.godot/imported/Alestorm Pirate Song - 8 Bit.mp3-35b82b9544c40cc2c255b53f4b090dce.mp3str"
+
+[deps]
+
+source_file="res://Music/Alestorm Pirate Song - 8 Bit.mp3"
+dest_files=["res://.godot/imported/Alestorm Pirate Song - 8 Bit.mp3-35b82b9544c40cc2c255b53f4b090dce.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=1.0
+bpm=0.0
+beat_count=0
+bar_beats=4
