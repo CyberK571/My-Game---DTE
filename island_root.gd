@@ -4,7 +4,6 @@ func _ready():
 	Transition.play_music(preload("res://Music/Title Theme.mp3"))
 	LevelUnlock.unlock("Island Scene")
 	print("Unlock called: Island Scene")
-	LevelUnlock.unlock("1st_island")  # match these IDs across all scripts
 	await get_tree().create_timer(2.0).timeout
 	DialogueManager.show_dialogue([
 		"You've landed on the island.                                                                                (Enter to Continue)",

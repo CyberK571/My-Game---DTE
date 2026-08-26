@@ -70,6 +70,8 @@ tile_set = SubResource("TileSet_4d4qa")
 [node name="Ship" parent="." unique_id=1589576023 instance=ExtResource("3_rf8af")]
 z_index = 2
 position = Vector2(1037, 599)
+collision_layer = 6
+collision_mask = 6
 
 [node name="MinimapHUD" parent="." unique_id=1361068458 instance=ExtResource("4_e5u8s")]
 
@@ -102,10 +104,16 @@ scale = Vector2(2.20313, 2.23307)
 texture = ExtResource("6_oufh0")
 
 [node name="EnemyShip2" parent="." unique_id=2122427821 instance=ExtResource("7_ae7j8")]
+z_index = 2
 position = Vector2(-909, -375)
+collision_layer = 4
+collision_mask = 4
 
 [node name="EnemyShip3" parent="." unique_id=456723871 instance=ExtResource("7_ae7j8")]
+z_index = 2
 position = Vector2(-2273, -1397)
+collision_layer = 4
+collision_mask = 4
 
 [node name="Rock20" parent="." unique_id=951629203 instance=ExtResource("8_wedvm")]
 position = Vector2(116, 175)

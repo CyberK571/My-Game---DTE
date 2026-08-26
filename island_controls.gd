@@ -8,6 +8,7 @@ var slides = [
 	{ "image": preload("res://Images/Controls/island controls/IslandMinimap.png"),},
 	{ "image": preload("res://Images/Controls/island controls/Island Controls - Snack supremem and the quest for delivery (6).png"),},
 	{ "image": preload("res://Images/Controls/island controls/Island Controls - Snack supremem and the quest for delivery (7).png"),},
+	{ "image": preload("res://Images/Controls/6.png"),},
 ]
 
 var current_slide = 0

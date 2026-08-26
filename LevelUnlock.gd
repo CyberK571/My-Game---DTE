@@ -4,6 +4,8 @@ const SAVE_PATH = "user://unlocks.cfg"
 var unlocked: Array = []
 
 func _ready():
+	unlocked = []
+	save_unlocks()
 	load_unlocks()
 
 func unlock(level_id: String):

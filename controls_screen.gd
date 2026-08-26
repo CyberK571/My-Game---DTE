@@ -17,6 +17,9 @@ var slides = [
 	{
 		"image": preload("res://Images/Controls/5.png"),
 	},
+	{
+		"image": preload("res://Images/Controls/6.png"),
+	},
 ]
 
 var current_slide = 0

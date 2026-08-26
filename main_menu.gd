@@ -22,7 +22,11 @@ func _ready():
 		btn.pressed.connect(_on_button_click)
 	for btn in $VBoxContainer2.get_children():
 		btn.mouse_entered.connect(_on_button_hover)
-		btn.pressed.connect(_on_button_click)
+		if LevelUnlock.is_unlocked(btn.name):
+			btn.visible = true
+			btn.pressed.connect(func(): Transition.change_scene(LEVEL_SCENES[btn.name]))
+		else:
+			btn.visible = false
 
 	$VBoxContainer/PlayButton.pressed.connect(_on_play)
 	$VBoxContainer/ControlsButton.pressed.connect(_on_controls)
@@ -36,8 +40,11 @@ func _on_button_click():
 
 	# Show checkpoint buttons only if unlocked
 	for btn in $VBoxContainer2.get_children():
-		btn.visible = true
-		btn.pressed.connect(func(): Transition.change_scene(LEVEL_SCENES[btn.name]))
+		if LevelUnlock.is_unlocked(btn.name):
+			btn.visible = true
+			btn.pressed.connect(func(): Transition.change_scene(LEVEL_SCENES[btn.name]))
+		else:
+			btn.visible = false
 
 func _on_play():
 	get_tree().change_scene_to_file("res://level_root.tscn")

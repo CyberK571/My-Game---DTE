@@ -890,6 +890,8 @@ position = Vector2(-4026, -2047)
 
 [node name="Ship" parent="." unique_id=1922216466 groups=["player"] instance=ExtResource("16_wcmwt")]
 position = Vector2(1056, 652)
+collision_layer = 6
+collision_mask = 6
 
 [node name="WakeRight" parent="Ship" index="0"]
 modulate = Color(0.294024, 0.889361, 0.807499, 1)
