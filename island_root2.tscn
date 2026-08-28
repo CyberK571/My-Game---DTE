@@ -1493,6 +1493,7 @@ position = Vector2(-1094, -707)
 projectile_scene = ExtResource("30_ea6h6")
 
 [node name="Enemy2" parent="." unique_id=813968673 groups=["enemy"] instance=ExtResource("29_ictcg")]
+visible = false
 position = Vector2(1600, 120)
 projectile_scene = ExtResource("30_ea6h6")
 
@@ -2831,11 +2832,11 @@ position = Vector2(1363, 876)
 projectile_scene = ExtResource("30_ea6h6")
 shoot_range = 300.0
 
-[node name="Territory" parent="WormEnemy" index="2"]
+[node name="Territory" parent="WormEnemy" index="2" unique_id=39907680]
 scale = Vector2(0.926398, 0.869659)
 polygon = PackedVector2Array(-31.6667, -47.3333, -52.3333, -25.3333, -61.6667, 2.33334, -61.6667, 26, -52.3333, 43.6667, -39.6667, 63.6667, -1.33334, 76.3333, 35, 68, 51.6667, 54.3333, 64, 30.3333, 64.6667, -1.33331, 55, -29, 31, -51.3333, 6.33333, -57.6667)
 
-[node name="DetectionArea" parent="WormEnemy" index="4"]
+[node name="DetectionArea" parent="WormEnemy" index="4" unique_id=2007783486]
 visible = false
 
 [node name="WormEnemy11" parent="." unique_id=538032763 instance=ExtResource("39_i5fu7")]
@@ -2843,11 +2844,11 @@ position = Vector2(1676, -892)
 projectile_scene = ExtResource("30_ea6h6")
 shoot_range = 350.0
 
-[node name="Territory" parent="WormEnemy11" index="2"]
+[node name="Territory" parent="WormEnemy11" index="2" unique_id=39907680]
 scale = Vector2(0.926398, 0.869659)
 polygon = PackedVector2Array(-28.3997, -13.9997, -52.3333, -25.3333, -69.9997, -13.9997, -98.7997, -9.99967, -155.6, -7.59967, -156.4, 16.4003, -12.3997, 18.8003, 55.6003, 21.2003, 122.8, 15.6003, 122.8, -8.39967, 78.0003, -13.1997, 55, -29, 38.0003, -15.5997, 2.80029, -22.7997)
 
-[node name="DetectionArea" parent="WormEnemy11" index="4"]
+[node name="DetectionArea" parent="WormEnemy11" index="4" unique_id=2007783486]
 visible = false
 position = Vector2(-9.33333, 66.6667)
 scale = Vector2(2.17477, -1.13135)
@@ -2857,11 +2858,11 @@ position = Vector2(-137, 772)
 projectile_scene = ExtResource("30_ea6h6")
 shoot_range = 300.0
 
-[node name="Territory" parent="WormEnemy2" index="2"]
+[node name="Territory" parent="WormEnemy2" index="2" unique_id=39907680]
 polygon = PackedVector2Array(-63.3481, -37.9552, -20.9586, -123.267, 97.8407, 46.6133, 87.3317, 153.29, -145.484, 20.1217)
 uv = PackedVector2Array(-64.4003, -24.3997, 12.3997, -48.3997, 61.1997, -28.3997, 76.3997, 58.0003, -46.8003, 60.4003)
 
-[node name="DetectionArea" parent="WormEnemy2" index="4"]
+[node name="DetectionArea" parent="WormEnemy2" index="4" unique_id=2007783486]
 visible = false
 scale = Vector2(1.96, 1.81333)
 
@@ -2870,11 +2871,11 @@ position = Vector2(-1148, 426)
 projectile_scene = ExtResource("30_ea6h6")
 shoot_range = 330.0
 
-[node name="Territory" parent="WormEnemy8" index="2"]
+[node name="Territory" parent="WormEnemy8" index="2" unique_id=39907680]
 polygon = PackedVector2Array(-76.1955, -55.9106, 50.705, -7.8942, 48.9901, 14.3991, 11.2629, 38.4073, -31.6088, 117.291)
 uv = PackedVector2Array(-64.4003, -24.3997, 12.3997, -48.3997, 61.1997, -28.3997, 76.3997, 58.0003, -46.8003, 60.4003)
 
-[node name="DetectionArea" parent="WormEnemy8" index="4"]
+[node name="DetectionArea" parent="WormEnemy8" index="4" unique_id=2007783486]
 visible = false
 scale = Vector2(1.96, 1.81333)
 
@@ -2883,11 +2884,11 @@ position = Vector2(1941, 157)
 projectile_scene = ExtResource("30_ea6h6")
 shoot_range = 330.0
 
-[node name="Territory" parent="WormEnemy9" index="2"]
+[node name="Territory" parent="WormEnemy9" index="2" unique_id=39907680]
 polygon = PackedVector2Array(42.8111, -130.854, 40.2343, 14.7361, -38.3586, 116.52, -39.647, 64.9841, -10.0137, 4.42888)
 uv = PackedVector2Array(-64.4003, -24.3997, 12.3997, -48.3997, 61.1997, -28.3997, 76.3997, 58.0003, -46.8003, 60.4003)
 
-[node name="DetectionArea" parent="WormEnemy9" index="4"]
+[node name="DetectionArea" parent="WormEnemy9" index="4" unique_id=2007783486]
 visible = false
 scale = Vector2(1.96, 1.81333)
 
@@ -2896,15 +2897,15 @@ position = Vector2(-664, 1441)
 projectile_scene = ExtResource("30_ea6h6")
 shoot_range = 300.0
 
-[node name="Territory" parent="WormEnemy3" index="2"]
+[node name="Territory" parent="WormEnemy3" index="2" unique_id=39907680]
 polygon = PackedVector2Array(-103.134, -86.0356, 44.9698, -20.2116, 71.1205, 42.1653, 218.514, 110.193, 8.18579, 68.8444)
 uv = PackedVector2Array(-64.4003, -24.3997, 12.3997, -48.3997, 61.1997, -28.3997, 76.3997, 58.0003, -46.8003, 60.4003)
 
-[node name="DetectionArea" parent="WormEnemy3" index="4"]
+[node name="DetectionArea" parent="WormEnemy3" index="4" unique_id=2007783486]
 visible = false
 scale = Vector2(1.96, 1.81333)
 
-[node name="CollisionShape2D" parent="WormEnemy3/DetectionArea" index="0"]
+[node name="CollisionShape2D" parent="WormEnemy3/DetectionArea" index="0" unique_id=90638933]
 rotation = 0.725706
 scale = Vector2(1.14449, 0.95805)
 
@@ -2913,15 +2914,15 @@ position = Vector2(923, 1518)
 projectile_scene = ExtResource("30_ea6h6")
 shoot_range = 350.0
 
-[node name="Territory" parent="WormEnemy4" index="2"]
+[node name="Territory" parent="WormEnemy4" index="2" unique_id=39907680]
 polygon = PackedVector2Array(-125.728, 52.3956, -91.4908, 98.0455, 79.6963, 102.61, 102.521, 34.1356, 86.5437, -9.23178, 74.5729, -29.5851, 50.5729, -45.5851, 11.2214, -68.5767, -66.3834, -226.069, -93.7733, -205.526, -59.536, -64.0117)
 uv = PackedVector2Array(-14.1252, 54.23, 33.0748, 79.03, 119.475, 75.83, 165.875, 43.83, 153.075, 11.83, 118.103, -51.2475, 72.7513, -51.2475, -25.0389, -58.3337, -51.9666, -39.9095, -128.498, -34.2405, -59.0529, 29.5357)
 
-[node name="DetectionArea" parent="WormEnemy4" index="4"]
+[node name="DetectionArea" parent="WormEnemy4" index="4" unique_id=2007783486]
 visible = false
 scale = Vector2(1.96, 1.81333)
 
-[node name="CollisionShape2D" parent="WormEnemy4/DetectionArea" index="0"]
+[node name="CollisionShape2D" parent="WormEnemy4/DetectionArea" index="0" unique_id=90638933]
 rotation = 0.725706
 scale = Vector2(1.34329, 0.92423)
 
@@ -2930,15 +2931,15 @@ position = Vector2(787, 345)
 projectile_scene = ExtResource("30_ea6h6")
 shoot_range = 350.0
 
-[node name="Territory" parent="WormEnemy5" index="2"]
+[node name="Territory" parent="WormEnemy5" index="2" unique_id=39907680]
 polygon = PackedVector2Array(23.4709, 42.9488, 81.948, 12.7671, 174.38, 16.5398, 187.584, -13.6419, 161.175, -38.1646, 95.1526, -40.051, 38.5618, -41.9373, -6.71082, -41.9373, -99.1423, -40.051, -114.233, -11.7556, -59.5288, 44.8352)
 uv = PackedVector2Array(-14.1252, 54.23, 33.0748, 79.03, 119.475, 75.83, 165.875, 43.83, 153.075, 11.83, 118.103, -51.2475, 72.7513, -51.2475, -25.0389, -58.3337, -51.9666, -39.9095, -128.498, -34.2405, -59.0529, 29.5357)
 
-[node name="DetectionArea" parent="WormEnemy5" index="4"]
+[node name="DetectionArea" parent="WormEnemy5" index="4" unique_id=2007783486]
 visible = false
 scale = Vector2(2.52, 1.93333)
 
-[node name="CollisionShape2D" parent="WormEnemy5/DetectionArea" index="0"]
+[node name="CollisionShape2D" parent="WormEnemy5/DetectionArea" index="0" unique_id=90638933]
 rotation = 0.725706
 scale = Vector2(1.34329, 0.92423)
 
@@ -2947,15 +2948,15 @@ position = Vector2(-583, -296)
 projectile_scene = ExtResource("30_ea6h6")
 shoot_range = 350.0
 
-[node name="Territory" parent="WormEnemy6" index="2"]
+[node name="Territory" parent="WormEnemy6" index="2" unique_id=39907680]
 polygon = PackedVector2Array(1.19965, 105.2, 33.9997, 108.4, 77.9997, 71.5997, 182.8, 49.9997, 180.4, -38.0003, 159.6, -47.6003, 111.6, -55.6003, -140.4, -58.8003, -178.8, -38.0003, -176.4, 25.1997, -76.4003, 52.3997)
 uv = PackedVector2Array(-14.1252, 54.23, 33.0748, 79.03, 119.475, 75.83, 165.875, 43.83, 153.075, 11.83, 118.103, -51.2475, 72.7513, -51.2475, -25.0389, -58.3337, -51.9666, -39.9095, -128.498, -34.2405, -59.0529, 29.5357)
 
-[node name="DetectionArea" parent="WormEnemy6" index="4"]
+[node name="DetectionArea" parent="WormEnemy6" index="4" unique_id=2007783486]
 visible = false
 scale = Vector2(3.1762, 1.83837)
 
-[node name="CollisionShape2D" parent="WormEnemy6/DetectionArea" index="0"]
+[node name="CollisionShape2D" parent="WormEnemy6/DetectionArea" index="0" unique_id=90638933]
 rotation = 0.725706
 scale = Vector2(1.34329, 0.92423)
 
@@ -2964,15 +2965,15 @@ position = Vector2(965, -281)
 projectile_scene = ExtResource("30_ea6h6")
 shoot_range = 350.0
 
-[node name="Territory" parent="WormEnemy7" index="2"]
+[node name="Territory" parent="WormEnemy7" index="2" unique_id=39907680]
 polygon = PackedVector2Array(-4.8363, 54.2366, 52.3637, 51.5966, 122.764, 54.2366, 200.204, 45.4366, 197.564, -33.7634, 183.484, -44.3234, 121.004, -45.2034, -140.356, -43.4434, -194.036, -32.8834, -189.636, 47.1967, -76.4003, 52.3997)
 uv = PackedVector2Array(-14.1252, 54.23, 33.0748, 79.03, 119.475, 75.83, 165.875, 43.83, 153.075, 11.83, 118.103, -51.2475, 72.7513, -51.2475, -25.0389, -58.3337, -51.9666, -39.9095, -128.498, -34.2405, -59.0529, 29.5357)
 
-[node name="DetectionArea" parent="WormEnemy7" index="4"]
+[node name="DetectionArea" parent="WormEnemy7" index="4" unique_id=2007783486]
 visible = false
 scale = Vector2(3.1762, 1.83837)
 
-[node name="CollisionShape2D" parent="WormEnemy7/DetectionArea" index="0"]
+[node name="CollisionShape2D" parent="WormEnemy7/DetectionArea" index="0" unique_id=90638933]
 rotation = 0.725706
 scale = Vector2(1.34329, 0.92423)
 
@@ -2981,17 +2982,17 @@ position = Vector2(391, -904)
 projectile_scene = ExtResource("30_ea6h6")
 shoot_range = 380.0
 
-[node name="Territory" parent="WormEnemy10" index="2"]
+[node name="Territory" parent="WormEnemy10" index="2" unique_id=39907680]
 polygon = PackedVector2Array(39.5996, 17.9996, 122.992, 18.5591, 195.01, 64.7444, 192.728, -3.7305, 48.9304, -24.2729, -67.4768, -33.4029, -183.884, -51.6629, -323.116, -90.4653, -415.997, -93.317, -385.617, -27.0333, -300.001, 19.9176)
 uv = PackedVector2Array(-14.1252, 54.23, 33.0748, 79.03, 119.475, 75.83, 165.875, 43.83, 153.075, 11.83, 118.103, -51.2475, 72.7513, -51.2475, -25.0389, -58.3337, -51.9666, -39.9095, -128.498, -34.2405, -59.0529, 29.5357)
 
-[node name="DetectionArea" parent="WormEnemy10" index="4"]
+[node name="DetectionArea" parent="WormEnemy10" index="4" unique_id=2007783486]
 visible = false
 position = Vector2(-187.667, 66)
 rotation = -0.116315
 scale = Vector2(3.04287, 1.10504)
 
-[node name="CollisionShape2D" parent="WormEnemy10/DetectionArea" index="0"]
+[node name="CollisionShape2D" parent="WormEnemy10/DetectionArea" index="0" unique_id=90638933]
 rotation = 0.725706
 scale = Vector2(1.34329, 0.92423)
 

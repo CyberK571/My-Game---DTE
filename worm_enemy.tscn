@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://fu6qk7xe6gea"]
+[gd_scene format=3 uid="uid://fu6qk7xe6gea"]
 
 [ext_resource type="Script" uid="uid://b3aqdnvulh7tn" path="res://worm_enemy.gd" id="1_8705g"]
 [ext_resource type="Texture2D" uid="uid://blq365leot8yw" path="res://Images/1st Island/Enemy's/Worm Sprite Sheet.png" id="1_j67i2"]
@@ -46,7 +46,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ytffx")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Burst",
 "speed": 10.0
 }, {
@@ -57,7 +57,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ox707")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Mound",
 "speed": 10.0
 }, {
@@ -65,7 +65,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tbq1q")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Normal",
 "speed": 5.0
 }]
@@ -207,7 +207,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u8bb1")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Attack",
 "speed": 10.0
 }, {
@@ -236,7 +236,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qpj6u")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 10.0
 }, {
@@ -265,7 +265,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u3dw3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Jump",
 "speed": 10.0
 }]
@@ -276,17 +276,17 @@ radius = 13.5974
 [sub_resource type="CircleShape2D" id="CircleShape2D_8705g"]
 radius = 109.659
 
-[node name="WormEnemy" type="CharacterBody2D"]
+[node name="WormEnemy" type="CharacterBody2D" unique_id=770838614]
 scale = Vector2(3, 3)
 script = ExtResource("1_8705g")
 
-[node name="Dirt" type="AnimatedSprite2D" parent="."]
+[node name="Dirt" type="AnimatedSprite2D" parent="." unique_id=1937074121]
 texture_filter = 1
 position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_8705g")
 animation = &"Mound"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=32961981]
 texture_filter = 1
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_h6hus")
@@ -294,22 +294,22 @@ animation = &"Attack"
 frame = 9
 frame_progress = 1.0
 
-[node name="Territory" type="Polygon2D" parent="."]
+[node name="Territory" type="Polygon2D" parent="." unique_id=39907680]
 modulate = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(-36, -52, -65, -25, -71.3333, 12.3333, -63.6667, 43.3333, -53.3333, 56, -44.3333, 67.6667, -1.33333, 84.3333, 35.3333, 75.3333, 57.3333, 56.6667, 68.3333, 32.3333, 69, 1.33333, 65.3333, -28.6667, 34.6667, -54, 6.33333, -57.6667)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1481396211]
 position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_j67i2")
 
-[node name="DetectionArea" type="Area2D" parent="."]
+[node name="DetectionArea" type="Area2D" parent="." unique_id=2007783486]
 scale = Vector2(1.56, 1.53333)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=90638933]
 position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_8705g")
 
-[node name="ShootTimer" type="Timer" parent="."]
+[node name="ShootTimer" type="Timer" parent="." unique_id=1650901948]
 
-[node name="MuzzlePoint" type="Marker2D" parent="."]
+[node name="MuzzlePoint" type="Marker2D" parent="." unique_id=1973313430]
 position = Vector2(0, -1)
