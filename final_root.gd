@@ -5,7 +5,7 @@ func _ready():
 	$VBoxContainer/QuitButton.pressed.connect(_on_quit_pressed)
 
 func _on_return_pressed():
-	Transition.change_scene("res://MainMenu.tscn") # swap in your actual main menu scene path
+	Transition.change_scene("res://MainMenu.tscn") 
 	
 func _on_quit_pressed():
 	get_tree().quit()

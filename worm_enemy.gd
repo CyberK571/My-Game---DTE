@@ -61,13 +61,12 @@ func _decide_next_move():
 		return
 
 	var dist_to_player = global_position.distance_to(player_in_range.global_position)
-	print("dist to player: ", dist_to_player, " | shoot_range: ", shoot_range)
 
 	if dist_to_player <= shoot_range:
 		state = State.ATTACKING
 		sprite.play("Idle")
 		shoot_timer.start()
-		_shoot() # fire immediately instead of waiting a full interval first
+		_shoot()
 	else:
 		if state != State.JUMPING:
 			shoot_timer.stop()

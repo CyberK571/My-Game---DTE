@@ -5,7 +5,6 @@ extends Control
 @onready var pause_button = $PauseButton
 @onready var overlay = $PauseOverlay
 
-# Define your island bounds (adjust to match your TileMapLayer size)
 const MAP_MIN = Vector2(-3400, -5500)
 const MAP_MAX = Vector2(3500, 9650)
 

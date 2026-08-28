@@ -41,14 +41,12 @@ signal boss_died
 @export var right_punch_cooldown: float = 1.1
 @export var right_punch_hit_fraction: float = 0.8
 
-# Needle Attack 1 — forward-thrusting lasso, long reach
 @export var needle1_range: float = 280.0
 @export var needle1_damage: int = 2
 @export var needle1_windup: float = 0.1
 @export var needle1_cooldown: float = 1.6
 @export var needle1_hit_fraction: float = 0.7
 
-# Needle Attack 2 — diagonal whipping lasso, long reach
 @export var needle2_range: float = 260.0
 @export var needle2_damage: int = 2
 @export var needle2_windup: float = 0.1

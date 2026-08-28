@@ -38,7 +38,6 @@ func _on_button_hover():
 func _on_button_click():
 	click_sound.play()
 
-	# Show checkpoint buttons only if unlocked
 	for btn in $VBoxContainer2.get_children():
 		if LevelUnlock.is_unlocked(btn.name):
 			btn.visible = true
