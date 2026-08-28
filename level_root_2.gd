@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	LevelUnlock.unlock("Second Ocean Scene")
 	Transition.play_music(preload("res://Music/He's a Pirate 8-Bit Remix (Pirates of the Caribbean).mp3"))
 	$Camera2D.zoom = Vector2(0.7, 0.7)
 	if DialogueManager.second_ocean_intro_shown:
