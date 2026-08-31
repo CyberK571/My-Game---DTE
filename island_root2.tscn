@@ -1493,7 +1493,6 @@ position = Vector2(-1094, -707)
 projectile_scene = ExtResource("30_ea6h6")
 
 [node name="Enemy2" parent="." unique_id=813968673 groups=["enemy"] instance=ExtResource("29_ictcg")]
-visible = false
 position = Vector2(1600, 120)
 projectile_scene = ExtResource("30_ea6h6")
 
